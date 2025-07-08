@@ -1,10 +1,10 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 
 import SocialLogin from "./SocialLogin";
-import { AuthContext } from "../../Provider/AuthContext";
 import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
+import useAuth from "../../Hooks/useAuth";
 
 const Section = ({ children }) => (
   <motion.div
@@ -19,7 +19,7 @@ const Section = ({ children }) => (
 
 const Login = () => {
   const location = useLocation();
-  const { loginUser, setUser } = use(AuthContext);
+  const { loginUser, setUser } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const from = location.state || "/";

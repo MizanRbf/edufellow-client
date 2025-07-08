@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
-import { Tooltip } from "react-tooltip";
-import { RxCross2 } from "react-icons/rx";
+import { useLocation, useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
-import { MdMenu } from "react-icons/md";
 import LargeDevice from "../../Components/Navbar/LargeDevice";
 import SmallDevice from "../../Components/Navbar/SmallDevice";
+import UserInfo from "../../Components/Navbar/UserInfo";
+import ResIcon from "../../Components/Navbar/ResIcon";
+import Logout from "../../Components/Navbar/Logout";
 
 const Navbar = () => {
-  const { user, logOutUser } = useAuth();
+  const { logOutUser } = useAuth();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
-
-  // useEffect hashActive
 
   // Scroll handler
   useEffect(() => {
@@ -57,10 +55,11 @@ const Navbar = () => {
           {/* Company Logo */}
           <div className="flex items-center gap-1 text-primary">
             <img className="w-14" src="/assets/logo.png" alt="" />
-            <h1>Edufellow</h1>
+            <h1 className={`${isScrolled ? "text-primary" : "text-white"}`}>
+              Edufellow
+            </h1>
           </div>
         </div>
-
         {/* Menubar for Large Device */}
         <LargeDevice isHome={isHome} isScrolled={isScrolled}></LargeDevice>
 
@@ -78,72 +77,25 @@ const Navbar = () => {
           {/* <div className="bg-white rounded-4xl p-1 rounded-">
             <DarkMood></DarkMood>
           </div> */}
+
           {/* User Info */}
           <div>
-            {user && (
-              <a className="my-anchor-element">
-                <div className="relative group ring-primary ring-1 ring-offset-1 rounded-full">
-                  <img
-                    className=" rounded-full min-w-[30px] md:min-w-[35px] h-[30px] md:h-[35px]"
-                    src={user?.photoURL || "/default-avatar.png"}
-                    alt="User"
-                  />
-                </div>
-
-                <Tooltip anchorSelect=".my-anchor-element" place="left">
-                  <p>{user?.displayName || "User"}</p>
-                </Tooltip>
-              </a>
-            )}
+            <UserInfo></UserInfo>
           </div>
 
           {/* Responsive Icon */}
-          <div
-            className={`py-1 px-3 rounded-sm lg:hidden ${
-              isScrolled ? "bg-slate-200 shadow-2xl" : "bg-white"
-            }`}
-          >
-            <span onClick={() => setOpen(!open)}>
-              {open ? (
-                <RxCross2
-                  className={`cursor-pointer   text-2xl ${
-                    isHome
-                      ? isScrolled
-                        ? "text-black"
-                        : "text-black"
-                      : "text-black"
-                  }`}
-                />
-              ) : (
-                <MdMenu
-                  className={`cursor-pointer text-2xl ${
-                    isHome
-                      ? isScrolled
-                        ? "text-black"
-                        : "text-black"
-                      : "text-black"
-                  }`}
-                />
-              )}
-            </span>
+          <div>
+            <ResIcon
+              isHome={isHome}
+              isScrolled={isScrolled}
+              open={open}
+              setOpen={setOpen}
+            ></ResIcon>
           </div>
+
           {/* Log Button */}
-          <div className="hidden lg:block">
-            {user ? (
-              <button
-                onClick={handleSignOut}
-                className="cursor-pointer bg-primary rounded-sm text-sm md:text-lg py-1 md:py-2 px-2 md:px-6 font-bold text-white"
-              >
-                Logout
-              </button>
-            ) : (
-              <Link
-                to="/auth/login"
-                className="bg-primary rounded-sm text-sm md:text-lg py-1 md:py-2 px-2 md:px-6 font-bold text-white"
-              >
-                Login
-              </Link>
-            )}
+          <div>
+            <Logout handleSignOut={handleSignOut}></Logout>
           </div>
         </div>
       </div>

@@ -1,10 +1,8 @@
-import React, { use } from "react";
-
 import { useNavigate } from "react-router";
-import { AuthContext } from "../../Provider/AuthContext";
+import useAuth from "../../Hooks/useAuth";
 
 const SocialLogin = ({ from, setErrorMessage }) => {
-  const { googleLogin } = use(AuthContext);
+  const { googleLogin } = useAuth();
   const navigate = useNavigate();
   // Google Login
   const handleGoogleLogin = () => {

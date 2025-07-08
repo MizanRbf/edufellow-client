@@ -28,7 +28,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
         Home
       </NavLink>
       <NavLink
-        to="/findTutors"
+        to="/allScholarship"
         className={({ isActive }) =>
           `px-3 transition-all duration-300 ${
             isActive
@@ -41,26 +41,45 @@ const LargeDevice = ({ isHome, isScrolled }) => {
           }`
         }
       >
-        Find tutors
+        All Scholarship
       </NavLink>
 
       {user && (
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            `px-3 transition-all duration-300 ${
-              isActive
-                ? "text-white bg-primary rounded-xs"
-                : isHome
-                ? isScrolled
-                  ? "text-black"
-                  : "text-white"
-                : "text-black"
-            }`
-          }
-        >
-          Dashboard
-        </NavLink>
+        <>
+          <NavLink
+            to="/userDashboard"
+            className={({ isActive }) =>
+              `px-3 transition-all duration-300 ${
+                isActive
+                  ? "text-white bg-primary rounded-xs"
+                  : isHome
+                  ? isScrolled
+                    ? "text-black"
+                    : "text-white"
+                  : "text-black"
+              }`
+            }
+          >
+            User Dashboard
+          </NavLink>
+
+          <NavLink
+            to="/adminDashboard"
+            className={({ isActive }) =>
+              `px-3 transition-all duration-300 ${
+                isActive
+                  ? "text-white bg-primary rounded-xs"
+                  : isHome
+                  ? isScrolled
+                    ? "text-black"
+                    : "text-white"
+                  : "text-black"
+              }`
+            }
+          >
+            Admin Dashboard
+          </NavLink>
+        </>
       )}
     </div>
   );

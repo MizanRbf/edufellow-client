@@ -28,62 +28,36 @@ const SmallDevice = ({ open, setOpen, handleSignOut, isHome }) => {
             </Link>
           </li>
           <li>
-            <Link to="/findTutors">
+            <Link to="/allScholarship">
               <button
                 className="w-full text-left cursor-pointer"
                 onClick={() => {
                   setOpen(false);
                 }}
               >
-                Find Tutors
+                All Scholarship
               </button>
             </Link>
           </li>
           <li>
-            <Link to="/dashboard">
+            <Link to="/userDashboard">
               <button
                 className="w-full text-left cursor-pointer"
                 onClick={() => setOpen(false)}
               >
-                Dashboard
+                User Dashboard
               </button>
             </Link>
           </li>
           <li>
-            {isHome && (
-              <a href="#language">
-                <button
-                  className=" w-full text-left cursor-pointer"
-                  onClick={() => setOpen(false)}
-                >
-                  Language
-                </button>
-              </a>
-            )}
-          </li>
-          <li>
-            {isHome && (
-              <a href="#topRatedTutors">
-                <button
-                  className="w-full text-left cursor-pointer"
-                  onClick={() => setOpen(false)}
-                >
-                  Top Rated Tutors
-                </button>
-              </a>
-            )}
-          </li>
-          <li>
-            {isHome && (
-              <a href="#contact">
-                <button
-                  className="w-full text-left cursor-pointer"
-                  onClick={() => setOpen(false)}
-                >
-                  Contact
-                </button>
-              </a>
-            )}
+            <Link to="/adminDashboard">
+              <button
+                className="w-full text-left cursor-pointer"
+                onClick={() => setOpen(false)}
+              >
+                Admin Dashboard
+              </button>
+            </Link>
           </li>
         </ul>
         {/* Login Button */}

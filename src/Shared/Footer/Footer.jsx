@@ -76,7 +76,7 @@ const Footer = () => {
           </nav>
         </nav>
         {/* Policies */}
-        {/* <nav className="flex flex-col *:text-sm *:space-y-2 text-left">
+        <nav className="flex flex-col *:text-sm *:space-y-2 text-left">
           <ul className="*:hover:underline">
             <h4 className="underline">Legal</h4>
             <li>
@@ -95,7 +95,7 @@ const Footer = () => {
               <a href=""></a>
             </li>
           </ul>
-        </nav> */}
+        </nav>
         {/* Social Link */}
         <nav className="flex flex-col justify-end gap-6">
           <h4 className="underline text-left">Visit Us</h4>
@@ -144,7 +144,7 @@ const Footer = () => {
       <div className="text-xs md:text-sm text-center">
         <p>
           Copyright © {new Date().getFullYear()} - All right reserved by
-          Langveta
+          Edufellow
         </p>
       </div>
     </footer>

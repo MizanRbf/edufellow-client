@@ -1,7 +1,6 @@
 import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import { NavLink } from "react-router";
-import HashLink from "../HashLink";
 
 const LargeDevice = ({ isHome, isScrolled }) => {
   const { user } = useAuth();
@@ -28,19 +27,6 @@ const LargeDevice = ({ isHome, isScrolled }) => {
       >
         Home
       </NavLink>
-
-      {isHome && (
-        <>
-          <HashLink href="#language" label="Language" isScrolled={isScrolled} />
-          <HashLink
-            href="#topRatedTutors"
-            label="Top Rated Tutors"
-            isScrolled={isScrolled}
-          />
-          <HashLink href="#contact" label="Contact" isScrolled={isScrolled} />
-        </>
-      )}
-
       <NavLink
         to="/findTutors"
         className={({ isActive }) =>

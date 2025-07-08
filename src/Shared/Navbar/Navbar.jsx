@@ -55,7 +55,15 @@ const Navbar = () => {
           {/* Company Logo */}
           <div className="flex items-center gap-1 text-primary">
             <img className="w-14" src="/assets/logo.png" alt="" />
-            <h1 className={`${isScrolled ? "text-primary" : "text-white"}`}>
+            <h1
+              className={`${
+                isHome
+                  ? isScrolled
+                    ? "text-primary"
+                    : "text-white"
+                  : "text-primary"
+              }`}
+            >
               Edufellow
             </h1>
           </div>

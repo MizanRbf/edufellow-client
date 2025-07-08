@@ -9,19 +9,39 @@ const HomePage = () => {
         <Slider></Slider>
       </div>
 
-      {/* All Sholarship */}
+      {/* Top Sholarship */}
       <div className="mb-15">
-        <h1>All Scholarship</h1>
+        <h1>Top Scholarship</h1>
       </div>
 
-      {/* Extra - 1 */}
+      {/* Popular Universities */}
       <div className="mb-15">
-        <h1>Extra - 1</h1>
+        <h1>Popular Universities</h1>
       </div>
 
-      {/* Extra - 2 */}
+      {/* Scholarship Categories */}
       <div className="mb-15">
-        <h1>Extra - 2</h1>
+        <h1>Scholarship Categories</h1>
+      </div>
+
+      {/* Why Choose Us */}
+      <div className="mb-15">
+        <h1>Why Choose Us</h1>
+      </div>
+
+      {/* Success Stories */}
+      <div className="mb-15">
+        <h1>Success Stories</h1>
+      </div>
+
+      {/* How It Works */}
+      <div className="mb-15">
+        <h1>How It Works</h1>
+      </div>
+
+      {/* Newsletter */}
+      <div className="mb-15">
+        <h1>Newsletter</h1>
       </div>
     </div>
   );

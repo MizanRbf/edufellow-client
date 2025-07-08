@@ -18,11 +18,8 @@ const Slider = () => {
           />
 
           <div className="p-5 md:p-8 lg:p-10 absolute top-[70px] md:top-[130px] text-white text-left bg-[#02020285]">
-            <p className="md:mb-4 text-lg md:text-4xl lg:text-5xl font-bold">
-              Welcome to Skilnado
-            </p>
             <p className=" mb-6 text-xs md:text-lg lg:text-xl">
-              Find the perfect freelancer for your needs.
+              🔖 "Apply for 100+ Scholarships Worldwide"
             </p>
           </div>
         </div>
@@ -34,11 +31,8 @@ const Slider = () => {
           />
 
           <div className="p-5 md:p-8 lg:p-10 absolute top-[70px] md:top-[130px] text-white text-left bg-[#02020285]">
-            <p className="md:mb-4 text-lg md:text-4xl lg:text-5xl font-bold">
-              Post Your Task Easily
-            </p>
             <p className=" mb-6 text-xs md:text-lg lg:text-xl">
-              Quick and simple way to get work done
+              🎓 "Top Rated Universities Offering Full Scholarships"
             </p>
           </div>
         </div>
@@ -46,10 +40,7 @@ const Slider = () => {
         <div className="relative">
           <div className="p-5 md:p-8 lg:p-10 absolute top-[70px] md:top-[130px] text-white text-left bg-[#02020285]">
             <p className="md:mb-4 text-lg md:text-4xl lg:text-5xl font-bold">
-              Build Your Career
-            </p>
-            <p className=" mb-6 text-xs md:text-lg lg:text-xl">
-              Join our platform and grow your skills
+              ⏳ "Application Deadline Approaching – Apply Now!"
             </p>
           </div>
 

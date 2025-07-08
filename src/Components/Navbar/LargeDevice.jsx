@@ -47,7 +47,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
       {user && (
         <>
           <NavLink
-            to="/userDashboard"
+            to={`/userDashboard`}
             className={({ isActive }) =>
               `px-3 transition-all duration-300 ${
                 isActive
@@ -60,24 +60,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
               }`
             }
           >
-            User Dashboard
-          </NavLink>
-
-          <NavLink
-            to="/adminDashboard"
-            className={({ isActive }) =>
-              `px-3 transition-all duration-300 ${
-                isActive
-                  ? "text-white bg-primary rounded-xs"
-                  : isHome
-                  ? isScrolled
-                    ? "text-black"
-                    : "text-white"
-                  : "text-black"
-              }`
-            }
-          >
-            Admin Dashboard
+            Dashboard
           </NavLink>
         </>
       )}

@@ -46,8 +46,8 @@ const Navbar = () => {
       className={` text-black fixed right-0 top-0 left-0 z-999 transform transition-all duration-300 ease-in-out ${
         isHome
           ? isScrolled
-            ? "bg-white py-3 shadow-xl"
-            : "bg-[rgba(0,0,0,0.52)] py-5"
+            ? "bg-white py-2 shadow-xl"
+            : "bg-secondary shadow-4xl py-4"
           : "bg-white shadow-xl py-4"
       }`}
     >
@@ -55,12 +55,9 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center gap-3">
           {/* Company Logo */}
-          <div>
-            <img
-              className="w-35 bg-white rounded-sm border-2 px-2 border-primary py-1 md:py-2"
-              src="/assets/logo2.png"
-              alt=""
-            />
+          <div className="flex items-center gap-1 text-primary">
+            <img className="w-14" src="/assets/logo.png" alt="" />
+            <h1>Edufellow</h1>
           </div>
         </div>
 

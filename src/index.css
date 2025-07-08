@@ -26,8 +26,8 @@ html{
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: rgb(137, 91, 0);
-  --color-secondary: rgb(137, 91, 0);
+  --color-primary: #005f74;
+  --color-secondary: #00252e;
 }
 
 .button{

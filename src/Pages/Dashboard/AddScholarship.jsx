@@ -1,20 +1,22 @@
 import React from "react";
+import AddForm from "../../Components/Dashboard/RightSide/AddScholarship/AddForm";
 
 const AddScholarship = () => {
+  // handleSubmitScholarship
+  const handleSubmitScholarship = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const scholarshipData = Object.fromEntries(formData.entries());
+    console.log(scholarshipData);
+  };
   return (
     <div>
-      <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-        <legend className="fieldset-legend">Page details</legend>
-
-        <label className="label">Title</label>
-        <input type="text" className="input" placeholder="My awesome page" />
-
-        <label className="label">Slug</label>
-        <input type="text" className="input" placeholder="my-awesome-page" />
-
-        <label className="label">Author</label>
-        <input type="text" className="input" placeholder="Name" />
-      </fieldset>
+      {/* Add Form */}
+      <div className="m-6 p-4 shadow-lg">
+        <h1>Fill the Form</h1>
+        <AddForm handleSubmitScholarship={handleSubmitScholarship}></AddForm>
+      </div>
     </div>
   );
 };

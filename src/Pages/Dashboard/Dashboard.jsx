@@ -10,7 +10,7 @@ const Dashboard = () => {
         <LeftSide></LeftSide>
       </div>
       {/* Right Side */}
-      <div>
+      <div className="w-full">
         <Outlet></Outlet>
       </div>
     </div>

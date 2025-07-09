@@ -1,5 +1,7 @@
 import React from "react";
 import AddForm from "../../Components/Dashboard/RightSide/AddScholarship/AddForm";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddScholarship = () => {
   // handleSubmitScholarship
@@ -8,7 +10,22 @@ const AddScholarship = () => {
     const form = e.target;
     const formData = new FormData(form);
     const scholarshipData = Object.fromEntries(formData.entries());
-    console.log(scholarshipData);
+
+    // Add scholarship data to DB
+    axios
+      .post("http://localhost:3000/scholarships", scholarshipData)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Tutorials Added Successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div>

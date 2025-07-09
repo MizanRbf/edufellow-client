@@ -84,7 +84,7 @@ const Register = () => {
             {/* Photo URL */}
             <label className="label">Photo URL</label>
             <input
-              type="text"
+              type="file"
               name="photo"
               className="input"
               placeholder="Enter Your Photo URL"

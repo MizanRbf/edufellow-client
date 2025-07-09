@@ -47,7 +47,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
       {user && (
         <>
           <NavLink
-            to={`/userDashboard`}
+            to={`/Dashboard`}
             className={({ isActive }) =>
               `px-3 transition-all duration-300 ${
                 isActive

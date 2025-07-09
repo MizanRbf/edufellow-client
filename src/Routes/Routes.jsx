@@ -7,6 +7,16 @@ import RootLayout from "../Layouts/RootLayout/RootLayout";
 import AllScholarship from "../Pages/AllScholarship/AllScholarship";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import AddScholarship from "../Pages/Dashboard/AddScholarship";
+import MyProfile from "../Pages/Dashboard/MyProfile";
+import MyApplication from "../Pages/Dashboard/MyApplication";
+import MyReviews from "../Pages/Dashboard/MyReviews";
+import ManageScholarship from "../Pages/Dashboard/ManageScholarship";
+import AllAppliedScholarship from "../Pages/Dashboard/AllAppliedScholarship";
+import AllReviews from "../Pages/Dashboard/AllReviews";
+import ManageAppliedApplication from "../Pages/Dashboard/ManageAppliedApplication";
+import ManageUsers from "../Pages/Dashboard/ManageUsers";
+import ManageReview from "../Pages/Dashboard/ManageReview";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +33,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
+  // Dashboard Routes
   {
     path: "/dashboard",
     element: (
@@ -32,16 +44,44 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard/user",
-        element: <h1>User</h1>,
+        path: "myProfile",
+        element: <MyProfile></MyProfile>,
       },
       {
-        path: "/dashboard/moderator",
-        element: <h1>Moderator</h1>,
+        path: "myApplication",
+        element: <MyApplication></MyApplication>,
       },
       {
-        path: "/dashboard/admin",
-        element: <h1>admin</h1>,
+        path: "myReviews",
+        element: <MyReviews></MyReviews>,
+      },
+      {
+        path: "addScholarship",
+        element: <AddScholarship></AddScholarship>,
+      },
+      {
+        path: "manageScholarship",
+        element: <ManageScholarship></ManageScholarship>,
+      },
+      {
+        path: "allAppliedScholarship",
+        element: <AllAppliedScholarship></AllAppliedScholarship>,
+      },
+      {
+        path: "allReviews",
+        element: <AllReviews></AllReviews>,
+      },
+      {
+        path: "manageAppliedApplication",
+        element: <ManageAppliedApplication></ManageAppliedApplication>,
+      },
+      {
+        path: "manageReview",
+        element: <ManageReview></ManageReview>,
+      },
+      {
+        path: "manageUsers",
+        element: <ManageUsers></ManageUsers>,
       },
     ],
   },

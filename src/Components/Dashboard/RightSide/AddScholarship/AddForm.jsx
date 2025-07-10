@@ -32,6 +32,11 @@ const AddForm = ({ handleSubmitScholarship }) => {
             <label className="text-primary text-sm">University Image</label>
             <input type="file" name="university_image" className="input" />
           </fieldset>
+          {/* University Logo */}
+          {/* <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+            <label className="text-primary text-sm">University Logo</label>
+            <input type="file" name="university_logo" className="input" />
+          </fieldset> */}
 
           {/* University Country */}
           <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">

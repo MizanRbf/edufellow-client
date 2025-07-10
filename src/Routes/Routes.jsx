@@ -17,6 +17,7 @@ import AllReviews from "../Pages/Dashboard/AllReviews";
 import ManageAppliedApplication from "../Pages/Dashboard/ManageAppliedApplication";
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import ManageReview from "../Pages/Dashboard/ManageReview";
+import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/allScholarship",
         Component: AllScholarship,
+      },
+      {
+        path: "/scholarshipDetails/:id",
+        element: <ScholarshipDetails></ScholarshipDetails>,
       },
     ],
   },

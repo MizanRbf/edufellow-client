@@ -5,11 +5,41 @@ import Swal from "sweetalert2";
 
 const AddScholarship = () => {
   // handleSubmitScholarship
-  const handleSubmitScholarship = (e) => {
+  const handleSubmitScholarship = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
+
+    const imageFile = formData.get("university_image");
+
+    if (!imageFile || !imageFile.name) {
+      alert("Please upload an image");
+      return;
+    }
+
+    const imageFormData = new FormData();
+    imageFormData.append("image", imageFile);
+
+    // upload image and return image url
+
+    const res = await axios.post(
+      `https://api.imgbb.com/1/upload?key=${
+        import.meta.env.VITE_IMGBB_API_KEY
+      }`,
+      imageFormData
+    );
+    const image_url = res.data?.data?.display_url;
+
     const scholarshipData = Object.fromEntries(formData.entries());
+    scholarshipData.university_image = image_url;
+    scholarshipData.university_world_rank = parseInt(
+      scholarshipData.university_world_rank
+    );
+    scholarshipData.tuition_fees = parseInt(scholarshipData.tuition_fees);
+    scholarshipData.application_fees = parseInt(
+      scholarshipData.application_fees
+    );
+    scholarshipData.service_charge = parseInt(scholarshipData.service_charge);
 
     // Add scholarship data to DB
     axios

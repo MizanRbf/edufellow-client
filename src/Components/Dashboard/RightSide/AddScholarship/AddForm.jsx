@@ -30,12 +30,7 @@ const AddForm = ({ handleSubmitScholarship }) => {
           {/* University image */}
           <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
             <label className="text-primary text-sm">University Image</label>
-            <input
-              type="file"
-              name="university_image"
-              className="input"
-              placeholder="University image"
-            />
+            <input type="file" name="university_image" className="input" />
           </fieldset>
 
           {/* University Country */}
@@ -66,7 +61,7 @@ const AddForm = ({ handleSubmitScholarship }) => {
               University World Rank
             </label>
             <input
-              type="text"
+              type="number"
               name="university_world_rank"
               className="input"
               placeholder="University World Rank"
@@ -125,7 +120,7 @@ const AddForm = ({ handleSubmitScholarship }) => {
           <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
             <label className="text-primary text-sm">Tuition fees</label>
             <input
-              type="text"
+              type="number"
               name="tuition_fees"
               className="input"
               placeholder="Tuition fees"
@@ -136,7 +131,7 @@ const AddForm = ({ handleSubmitScholarship }) => {
           <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
             <label className="text-primary text-sm">Application Fees</label>
             <input
-              type="text"
+              type="number"
               name="application_fees"
               className="input"
               placeholder="Application Fees"
@@ -147,7 +142,7 @@ const AddForm = ({ handleSubmitScholarship }) => {
           <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
             <label className="text-primary text-sm">Service Charge</label>
             <input
-              type="text"
+              type="number"
               name="service_charge"
               className="input"
               placeholder="Service Charge"
@@ -158,7 +153,7 @@ const AddForm = ({ handleSubmitScholarship }) => {
           <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
             <label className="text-primary text-sm">Application Deadline</label>
             <input
-              type="text"
+              type="date"
               name="application_deadline"
               className="input"
               placeholder="Application Deadline"
@@ -171,7 +166,7 @@ const AddForm = ({ handleSubmitScholarship }) => {
               Scholarship Post Date
             </label>
             <input
-              type="text"
+              type="date"
               name="post_date"
               className="input"
               placeholder="Scholarship Post Date"

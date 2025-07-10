@@ -18,6 +18,7 @@ import ManageAppliedApplication from "../Pages/Dashboard/ManageAppliedApplicatio
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import ManageReview from "../Pages/Dashboard/ManageReview";
 import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails";
+import Payment from "../Pages/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage></HomePage>,
+      },
+      {
+        path: "/payment/:scholarshipId",
+        element: <Payment></Payment>,
       },
       {
         path: "/allScholarship",

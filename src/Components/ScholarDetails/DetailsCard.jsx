@@ -1,11 +1,16 @@
 import React from "react";
 import Loader from "../../Shared/Loader";
+import { Link } from "react-router";
 
 const DetailsCard = ({ singleScholarship }) => {
   if (!singleScholarship) {
     return <Loader></Loader>;
   }
+
+  // HandleApply
+
   const {
+    _id,
     scholarship_name,
     university_name,
     university_image,
@@ -21,6 +26,8 @@ const DetailsCard = ({ singleScholarship }) => {
     application_deadline,
     post_date,
     posted_user_email,
+    stipend,
+    description,
   } = singleScholarship;
   return (
     <div>
@@ -80,6 +87,19 @@ const DetailsCard = ({ singleScholarship }) => {
             <span className="font-semibold">Posted User Email: </span>{" "}
             {posted_user_email}
           </p>
+          <p>
+            <span className="font-semibold">Stipend: </span> {stipend}
+          </p>
+          <p>
+            <span className="font-semibold">Description: </span> {description}
+          </p>
+          <div className="flex justify-end">
+            <Link to={`/payment/${_id}`}>
+              <button className="bg-primary px-8 py-2 rounded-sm text-white text-xl font-semibold cursor-pointer">
+                Apply Now
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

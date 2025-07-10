@@ -188,7 +188,29 @@ const AddForm = ({ handleSubmitScholarship }) => {
               placeholder="Posted User Email"
             />
           </fieldset>
+          {/* Stipend */}
+          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+            <label className="text-primary text-sm">Stipend</label>
+            <input
+              type="text"
+              name="stipend"
+              className="input"
+              placeholder="Stipend"
+            />
+          </fieldset>
         </div>
+        {/*Scholarship Description */}
+        <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
+          <label className="text-primary text-sm">
+            Scholarship Description
+          </label>
+          <textarea
+            rows={4}
+            name="description"
+            placeholder="Description"
+            className="border pl-2 rounded-sm"
+          />
+        </fieldset>
         <button
           type="submit"
           className="w-full bg-primary rounded-sm text-white py-2 cursor-pointer"

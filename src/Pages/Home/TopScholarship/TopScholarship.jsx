@@ -24,7 +24,7 @@ const TopScholarship = () => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Link to="/allScholarships">
+        <Link to="/allScholarship">
           <button className="bg-primary px-4 py-3 rounded-sm text-white text-xl font-semibold cursor-pointer">
             Visit All Scholarships
           </button>

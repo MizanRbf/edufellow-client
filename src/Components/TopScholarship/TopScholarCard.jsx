@@ -1,5 +1,6 @@
 import React from "react";
 import Loader from "../../Shared/Loader";
+import { Link } from "react-router";
 const TopScholarCard = ({ topScholarship }) => {
   if (!topScholarship) {
     return <Loader></Loader>;
@@ -58,6 +59,13 @@ const TopScholarCard = ({ topScholarship }) => {
       <p>
         <span className="font-semibold">Ratings: </span>
       </p>
+      <div className="flex justify-end">
+        <Link to={`/scholarship/${_id}`}>
+          <button className="bg-primary px-4 py-1 rounded-sm text-white">
+            Show Details
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router";
-
-const ScholarCard = ({ scholarship }) => {
+import Loader from "../../Shared/Loader";
+const TopScholarCard = ({ topScholarship }) => {
+  if (!topScholarship) {
+    return <Loader></Loader>;
+  }
   const {
     _id,
     scholarship_name,
@@ -20,7 +22,7 @@ const ScholarCard = ({ scholarship }) => {
     application_deadline,
     post_date,
     posted_user_email,
-  } = scholarship;
+  } = topScholarship;
   return (
     <div className="border border-primary shadow-lg rounded-sm p-4">
       <img className="h-[200px] w-full" src={university_image} alt="" />
@@ -56,15 +58,8 @@ const ScholarCard = ({ scholarship }) => {
       <p>
         <span className="font-semibold">Ratings: </span>
       </p>
-      <div className="flex justify-end">
-        <Link to={`/scholarship/${_id}`}>
-          <button className="bg-primary px-4 py-1 rounded-sm text-white">
-            Show Details
-          </button>
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default ScholarCard;
+export default TopScholarCard;

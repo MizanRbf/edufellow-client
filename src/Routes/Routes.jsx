@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         Component: AllScholarship,
       },
       {
-        path: "/scholarshipDetails/:id",
+        path: "/scholarship/:id",
         element: <ScholarshipDetails></ScholarshipDetails>,
       },
     ],

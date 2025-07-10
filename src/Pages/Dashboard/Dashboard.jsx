@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import LeftSide from "../../Components/Dashboard/LeftSide/LeftSide";
 
 const Dashboard = () => {
@@ -11,6 +11,9 @@ const Dashboard = () => {
       </div>
       {/* Right Side */}
       <div className="w-full">
+        <Link to="/" className="text-white px-4 bg-primary">
+          Home
+        </Link>
         <Outlet></Outlet>
       </div>
     </div>

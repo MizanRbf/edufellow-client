@@ -40,10 +40,6 @@ const AddScholarship = () => {
       scholarshipData.application_fees
     );
     scholarshipData.service_charge = parseInt(scholarshipData.service_charge);
-    scholarshipData.application_deadline = new Date(
-      scholarshipData.application_deadline
-    );
-    scholarshipData.post_date = new Date(scholarshipData.post_date);
 
     // Add scholarship data to DB
     axios

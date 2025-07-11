@@ -2,7 +2,7 @@ import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import { Link } from "react-router";
 
-const SmallDevice = ({ open, setOpen, handleSignOut, isHome }) => {
+const SmallDevice = ({ open, setOpen, handleSignOut }) => {
   const { user } = useAuth();
   return (
     <div>
@@ -40,22 +40,12 @@ const SmallDevice = ({ open, setOpen, handleSignOut, isHome }) => {
             </Link>
           </li>
           <li>
-            <Link to="/userDashboard">
+            <Link to="/dashboard">
               <button
                 className="w-full text-left cursor-pointer"
                 onClick={() => setOpen(false)}
               >
-                User Dashboard
-              </button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/adminDashboard">
-              <button
-                className="w-full text-left cursor-pointer"
-                onClick={() => setOpen(false)}
-              >
-                Admin Dashboard
+                Dashboard
               </button>
             </Link>
           </li>

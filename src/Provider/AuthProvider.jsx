@@ -8,7 +8,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { auth } from "../Firebase/Firebase.config";
 import { AuthContext } from "./AuthContext";
 

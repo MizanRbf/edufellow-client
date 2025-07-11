@@ -94,7 +94,7 @@ const DetailsCard = ({ singleScholarship }) => {
             <span className="font-semibold">Description: </span> {description}
           </p>
           <div className="flex justify-end">
-            <Link to={`/payment/${_id}`}>
+            <Link to={`/applicationForm/${_id}`}>
               <button className="bg-primary px-8 py-2 rounded-sm text-white text-xl font-semibold cursor-pointer">
                 Apply Now
               </button>

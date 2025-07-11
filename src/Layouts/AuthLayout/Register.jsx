@@ -1,8 +1,9 @@
 import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { AuthContext } from "../../Provider/AuthContext";
 import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 const Section = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, y: 0 }}
@@ -14,34 +15,50 @@ const Section = ({ children }) => (
 );
 
 const Register = () => {
-  const { createUser, updateUser } = use(AuthContext);
+  const { createUser, updateUser } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   // Handle Register
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(name, photo, email, password);
+
     const profile = {
       displayName: name,
       photoURL: photo,
     };
+
     setErrorMessage("");
-    // Create User
-    createUser(email, password)
-      .then(() => {
-        // Update User
-        updateUser(profile)
-          .then(() => {
-            navigate("/auth/login");
-          })
-          .catch((error) => setErrorMessage(error.message));
-      })
-      .catch((error) => setErrorMessage(error.message));
+
+    try {
+      // Step 1: Create User
+      const userCredential = await createUser(email, password);
+      console.log(userCredential);
+      // Step 2: Update User Profile
+      await updateUser(profile);
+
+      // Step 3: Save user info to database
+      const userInfo = {
+        name,
+        email,
+        role: "user",
+      };
+      const res = await axiosSecure.post("/user", userInfo);
+
+      const insertedId = res.data;
+      localStorage.setItem("user_id", insertedId._id);
+
+      // Step 4: Navigate to login
+      navigate("/auth/login");
+    } catch (error) {
+      console.error("Registration Error:", error);
+      setErrorMessage(error.message);
+    }
   };
 
   return (

@@ -1,17 +1,33 @@
 import { useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const SocialLogin = ({ from, setErrorMessage }) => {
   const { googleLogin } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   // Google Login
-  const handleGoogleLogin = () => {
-    googleLogin()
-      .then(() => {
-        // console.log(result);
-        navigate(from || "/");
-      })
-      .catch((error) => setErrorMessage(error.message));
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await googleLogin();
+      const user = result.user;
+
+      // Step 1: Save to DB
+
+      const userInfo = {
+        name: user.displayName,
+        email: user.email,
+        role: "user",
+      };
+      const res = await axiosSecure.post("/user", userInfo);
+      const insertedId = res.data;
+      localStorage.setItem("user_id", insertedId._id);
+
+      // Step 2: Navigate
+      navigate(from || "/");
+    } catch (err) {
+      setErrorMessage(err.message);
+    }
   };
 
   return (

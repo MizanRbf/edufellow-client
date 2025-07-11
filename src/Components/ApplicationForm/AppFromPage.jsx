@@ -145,8 +145,11 @@ const AppFromPage = ({
         </div>
 
         <div className="mt-4">
-          <button type="submit" className="btn btn-primary">
-            Submit Application
+          <button
+            type="submit"
+            className="py-3 px-6 text-lg font-semibold text-white bg-primary rounded-sm"
+          >
+            Proceed to Payment
           </button>
         </div>
       </form>

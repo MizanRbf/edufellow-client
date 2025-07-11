@@ -84,9 +84,9 @@ const CheckoutForm = () => {
       toast.error(errorMessage);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
-        toast.success("Payment Successful!");
+        toast.success("Applied Successfully!");
         setProcessing(false);
-        navigate(`/applicationForm/${scholarshipInfo?._id}`);
+        navigate("/");
       }
     }
 

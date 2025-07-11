@@ -1,18 +1,20 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loader from "../../Shared/Loader";
-import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import useAuth from "../../Hooks/useAuth";
 const CheckoutForm = () => {
+  const { user } = useAuth();
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState("");
   const [processing, setProcessing] = useState(false);
   const { scholarshipId } = useParams();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   // Load Scholarship
   const { data: scholarshipInfo, isPending } = useQuery({
@@ -23,6 +25,7 @@ const CheckoutForm = () => {
     },
   });
 
+  // Amount
   const amount = scholarshipInfo?.application_fees;
   const amountInCents = amount * 100;
 
@@ -37,11 +40,14 @@ const CheckoutForm = () => {
     if (!stripe || !elements) {
       return;
     }
+
+    // CardElement
     const card = elements.getElement(CardElement);
     if (card == null) {
       return;
     }
 
+    //  Create Payment Method
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
@@ -61,11 +67,13 @@ const CheckoutForm = () => {
     });
     const clientSecret = res.data.clientSecret;
 
+    // Result
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: "Customer Name",
+          name: user?.displayName,
+          email: user?.email,
         },
       },
     });
@@ -78,6 +86,7 @@ const CheckoutForm = () => {
       if (paymentResult.paymentIntent.status === "succeeded") {
         toast.success("Payment Successful!");
         setProcessing(false);
+        navigate(`/applicationForm/${scholarshipInfo?._id}`);
       }
     }
 

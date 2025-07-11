@@ -1,9 +1,57 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Loader from "../../Shared/Loader";
+import ManageScholarTable from "../../Components/ManageScholarships/ManageScholarTable";
 
 const ManageScholarship = () => {
+  const axiosSecure = useAxiosSecure();
+  // Get
+  const {
+    isPending,
+    isError,
+    error,
+    data: allScholarships,
+  } = useQuery({
+    queryKey: ["allScholarships"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("scholarships");
+      return res.data;
+    },
+  });
+
+  if (isPending) {
+    return <Loader></Loader>;
+  }
+  if (isError) {
+    return <p>{error.message}</p>;
+  }
   return (
     <div>
       <h1>Manage Scholarship</h1>
+      <table className="table">
+        {/* head */}
+
+        <thead className={`text-lg ${allScholarships.length < 1 && "hidden"}`}>
+          <tr className="text-primary">
+            <th>No.</th>
+            <th>Image</th>
+            <th>University Name</th>
+            <th>Scholarship Category</th>
+            <th>Subject Category</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {allScholarships.map((scholarship, index) => (
+            <ManageScholarTable
+              key={scholarship._id}
+              scholarship={scholarship}
+              index={index}
+            ></ManageScholarTable>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

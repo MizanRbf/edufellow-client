@@ -5,7 +5,7 @@ import DashBar from "../../Components/Dashboard/RightSide/DashBar/DashBar";
 import OverViewPage from "../../Components/Dashboard/RightSide/OverViewPage";
 
 const Dashboard = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const handleClick = () => {
     setOpen(!open);
   };
@@ -14,6 +14,8 @@ const Dashboard = () => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setOpen(false);
+      } else {
+        setOpen(true);
       }
     };
     handleResize();

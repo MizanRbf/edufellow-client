@@ -7,7 +7,7 @@ import AdminRoutes from "./AdminRoutes";
 
 const LeftSide = () => {
   return (
-    <div className="p-4 w-full bg-primary text-white">
+    <div className="p-4 w-full h-screen bg-primary text-white">
       {/* User Photo,Email,Name */}
       <div className="">
         <UserInfo></UserInfo>

@@ -4,7 +4,7 @@ import LeftSide from "../../Components/Dashboard/LeftSide/LeftSide";
 
 const Dashboard = () => {
   return (
-    <div className="m-10 shadow-2xl flex gap-4 ">
+    <div className="flex gap-4">
       {/* Left Side */}
       <div className="w-80">
         <LeftSide></LeftSide>

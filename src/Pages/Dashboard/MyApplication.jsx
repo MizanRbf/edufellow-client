@@ -32,7 +32,7 @@ const MyApplication = () => {
   }
 
   return (
-    <div>
+    <div className="overflow-x-auto pr-4">
       <h1>My Applications</h1>
       <table className="table">
         {/* head */}
@@ -44,6 +44,7 @@ const MyApplication = () => {
             <th>University Name</th>
             <th>Scholarship Category</th>
             <th>Subject Category</th>
+            <th>Actions</th>
           </tr>
         </thead>
 

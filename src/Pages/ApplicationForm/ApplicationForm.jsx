@@ -29,6 +29,7 @@ const ApplicationForm = () => {
   }
 
   const universityName = scholarshipInfo?.university_name;
+  const scholarshipName = scholarshipInfo?.scholarship_name;
   const scholarshipCategory = scholarshipInfo?.scholarship_category;
   const subjectCategory = scholarshipInfo?.subject_category;
 
@@ -101,6 +102,7 @@ const ApplicationForm = () => {
           handleSubmit={handleSubmit}
           universityName={universityName}
           scholarshipCategory={scholarshipCategory}
+          scholarshipName={scholarshipName}
           subjectCategory={subjectCategory}
         ></AppFromPage>
       </div>

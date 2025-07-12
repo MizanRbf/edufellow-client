@@ -3,6 +3,7 @@ import React from "react";
 const AppFromPage = ({
   handleSubmit,
   universityName,
+  scholarshipName,
   scholarshipCategory,
   subjectCategory,
 }) => {
@@ -115,6 +116,18 @@ const AppFromPage = ({
               name="university_name"
               className="input"
               value={universityName || ""}
+              readOnly
+            />
+          </fieldset>
+
+          {/* Scholarship Name (Read-Only) */}
+          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
+            <label className="text-primary text-sm">Scholarship Name</label>
+            <input
+              type="text"
+              name="scholarship_name"
+              className="input"
+              value={scholarshipName || ""}
               readOnly
             />
           </fieldset>

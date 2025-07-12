@@ -20,6 +20,7 @@ import ManageReview from "../Pages/Dashboard/ManageReview";
 import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails";
 import Payment from "../Pages/Payment/Payment";
 import ApplicationForm from "../Pages/ApplicationForm/ApplicationForm";
+import OverViewPage from "../Components/Dashboard/RightSide/OverViewPage";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        index: true,
+        element: <OverViewPage></OverViewPage>,
+      },
       {
         path: "myProfile",
         element: <MyProfile></MyProfile>,

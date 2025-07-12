@@ -4,6 +4,8 @@ import ModeratorRoutes from "./ModeratorRoutes";
 import AdminRoutes from "./AdminRoutes";
 import { Link } from "react-router";
 import { MdArrowBackIos } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 
 const LeftSide = ({ handleClick }) => {
   return (
@@ -27,21 +29,27 @@ const LeftSide = ({ handleClick }) => {
 
         {/* Home Route */}
         <Link to="/">
-          <p className="px-2 hover:bg-white hover:text-secondary mb-2">Home</p>
+          <div className="px-2 hover:bg-white hover:text-secondary mb-4 flex items-center justify-between font-bold">
+            <div className="flex items-center gap-2">
+              <FaHome />
+              <p> Home</p>
+            </div>
+            <IoIosArrowForward />
+          </div>
         </Link>
 
         {/* User Routes */}
-        <div className="mb-2">
+        <div className="mb-4">
           <UserRoutes></UserRoutes>
         </div>
 
         {/* Moderator Routes */}
-        <div className="mb-2">
+        <div className="mb-4">
           <ModeratorRoutes></ModeratorRoutes>
         </div>
 
         {/* Admin Routes */}
-        <div className="mb-2">
+        <div className="mb-4">
           <AdminRoutes></AdminRoutes>
         </div>
       </div>

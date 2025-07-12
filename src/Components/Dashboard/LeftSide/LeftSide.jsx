@@ -1,30 +1,37 @@
 import React from "react";
-
-import UserInfo from "./UserInfo";
 import UserRoutes from "./UserRoutes";
 import ModeratorRoutes from "./ModeratorRoutes";
 import AdminRoutes from "./AdminRoutes";
+import { Link } from "react-router";
 
 const LeftSide = () => {
   return (
-    <div className="p-4 w-full h-screen bg-primary text-white">
-      {/* User Photo,Email,Name */}
+    <div className="p-4 w-full h-screen bg-secondary text-white ">
       <div className="">
-        <UserInfo></UserInfo>
-        <hr className="my-4" />
+        {/* Logo */}
+        <div className="flex gap-2 items-center">
+          <img className="w-15" src="/assets/logo.png" alt="" />
+          <h1 className="text-white">Edufellow</h1>
+        </div>
+        <hr className="mb-10 mt-4" />
+
+        {/* Home Route */}
+        <Link to="/">
+          <p className="px-2 hover:bg-white hover:text-secondary mb-2">Home</p>
+        </Link>
 
         {/* User Routes */}
-        <div>
+        <div className="mb-2">
           <UserRoutes></UserRoutes>
         </div>
 
         {/* Moderator Routes */}
-        <div>
+        <div className="mb-2">
           <ModeratorRoutes></ModeratorRoutes>
         </div>
 
         {/* Admin Routes */}
-        <div>
+        <div className="mb-2">
           <AdminRoutes></AdminRoutes>
         </div>
       </div>

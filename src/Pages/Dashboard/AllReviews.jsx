@@ -27,7 +27,7 @@ const AllReviews = () => {
   }
   return (
     <div>
-      <h1>All Reviews</h1>
+      <h1 className="mb-6">All Reviews</h1>
       <div className="grid grid-cols-3 gap-4">
         {allReviews.map((singleReview) => (
           <ReviewCard

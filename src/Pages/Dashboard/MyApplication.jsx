@@ -19,7 +19,7 @@ const MyApplication = () => {
   } = useQuery({
     queryKey: ["myApplications"],
     queryFn: async () => {
-      const res = await axiosSecure("/applicants", { email });
+      const res = await axiosSecure(`/applicants?email=${email}`);
       return res.data;
     },
   });

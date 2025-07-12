@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loader from "../../Shared/Loader";
-import ReviewCard from "../../Components/AllReviews/ReviewCard";
+import ManageReviewTable from "../../Components/ManageReview/ManageReviewTable";
 
 const MangeReview = () => {
   const axiosSecure = useAxiosSecure();
@@ -29,9 +29,12 @@ const MangeReview = () => {
     <div>
       <h1 className="mb-6">Manage Review</h1>
       <div className="grid grid-cols-3 gap-4">
-        {manageReview.map((manageSingleReview) =>
-          console.log(manageSingleReview)
-        )}
+        {manageReview.map((manageSingleReview) => (
+          <ManageReviewTable
+            key={manageSingleReview._id}
+            manageSingleReview={manageSingleReview}
+          ></ManageReviewTable>
+        ))}
       </div>
     </div>
   );

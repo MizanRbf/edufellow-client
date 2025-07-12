@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router";
 import LeftSide from "../../Components/Dashboard/LeftSide/LeftSide";
-import DashBar from "../../Components/Dashboard/LeftSide/DashBar";
+import { MdArrowForwardIos } from "react-icons/md";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setOpen(false);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div>
       <div className="md:flex relative">
@@ -19,12 +31,20 @@ const Dashboard = () => {
               : "opacity-100 translate-x-0"
           }`}
         >
-          <LeftSide />
+          <LeftSide setOpen={setOpen} handleClick={handleClick} />
         </div>
 
         {/* Right Side */}
         <div className="w-full">
-          <DashBar handleClick={handleClick}></DashBar>
+          <div className="flex justify-between px-4 py-3 shadow-lg md:hidden">
+            <img className="w-12" src="/assets/logo.png" alt="logo" />
+            <button onClick={handleClick}>
+              <MdArrowForwardIos
+                size={30}
+                className="text-secondary ml-4 cursor-pointer"
+              />
+            </button>
+          </div>
           <Outlet></Outlet>
         </div>
       </div>

@@ -3,16 +3,26 @@ import UserRoutes from "./UserRoutes";
 import ModeratorRoutes from "./ModeratorRoutes";
 import AdminRoutes from "./AdminRoutes";
 import { Link } from "react-router";
+import { MdArrowBackIos } from "react-icons/md";
 
-const LeftSide = () => {
+const LeftSide = ({ handleClick }) => {
   return (
     <div className="p-4 w-full h-screen bg-secondary text-white ">
       <div className="">
         {/* Logo */}
-        <div className="flex gap-2 items-center">
-          <img className="w-15" src="/assets/logo.png" alt="" />
-          <h1 className="text-white">Edufellow</h1>
+        <div className="flex justify-between items-center">
+          <div className="flex gap-2 items-center">
+            <img className="w-12" src="/assets/logo.png" alt="" />
+            <h2 className="text-white">Edufellow</h2>
+          </div>
+          <button onClick={handleClick}>
+            <MdArrowBackIos
+              size={30}
+              className="text-white ml-4 md:hidden cursor-pointer"
+            />
+          </button>
         </div>
+
         <hr className="mb-10 mt-4" />
 
         {/* Home Route */}

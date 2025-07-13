@@ -42,9 +42,14 @@ const MyApplication = () => {
             <th>No.</th>
             <th>Image</th>
             <th>University Name</th>
-            <th>Scholarship Category</th>
+            <th>University Address</th>
+            <th>Application Feedback</th>
             <th>Subject Category</th>
-            <th>Actions</th>
+            <th>Applied Degree</th>
+            <th>Application Fees</th>
+            <th>Service Charge</th>
+            <th>Application Status</th>
+            <th>Action Buttons</th>
           </tr>
         </thead>
 

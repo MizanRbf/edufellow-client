@@ -30,13 +30,33 @@ const MyReviews = () => {
     alert(error.message);
   }
   return (
-    <div>
-      <h1 className="mb-6">My Reviews</h1>
-      <div className="grid grid-cols-3 gap-4">
-        {myReviews.map((myReview) => (
-          <MyReviewCard key={myReview._id} myReview={myReview}></MyReviewCard>
-        ))}
-      </div>
+    <div className="overflow-x-auto pr-4">
+      <h1>My Reviews</h1>
+      <table className="table">
+        {/* head */}
+
+        <thead className={`text-lg ${myReviews.length < 1 && "hidden"}`}>
+          <tr className="text-primary">
+            <th>No.</th>
+            <th>Scholarship Name</th>
+            <th>University Name</th>
+            <th>Review Comments</th>
+            <th>Review Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {myReviews.map((myReview, index) => (
+            <MyReviewCard
+              key={myReview._id}
+              myReviews={myReviews}
+              myReview={myReview}
+              index={index}
+            ></MyReviewCard>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

@@ -28,10 +28,15 @@ const ApplicationForm = () => {
     return <Loader></Loader>;
   }
 
+  // ScholarShipInfo
   const universityName = scholarshipInfo?.university_name;
   const scholarshipName = scholarshipInfo?.scholarship_name;
   const scholarshipCategory = scholarshipInfo?.scholarship_category;
   const subjectCategory = scholarshipInfo?.subject_category;
+  // const universityCity = scholarshipInfo?.university_city;
+  // const universityCountry = scholarshipInfo?.university_country;
+  // const applicationFees = scholarshipInfo?.application_fees;
+  // const serviceCharge = scholarshipInfo?.service_charge;
 
   // HandleSubmitForm
   const handleSubmit = async (e) => {
@@ -67,6 +72,13 @@ const ApplicationForm = () => {
     applicantsInfo.user_name = user?.displayName;
     applicantsInfo.user_email = user?.email;
     applicantsInfo.user_id = localStorage.getItem("user_id");
+    applicantsInfo.university_address = `${
+      scholarshipInfo?.university_city || ""
+    }, ${scholarshipInfo?.university_country || ""}`;
+    applicantsInfo.application_fees = parseInt(
+      scholarshipInfo?.application_fees
+    );
+    applicantsInfo.service_charge = parseInt(scholarshipInfo?.service_charge);
     applicantsInfo.scholarship_id = scholarshipInfo?._id;
     applicantsInfo.date = new Date();
 

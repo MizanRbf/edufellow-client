@@ -1,9 +1,19 @@
 import React from "react";
 import Modal from "./Modal";
+import { MdDelete, MdEdit } from "react-icons/md";
+import { Link } from "react-router";
+import { FaInfoCircle } from "react-icons/fa";
 
 const MyApplicationTable = ({ application, index }) => {
-  const { university_name, scholarship_category, subject_category, photo } =
-    application;
+  const {
+    university_name,
+    university_address,
+    subject_category,
+    applying_degree,
+    application_fees,
+    service_charge,
+    photo,
+  } = application;
 
   return (
     <tr className="border-2 border-slate-200">
@@ -16,27 +26,38 @@ const MyApplicationTable = ({ application, index }) => {
         />
       </td>
       <td>{university_name}</td>
-      <td>{scholarship_category}</td>
+      <td>{university_address}</td>
+      <td>Feedback</td>
       <td>{subject_category}</td>
+      <td>{applying_degree}</td>
+      <td>{application_fees}</td>
+      <td>{service_charge}</td>
+      <td>Status</td>
+
       <td>
         <div className="flex items-center gap-3">
-          {/* Update Button */}
-          {/* <Link to={`/updateMyTutorials/${myTutorials._id}`}>
-                    <button className="bg-blue-700 p-2 rounded-sm text-white btn border-0">
-                      <MdEdit className="text-xl" />
-                    </button>
-                  </Link> */}
-          {/* Delete Button */}
-          {/* <Link>
-                    <button
-                      onClick={() => handleDelete(myTutorials._id)}
-                      className="bg-red-500 p-2 rounded-sm text-white btn border-0"
-                    >
-                      <MdDelete className="text-xl" />
-                    </button>
-                  </Link> */}
+          {/* Details Button */}
+          <Link>
+            <button className="bg-green-600 p-2 rounded-sm text-white btn border-0">
+              <FaInfoCircle className="text-xl" />
+            </button>
+          </Link>
 
-          {/* Review Modal */}
+          {/* Edit Button */}
+          <Link>
+            <button className="bg-blue-700 p-2 rounded-sm text-white btn border-0">
+              <MdEdit className="text-xl" />
+            </button>
+          </Link>
+
+          {/* Cancel Button */}
+          <Link>
+            <button className="bg-red-500 p-2 rounded-sm text-white btn border-0">
+              <MdDelete className="text-xl" />
+            </button>
+          </Link>
+
+          {/* Review Button */}
           <Modal application={application}></Modal>
         </div>
       </td>

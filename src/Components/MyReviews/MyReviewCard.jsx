@@ -1,44 +1,75 @@
 import React from "react";
+import { MdDelete, MdEdit } from "react-icons/md";
+import { Link } from "react-router";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useQueryClient } from "@tanstack/react-query";
 
-const MyReviewCard = ({ myReview }) => {
-  const {
-    university_name,
-    subject_category,
-    user_photo,
-    user_name,
-    review_date,
-    rating,
-    commentReview,
-  } = myReview;
+const MyReviewCard = ({ myReviews, myReview, index }) => {
+  const { _id, scholarship_name, university_name, commentReview, review_date } =
+    myReview;
+  const axiosSecure = useAxiosSecure();
+  const queryClient = useQueryClient();
+
+  // Handle Delete
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/reviews/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your review has been deleted.",
+                icon: "success",
+              });
+              // Update cache
+              queryClient.setQueryData(["myReviews"], (oldData) =>
+                oldData?.filter((review) => review._id !== id)
+              );
+            }
+          })
+          .catch((err) => Swal.fire("Error", err.message, "error"));
+      }
+    });
+  };
+
   return (
-    <div className="border rounded-sm border-primary p-4 flex gap-4">
-      {/* image */}
-      <div className="">
-        <img className="w-full mb-3 rounded-sm" src={user_photo} alt="" />
-      </div>
+    <tr className="border-2 border-slate-200">
+      <th>{index + 1}</th>
+      <td>{scholarship_name}</td>
+      <td>{university_name}</td>
+      <td>{commentReview}</td>
+      <td>{review_date}</td>
 
-      {/* Content */}
-      <div>
-        <h3>{user_name}</h3>
-        <p>
-          <span className="font-semibold">University: </span>
-          {university_name}
-        </p>
-        <p>
-          <span className="font-semibold">Subject: </span>
-          {subject_category}
-        </p>
-        <p>{review_date}</p>
-        <p>
-          <span className="font-semibold">Ratings: </span>
-          {rating}
-        </p>
-        <p>
-          <span className="font-semibold">Comment: </span>
-          {commentReview}
-        </p>
-      </div>
-    </div>
+      <td>
+        <div className="flex items-center gap-3">
+          {/* Edit Button */}
+          <Link>
+            <button className="bg-blue-700 p-2 rounded-sm text-white btn border-0">
+              <MdEdit className="text-xl" />
+            </button>
+          </Link>
+
+          {/* Delete Button */}
+          <button
+            onClick={() => handleDelete(_id)}
+            className="bg-red-500 p-2 rounded-sm text-white btn border-0"
+          >
+            <MdDelete className="text-xl" />
+          </button>
+        </div>
+      </td>
+    </tr>
   );
 };
 

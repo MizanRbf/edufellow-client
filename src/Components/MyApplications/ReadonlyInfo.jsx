@@ -22,13 +22,13 @@ const ReadonlyInfo = ({ application }) => {
         value={application.scholarship_name}
         readOnly
       />
-      <input
+      {/* <input
         type="text"
         name="scholarship_category"
         className="input input-bordered"
         value={application.scholarship_category}
         readOnly
-      />
+      /> */}
       <input
         type="text"
         name="university_name"
@@ -36,13 +36,13 @@ const ReadonlyInfo = ({ application }) => {
         value={application.university_name}
         readOnly
       />
-      <input
+      {/* <input
         type="text"
         name="subject_category"
         className="input input-bordered"
         value={application.subject_category}
         readOnly
-      />
+      /> */}
       <input
         type="text"
         name="user_name"

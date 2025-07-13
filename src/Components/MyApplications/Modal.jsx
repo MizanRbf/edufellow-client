@@ -30,10 +30,10 @@ const Modal = ({ application }) => {
   return (
     <div>
       <button
-        className="btn"
+        className="bg-secondary py-2 rounded-sm text-white btn border-0"
         onClick={() => document.getElementById("review_modal").showModal()}
       >
-        Add Review
+        Review
       </button>
       <dialog id="review_modal" className="modal">
         <div className="modal-box">

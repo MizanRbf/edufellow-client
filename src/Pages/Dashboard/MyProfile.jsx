@@ -18,7 +18,7 @@ const MyProfile = () => {
       />
       <h2>{user?.displayName}</h2>
       <p>{user?.email}</p>
-      <p>{role}</p>
+      {role !== "User" && <p>{role}</p>}
     </div>
   );
 };

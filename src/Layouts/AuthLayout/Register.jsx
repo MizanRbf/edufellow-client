@@ -47,7 +47,7 @@ const Register = () => {
         name,
         email,
         photo,
-        role: "user",
+        role: "User",
       };
       const res = await axiosSecure.post("/user", userInfo);
 

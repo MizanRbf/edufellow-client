@@ -8,11 +8,18 @@ import { FaHome } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
 import useAuth from "../../../Hooks/useAuth";
+import useUserRole from "../../../Hooks/useUserRole";
+import Loader from "../../../Shared/Loader";
 
 const LeftSide = ({ handleClick }) => {
   const { logOutUser } = useAuth();
   const navigate = useNavigate();
+  const { role, isLoading, error } = useUserRole();
 
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
+  console.log(role);
   // LogOut
   const handleLogout = () => {
     logOutUser().then(navigate("/auth/login")).catch();
@@ -51,19 +58,25 @@ const LeftSide = ({ handleClick }) => {
           </Link>
 
           {/* User Routes */}
-          <div className="mb-4">
-            <UserRoutes />
-          </div>
+          {role === "User" && (
+            <div className="mb-4">
+              <UserRoutes />
+            </div>
+          )}
 
           {/* Moderator Routes */}
-          <div className="mb-4">
-            <ModeratorRoutes />
-          </div>
+          {role === "Moderator" && (
+            <div className="mb-4">
+              <ModeratorRoutes />
+            </div>
+          )}
 
           {/* Admin Routes */}
-          <div className="mb-4">
-            <AdminRoutes />
-          </div>
+          {role === "Admin" && (
+            <div className="mb-4">
+              <AdminRoutes />
+            </div>
+          )}
         </div>
       </div>
 

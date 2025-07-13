@@ -13,7 +13,7 @@ const AdminRoute = ({ children }) => {
     return <Loader></Loader>;
   }
 
-  if (!user || role !== "admin") {
+  if (!user || role !== "Admin") {
     return <Navigate to="/" state={location.pathname}></Navigate>;
   }
   return children;

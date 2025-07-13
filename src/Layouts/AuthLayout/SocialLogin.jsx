@@ -18,7 +18,7 @@ const SocialLogin = ({ from, setErrorMessage }) => {
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
-        role: "user",
+        role: "User",
       };
       const res = await axiosSecure.post("/user", userInfo);
       const insertedId = res.data;

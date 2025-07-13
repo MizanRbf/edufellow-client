@@ -13,7 +13,7 @@ const ModeratorRoute = ({ children }) => {
     return <Loader></Loader>;
   }
 
-  if (!user || role !== "moderator") {
+  if (!user || role !== "Moderator") {
     return <Navigate to="/" state={location.pathname}></Navigate>;
   }
   return children;

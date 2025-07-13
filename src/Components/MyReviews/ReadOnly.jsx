@@ -1,7 +1,8 @@
 import React from "react";
 import useAuth from "../../Hooks/useAuth";
 
-const ReadonlyInfo = ({ application }) => {
+const ReadOnly = ({ myReview }) => {
+  const { scholarship_name, university_name, commentReview } = myReview;
   const { user } = useAuth();
   const today = new Date();
   const date = today.toISOString().split("T")[0];
@@ -19,7 +20,7 @@ const ReadonlyInfo = ({ application }) => {
         type="text"
         name="scholarship_name"
         className="input input-bordered"
-        value={application.scholarship_name}
+        value={scholarship_name}
         readOnly
       />
 
@@ -27,7 +28,7 @@ const ReadonlyInfo = ({ application }) => {
         type="text"
         name="university_name"
         className="input input-bordered"
-        value={application.university_name}
+        value={university_name}
         readOnly
       />
 
@@ -56,4 +57,4 @@ const ReadonlyInfo = ({ application }) => {
   );
 };
 
-export default ReadonlyInfo;
+export default ReadOnly;

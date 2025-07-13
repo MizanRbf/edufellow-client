@@ -13,7 +13,7 @@ const StarRating = ({ rating, setRating }) => {
             <input
               type="radio"
               name="rating"
-              value={starValue}
+              value={rating}
               onClick={() => setRating(starValue)}
               className="hidden"
               required

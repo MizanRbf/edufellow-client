@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCommentDots } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import { MdCancel, MdDelete } from "react-icons/md";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { useQueryClient } from "@tanstack/react-query";
@@ -12,37 +12,6 @@ const Applicant = ({ applicant, index }) => {
   const { university_name, scholarship_category, subject_category, photo } =
     applicant;
 
-  // handleDelete
-  const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure
-          .delete(`/applicant/${id}`)
-          .then((res) => {
-            if (res.data.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your application has been deleted.",
-                icon: "success",
-              });
-              // Update cache
-              queryClient.setQueryData(["allAppliedScholarships"], (oldData) =>
-                oldData?.filter((application) => application._id !== id)
-              );
-            }
-          })
-          .catch((err) => Swal.fire("Error", err.message, "error"));
-      }
-    });
-  };
   return (
     <tr className="border-2 border-slate-200">
       <th>{index + 1}</th>
@@ -70,16 +39,14 @@ const Applicant = ({ applicant, index }) => {
 
           {/* Feedback Button */}
           <button className="btn btn-outline flex items-center gap-2 text-primary">
-            <FaCommentDots className="text-xl" />
+            <FaCommentDots size={20} />
             Feedback
           </button>
-          {/* Delete Button */}
-          <button
-            onClick={() => handleDelete(applicant?._id)}
-            className="btn btn-outline btn-error flex hover:bg-red-600 hover:text-white items-center gap-2"
-          >
-            <MdDelete size={20} />
-            Delete
+          {/* Cancel Button */}
+
+          <button className="btn btn-outline btn-error flex items-center gap-2 text-red-600 hover:bg-red-600 hover:text-white">
+            <MdCancel size={20} />
+            Cancel
           </button>
         </div>
       </td>

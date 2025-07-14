@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQueryClient } from "@tanstack/react-query";
-import ReviewUpdateModal from "./ReviewUpdateModal";
+import ReviewUpdateModal from "./UpdateModal";
 
 const MyReviewCard = ({ myReview, index }) => {
   const { _id, scholarship_name, university_name, commentReview, review_date } =

@@ -6,7 +6,7 @@ import Loader from "../../Shared/Loader";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
-import AppFormPage from "../../Components/ApplicationForm/AppFormPage";
+import AppFormPage from "../../Components/ApplicationForm/AppFromPage";
 
 const ApplicationForm = () => {
   const { scholarshipId } = useParams();

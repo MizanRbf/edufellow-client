@@ -16,6 +16,7 @@ const StarRating = ({ rating, setRating }) => {
               value={rating}
               onClick={() => setRating(starValue)}
               className="hidden"
+              required
             />
             <FaStar
               className="cursor-pointer transition"

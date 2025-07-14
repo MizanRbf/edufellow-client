@@ -14,7 +14,7 @@ import Loader from "../../../Shared/Loader";
 const LeftSide = ({ handleClick }) => {
   const { logOutUser } = useAuth();
   const navigate = useNavigate();
-  const { role, isLoading, error } = useUserRole();
+  const { role, isLoading } = useUserRole();
 
   if (isLoading) {
     return <Loader></Loader>;
@@ -58,25 +58,25 @@ const LeftSide = ({ handleClick }) => {
           </Link>
 
           {/* User Routes */}
-          {role === "User" && (
-            <div className="mb-4">
-              <UserRoutes />
-            </div>
-          )}
+          {/* {role === "User" && ( */}
+          <div className="mb-4">
+            <UserRoutes />
+          </div>
+          {/* )} */}
 
           {/* Moderator Routes */}
-          {role === "Moderator" && (
-            <div className="mb-4">
-              <ModeratorRoutes />
-            </div>
-          )}
+          {/* {role === "Moderator" && ( */}
+          <div className="mb-4">
+            <ModeratorRoutes />
+          </div>
+          {/* )} */}
 
           {/* Admin Routes */}
-          {role === "Admin" && (
-            <div className="mb-4">
-              <AdminRoutes />
-            </div>
-          )}
+          {/* {role === "Admin" && ( */}
+          <div className="mb-4">
+            <AdminRoutes />
+          </div>
+          {/* )} */}
         </div>
       </div>
 

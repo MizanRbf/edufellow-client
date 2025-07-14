@@ -25,6 +25,7 @@ import OverViewPage from "../Components/Dashboard/RightSide/OverViewPage";
 import MyApplicationDetails from "../Pages/Dashboard/MyApplicationDetails";
 import axios from "axios";
 import Loader from "../Shared/Loader";
+import UpdateMyApplication from "../Pages/Dashboard/Update/MyApplication/UpdateMyApplication";
 
 export const router = createBrowserRouter([
   {
@@ -85,6 +86,17 @@ export const router = createBrowserRouter([
         },
         errorElement: <Loader />,
         element: <MyApplicationDetails />,
+      },
+      {
+        path: "updateMyApplication/:id",
+        loader: async ({ params }) => {
+          const res = await axios.get(
+            `http://localhost:3000/myApplication/${params.id}`
+          );
+          return res.data;
+        },
+        errorElement: <Loader />,
+        element: <UpdateMyApplication />,
       },
 
       {

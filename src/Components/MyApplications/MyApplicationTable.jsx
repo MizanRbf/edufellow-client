@@ -6,7 +6,6 @@ import { FaInfoCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQueryClient } from "@tanstack/react-query";
-import ApplicationUpdateModal from "./ApplicationUpdateModal";
 
 const MyApplicationTable = ({ application, index }) => {
   const axiosSecure = useAxiosSecure();
@@ -83,10 +82,18 @@ const MyApplicationTable = ({ application, index }) => {
           </Link>
 
           {/* Edit Button */}
-          <ApplicationUpdateModal
-            application={application}
-          ></ApplicationUpdateModal>
-
+          <Link to={`/dashboard/updateMyApplication/${_id}`}>
+            <button
+              className="bg-blue-700 p-2 rounded-sm text-white btn border-0"
+              onClick={() =>
+                document
+                  .getElementById(`applicationModal-${application._id}`)
+                  .showModal()
+              }
+            >
+              <MdEdit className="text-xl" />
+            </button>
+          </Link>
           {/* Cancel Button */}
           <button
             onClick={() => handleDelete(_id)}

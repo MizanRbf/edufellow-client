@@ -36,9 +36,12 @@ const ManageScholarship = () => {
           <tr className="text-primary">
             <th>No.</th>
             <th>Image</th>
+            <th>Scholarship Name</th>
             <th>University Name</th>
-            <th>Scholarship Category</th>
             <th>Subject Category</th>
+            <th>Degree</th>
+            <th>Application Fees</th>
+            <th>Actions</th>
           </tr>
         </thead>
 

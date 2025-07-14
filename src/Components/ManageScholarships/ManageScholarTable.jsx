@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQueryClient } from "@tanstack/react-query";
+import ManageScholarshipModal from "./ManageScholarshipModal";
 
 const ManageScholarTable = ({ scholarship, index }) => {
   const axiosSecure = useAxiosSecure();
@@ -84,13 +85,10 @@ const ManageScholarTable = ({ scholarship, index }) => {
           </Link>
 
           {/* Edit Button */}
-          <Link
-          //  to={`/dashboard/updateMyApplication/${_id}`}
-          >
-            <button className="bg-blue-700 p-2 rounded-sm text-white btn border-0">
-              <MdEdit className="text-xl" />
-            </button>
-          </Link>
+
+          <ManageScholarshipModal
+            scholarship={scholarship}
+          ></ManageScholarshipModal>
 
           {/* Cancel Button */}
           <button

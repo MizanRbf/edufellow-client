@@ -3,9 +3,15 @@ import Modal from "./Modal";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router";
 import { FaInfoCircle } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useQueryClient } from "@tanstack/react-query";
 
 const MyApplicationTable = ({ application, index }) => {
+  const axiosSecure = useAxiosSecure();
+  const queryClient = useQueryClient();
   const {
+    _id,
     university_name,
     university_address,
     subject_category,
@@ -14,6 +20,38 @@ const MyApplicationTable = ({ application, index }) => {
     service_charge,
     photo,
   } = application;
+
+  // handleDelete
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/myApplication/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your application has been deleted.",
+                icon: "success",
+              });
+              // Update cache
+              queryClient.setQueryData(["myApplications"], (oldData) =>
+                oldData?.filter((application) => application._id !== id)
+              );
+            }
+          })
+          .catch((err) => Swal.fire("Error", err.message, "error"));
+      }
+    });
+  };
 
   return (
     <tr className="border-2 border-slate-200">
@@ -52,7 +90,10 @@ const MyApplicationTable = ({ application, index }) => {
 
           {/* Cancel Button */}
           <Link>
-            <button className="bg-red-500 p-2 rounded-sm text-white btn border-0">
+            <button
+              onClick={() => handleDelete(_id)}
+              className="bg-red-500 p-2 rounded-sm text-white btn border-0"
+            >
               <MdDelete className="text-xl" />
             </button>
           </Link>

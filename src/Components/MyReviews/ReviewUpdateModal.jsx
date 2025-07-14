@@ -7,7 +7,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQueryClient } from "@tanstack/react-query";
 
-const UpdateModal = ({ myReview }) => {
+const ReviewUpdateModal = ({ myReview }) => {
   const [comment, setComment] = useState(myReview?.commentReview || "");
   const [rating, setRating] = useState(myReview?.rating || 0);
   const axiosSecure = useAxiosSecure();
@@ -80,4 +80,4 @@ const UpdateModal = ({ myReview }) => {
   );
 };
 
-export default UpdateModal;
+export default ReviewUpdateModal;

@@ -22,6 +22,10 @@ import Payment from "../Pages/Payment/Payment";
 import ApplicationForm from "../Pages/ApplicationForm/ApplicationForm";
 import OverViewPage from "../Components/Dashboard/RightSide/OverViewPage";
 
+import MyApplicationDetails from "../Pages/Dashboard/MyApplicationDetails";
+import axios from "axios";
+import Loader from "../Shared/Loader";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +75,18 @@ export const router = createBrowserRouter([
         path: "myApplication",
         element: <MyApplication></MyApplication>,
       },
+      {
+        path: "myApplication/:id",
+        loader: async ({ params }) => {
+          const res = await axios.get(
+            `http://localhost:3000/myApplication/${params.id}`
+          );
+          return res.data;
+        },
+        errorElement: <Loader />,
+        element: <MyApplicationDetails />,
+      },
+
       {
         path: "myReviews",
         element: <MyReviews></MyReviews>,

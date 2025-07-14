@@ -1,15 +1,9 @@
 import React from "react";
 
-const AppFromPage = ({
-  handleSubmit,
-  universityName,
-  scholarshipName,
-  scholarshipCategory,
-  subjectCategory,
-}) => {
+const UpdateForm = ({ handleUpdate }) => {
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleUpdate}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {/* Applicant's Phone Number */}
           <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
@@ -105,69 +99,10 @@ const AppFromPage = ({
               <option value="3_or_more">3 or More Years</option>
             </select>
           </fieldset>
-
-          {/* Read-Only Fields */}
-
-          {/* University Name (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Name</label>
-            <input
-              type="text"
-              name="university_name"
-              className="input"
-              value={universityName || ""}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Scholarship Name (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Name</label>
-            <input
-              type="text"
-              name="scholarship_name"
-              className="input"
-              value={scholarshipName || ""}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Scholarship Category (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Category</label>
-            <input
-              type="text"
-              name="scholarship_category"
-              className="input"
-              value={scholarshipCategory || ""}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Subject Category (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Subject Category</label>
-            <input
-              type="text"
-              name="subject_category"
-              className="input"
-              value={subjectCategory || ""}
-              readOnly
-            />
-          </fieldset>
-        </div>
-
-        <div className="mt-4">
-          <button
-            type="submit"
-            className="py-3 px-6 text-lg font-semibold text-white bg-primary rounded-sm"
-          >
-            Proceed to Payment
-          </button>
         </div>
       </form>
     </div>
   );
 };
 
-export default AppFromPage;
+export default UpdateForm;

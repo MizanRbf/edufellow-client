@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQueryClient } from "@tanstack/react-query";
-import UpdateModal from "./UpdateModal";
+import ReviewUpdateModal from "./ReviewUpdateModal";
 
 const MyReviewCard = ({ myReview, index }) => {
   const { _id, scholarship_name, university_name, commentReview, review_date } =
@@ -55,7 +55,7 @@ const MyReviewCard = ({ myReview, index }) => {
       <td>
         <div className="flex items-center gap-3">
           {/* Edit Button */}
-          <UpdateModal myReview={myReview}></UpdateModal>
+          <ReviewUpdateModal myReview={myReview}></ReviewUpdateModal>
           {/* Delete Button */}
           <button
             onClick={() => handleDelete(_id)}

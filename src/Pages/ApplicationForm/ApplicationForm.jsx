@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AppFromPage from "../../Components/ApplicationForm/AppFromPage";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router";
@@ -7,6 +6,7 @@ import Loader from "../../Shared/Loader";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
+import AppFormPage from "../../Components/ApplicationForm/AppFormPage";
 
 const ApplicationForm = () => {
   const { scholarshipId } = useParams();
@@ -110,13 +110,13 @@ const ApplicationForm = () => {
     <div className="pt-25">
       <div className="max-w-[1500px] mx-auto px-4">
         <h1 className="mb-8">Fill Up the Application Form</h1>
-        <AppFromPage
+        <AppFormPage
           handleSubmit={handleSubmit}
           universityName={universityName}
           scholarshipCategory={scholarshipCategory}
           scholarshipName={scholarshipName}
           subjectCategory={subjectCategory}
-        ></AppFromPage>
+        ></AppFormPage>
       </div>
     </div>
   );

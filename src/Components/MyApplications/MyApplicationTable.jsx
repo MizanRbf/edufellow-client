@@ -34,7 +34,7 @@ const MyApplicationTable = ({ application, index }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .delete(`/myApplication/${id}`)
+          .delete(`/applicant/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire({

@@ -40,6 +40,7 @@ const AllAppliedScholarship = () => {
             <th>University Name</th>
             <th>Scholarship Category</th>
             <th>Subject Category</th>
+            <th>Application Status</th>
           </tr>
         </thead>
 

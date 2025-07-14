@@ -26,6 +26,7 @@ import MyApplicationDetails from "../Pages/Dashboard/MyApplicationDetails";
 import axios from "axios";
 import Loader from "../Shared/Loader";
 import UpdateMyApplication from "../Pages/Dashboard/Update/MyApplication/UpdateMyApplication";
+import ManageScholarshipDetails from "../Pages/Dashboard/ManageScholarshipDetails";
 
 export const router = createBrowserRouter([
   {
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
       {
         path: "allAppliedScholarship",
         element: <AllAppliedScholarship></AllAppliedScholarship>,
+      },
+      {
+        path: "scholarship2/:id",
+        element: <ManageScholarshipDetails></ManageScholarshipDetails>,
       },
       {
         path: "allReviews",

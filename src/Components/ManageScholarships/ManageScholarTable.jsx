@@ -77,9 +77,7 @@ const ManageScholarTable = ({ scholarship, index }) => {
       <td>
         <div className="flex items-center gap-3">
           {/* Details Button */}
-          <Link
-          //  to={`/dashboard/myApplication/${_id}`}
-          >
+          <Link to={`/dashboard/scholarship2/${_id}`}>
             <button className="bg-green-600 p-2 rounded-sm text-white btn border-0">
               <FaInfoCircle className="text-xl" />
             </button>

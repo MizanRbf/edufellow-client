@@ -2,7 +2,11 @@ import React from "react";
 import { NavLink } from "react-router";
 import { IoIosArrowForward, IoIosMailOpen, IoMdSettings } from "react-icons/io";
 import { FaUser, FaUsersCog } from "react-icons/fa";
-import { MdFactCheck, MdOutlineAddTask } from "react-icons/md";
+import {
+  MdFactCheck,
+  MdMarkunreadMailbox,
+  MdOutlineAddTask,
+} from "react-icons/md";
 const AdminRoutes = () => {
   return (
     <div>
@@ -48,11 +52,11 @@ const AdminRoutes = () => {
         </li>
         <li>
           <NavLink
-            to="manageAppliedApplication"
+            to="allAppliedScholarship"
             className="flex justify-between items-center hover:text-secondary font-bold"
           >
             <div className="flex items-center gap-2 ">
-              <IoIosMailOpen />
+              <MdMarkunreadMailbox />
               <p>Manage Applied Application</p>
             </div>
 

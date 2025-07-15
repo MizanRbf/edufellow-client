@@ -3,7 +3,9 @@ import Modal from "./Modal";
 import { MdCancel, MdEdit } from "react-icons/md";
 import { Link } from "react-router";
 import { FaInfoCircle } from "react-icons/fa";
-
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useQueryClient } from "@tanstack/react-query";
 const MyApplicationTable = ({ application, index }) => {
   const {
     _id,
@@ -15,39 +17,44 @@ const MyApplicationTable = ({ application, index }) => {
     service_charge,
     photo,
     feedback,
+    status,
   } = application;
+  const queryClient = useQueryClient();
+  const axiosSecure = useAxiosSecure();
 
-  // handleDelete
-  // const handleDelete = (id) => {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       axiosSecure
-  //         .delete(`/applicant/${id}`)
-  //         .then((res) => {
-  //           if (res.data.deletedCount) {
-  //             Swal.fire({
-  //               title: "Deleted!",
-  //               text: "Your application has been deleted.",
-  //               icon: "success",
-  //             });
-  //             // Update cache
-  //             queryClient.setQueryData(["myApplications"], (oldData) =>
-  //               oldData?.filter((application) => application._id !== id)
-  //             );
-  //           }
-  //         })
-  //         .catch((err) => Swal.fire("Error", err.message, "error"));
-  //     }
-  //   });
-  // };
+  // Handle Cancel
+  const handleCancel = async (id) => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "This will reject the application.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, reject it!",
+    });
+
+    if (confirm.isConfirmed) {
+      try {
+        const res = await axiosSecure.patch(`/applicant/${id}`, {
+          status: "rejected",
+        });
+
+        if (res.data.modifiedCount) {
+          Swal.fire(
+            "Rejected!",
+            "The application has been rejected.",
+            "success"
+          );
+        }
+        // Refetch application list
+        queryClient.invalidateQueries(["myApplications"]);
+      } catch (error) {
+        Swal.fire("Error", "Something went wrong", "error");
+        console.error(error);
+      }
+    }
+  };
 
   return (
     <tr className="border-2 border-slate-200">
@@ -66,7 +73,21 @@ const MyApplicationTable = ({ application, index }) => {
       <td>{applying_degree}</td>
       <td>{application_fees}</td>
       <td>{service_charge}</td>
-      <td>Status</td>
+      <td>
+        <span
+          className={`rounded-full font-semibold py-1  px-3 ${
+            application.status === "pending"
+              ? " bg-orange-100 text-orange-500"
+              : application.status === "processing"
+              ? "bg-violet-100 text-violet-500"
+              : application.status === "completed"
+              ? "bg-green-100 text-green-600"
+              : " text-red-500 bg-red-100"
+          }`}
+        >
+          {status}
+        </span>
+      </td>
 
       <td>
         <div className="flex items-center gap-3">
@@ -87,11 +108,14 @@ const MyApplicationTable = ({ application, index }) => {
                   .showModal()
               }
             >
-              <MdEdit className="text-xl" />
+              <MdEdit size={20} />
             </button>
           </Link>
           {/* Cancel Button */}
-          <button className="bg-red-500 p-2 rounded-sm text-white btn border-0">
+          <button
+            onClick={() => handleCancel(application?._id)}
+            className="bg-red-700 p-2 rounded-sm text-white btn border-0"
+          >
             <MdCancel size={20} />
           </button>
 

@@ -78,6 +78,8 @@ const ApplicationForm = () => {
     applicantsInfo.application_fees = parseInt(
       scholarshipInfo?.application_fees
     );
+    applicantsInfo.status = "pending";
+    applicantsInfo.feedback = "no feedback yet";
     applicantsInfo.service_charge = parseInt(scholarshipInfo?.service_charge);
     applicantsInfo.scholarship_id = scholarshipInfo?._id;
     applicantsInfo.date = new Date();

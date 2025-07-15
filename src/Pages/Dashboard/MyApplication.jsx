@@ -49,7 +49,6 @@ const MyApplication = () => {
             <th>Application Fees</th>
             <th>Service Charge</th>
             <th>Application Status</th>
-            <th>Action Buttons</th>
           </tr>
         </thead>
 

@@ -14,7 +14,6 @@ import MyReviews from "../Pages/Dashboard/MyReviews";
 import ManageScholarship from "../Pages/Dashboard/ManageScholarship";
 import AllAppliedScholarship from "../Pages/Dashboard/AllAppliedScholarship";
 import AllReviews from "../Pages/Dashboard/AllReviews";
-import ManageAppliedApplication from "../Pages/Dashboard/ManageAppliedApplication";
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import ManageReview from "../Pages/Dashboard/ManageReview";
 import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails";
@@ -123,10 +122,6 @@ export const router = createBrowserRouter([
       {
         path: "allReviews",
         element: <AllReviews></AllReviews>,
-      },
-      {
-        path: "manageAppliedApplication",
-        element: <ManageAppliedApplication></ManageAppliedApplication>,
       },
       {
         path: "manageReview",

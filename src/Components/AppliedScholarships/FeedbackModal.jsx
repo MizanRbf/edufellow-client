@@ -2,9 +2,11 @@ import { FaCommentDots } from "react-icons/fa";
 import ApplicantModalBtn from "./ApplicantModalBtn";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useQueryClient } from "@tanstack/react-query";
 
 const FeedbackModal = ({ applicant }) => {
   const axiosSecure = useAxiosSecure();
+  const queryClient = useQueryClient();
 
   // handle Feedback
   const handleFeedback = async (e, id) => {
@@ -20,6 +22,9 @@ const FeedbackModal = ({ applicant }) => {
       if (res.data.modifiedCount) {
         document.getElementById(`applicantModal-${id}`).close();
         Swal.fire("Success!", "Feedback submitted successfully.", "success");
+
+        // Updated
+        queryClient.invalidateQueries(["allScholarships"]);
       }
     } catch (err) {
       //Close modal after successful update

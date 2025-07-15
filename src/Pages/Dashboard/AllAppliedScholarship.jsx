@@ -27,7 +27,7 @@ const AllAppliedScholarship = () => {
   }
   return (
     <div>
-      <h1>All Applied Scholarship</h1>
+      <h1>Manage Applications</h1>
       <table className="table">
         {/* head */}
 
@@ -40,6 +40,7 @@ const AllAppliedScholarship = () => {
             <th>University Name</th>
             <th>Scholarship Category</th>
             <th>Subject Category</th>
+            <th>Feedback</th>
             <th>Application Status</th>
           </tr>
         </thead>

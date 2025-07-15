@@ -1,14 +1,10 @@
 import React from "react";
-import { FaCommentDots } from "react-icons/fa";
 import { MdCancel, MdDelete } from "react-icons/md";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import Swal from "sweetalert2";
-import { useQueryClient } from "@tanstack/react-query";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+
+import FeedbackModal from "./FeedbackModal";
 
 const Applicant = ({ applicant, index }) => {
-  const queryClient = useQueryClient();
-  const axiosSecure = useAxiosSecure();
   const { university_name, scholarship_category, subject_category, photo } =
     applicant;
 
@@ -38,10 +34,8 @@ const Applicant = ({ applicant, index }) => {
           {/* </Link> */}
 
           {/* Feedback Button */}
-          <button className="btn btn-outline flex items-center gap-2 text-primary">
-            <FaCommentDots size={20} />
-            Feedback
-          </button>
+          <FeedbackModal applicant={applicant}></FeedbackModal>
+
           {/* Cancel Button */}
 
           <button className="btn btn-outline btn-error flex items-center gap-2 text-red-600 hover:bg-red-600 hover:text-white">

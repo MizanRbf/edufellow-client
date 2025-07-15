@@ -14,6 +14,7 @@ const MyApplicationTable = ({ application, index }) => {
     application_fees,
     service_charge,
     photo,
+    feedback,
   } = application;
 
   // handleDelete
@@ -60,7 +61,7 @@ const MyApplicationTable = ({ application, index }) => {
       </td>
       <td>{university_name}</td>
       <td>{university_address}</td>
-      <td>Feedback</td>
+      <td>{feedback}</td>
       <td>{subject_category}</td>
       <td>{applying_degree}</td>
       <td>{application_fees}</td>

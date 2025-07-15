@@ -46,7 +46,11 @@ const AllAppliedScholarship = () => {
 
         <tbody>
           {allAppliedScholarships.map((applicant, index) => (
-            <Applicant applicant={applicant} index={index}></Applicant>
+            <Applicant
+              key={applicant._id}
+              applicant={applicant}
+              index={index}
+            ></Applicant>
           ))}
         </tbody>
       </table>

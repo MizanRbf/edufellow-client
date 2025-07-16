@@ -12,9 +12,13 @@ const UserRoutes = () => {
         <li>
           <NavLink
             to="myProfile"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
-            <div className="flex items-center gap-2 ">
+            <div className="flex items-center gap-2">
               <FaUser />
               <p>My Profile</p>
             </div>
@@ -24,7 +28,11 @@ const UserRoutes = () => {
         <li>
           <NavLink
             to="myApplication"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
             <div className="flex items-center gap-2 ">
               <FaFileAlt />
@@ -37,7 +45,11 @@ const UserRoutes = () => {
         <li>
           <NavLink
             to="myReviews"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
             <div className="flex items-center gap-2 ">
               <FaPenNib />

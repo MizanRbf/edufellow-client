@@ -1,6 +1,7 @@
 import React from "react";
 
 const AddForm = ({ handleSubmitScholarship }) => {
+  const today = new Date().toISOString().split("T")[0];
   return (
     <div>
       <form onSubmit={handleSubmitScholarship} className="">
@@ -173,8 +174,9 @@ const AddForm = ({ handleSubmitScholarship }) => {
             <input
               type="date"
               name="post_date"
+              value={today}
               className="input"
-              placeholder="Scholarship Post Date"
+              readOnly
             />
           </fieldset>
 

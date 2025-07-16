@@ -1,10 +1,10 @@
 import React from "react";
+import Stats from "./Stats";
 
 const OverViewPage = () => {
   return (
     <div>
-      <h1>Stats</h1>
-      <h1>Chart</h1>
+      <Stats></Stats>
     </div>
   );
 };

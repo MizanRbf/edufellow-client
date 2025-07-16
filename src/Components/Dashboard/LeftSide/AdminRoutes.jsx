@@ -14,20 +14,27 @@ const AdminRoutes = () => {
         <li>
           <NavLink
             to="myProfile"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
-            <div className="flex items-center gap-2 ">
+            <div className="flex items-center gap-2">
               <FaUser />
               <p>My Profile</p>
             </div>
-
             <IoIosArrowForward />
           </NavLink>
         </li>
         <li>
           <NavLink
             to="addScholarship"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
             <div className="flex items-center gap-2 ">
               <MdOutlineAddTask />
@@ -40,7 +47,11 @@ const AdminRoutes = () => {
         <li>
           <NavLink
             to="manageScholarship"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
             <div className="flex items-center gap-2 ">
               <IoMdSettings />
@@ -53,7 +64,11 @@ const AdminRoutes = () => {
         <li>
           <NavLink
             to="allAppliedScholarship"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
             <div className="flex items-center gap-2 ">
               <MdMarkunreadMailbox />
@@ -66,7 +81,11 @@ const AdminRoutes = () => {
         <li>
           <NavLink
             to="manageUsers"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
             <div className="flex items-center gap-2 ">
               <FaUsersCog />
@@ -79,7 +98,11 @@ const AdminRoutes = () => {
         <li>
           <NavLink
             to="manageReview"
-            className="flex justify-between items-center hover:text-secondary font-bold"
+            className={({ isActive }) =>
+              `flex justify-between items-center font-bold hover:text-secondary ${
+                isActive ? "text-secondary bg-white" : "text-white"
+              }`
+            }
           >
             <div className="flex items-center gap-2 ">
               <MdFactCheck />

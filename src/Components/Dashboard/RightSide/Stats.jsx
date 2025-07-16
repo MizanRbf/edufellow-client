@@ -1,61 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
 import { FaUsers, FaUniversity, FaWpforms } from "react-icons/fa";
 import { MdRateReview } from "react-icons/md";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import Loader from "../../../Shared/Loader";
 import CountUp from "react-countup";
-
-const Stats = () => {
-  const axiosSecure = useAxiosSecure();
-
-  // allScholarship
-  const {
-    isPending,
-    isError,
-    error,
-    data: allScholarships,
-  } = useQuery({
-    queryKey: ["allScholarships"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/scholarships");
-      return res.data;
-    },
-  });
-
-  // allUsers
-  const { data: users } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/user");
-      return res.data;
-    },
-  });
-
-  // allApplications
-  const { data: allApplications } = useQuery({
-    queryKey: ["allApplications"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/applicants");
-      return res.data;
-    },
-  });
-
-  //  allReviews
-  const { data: allReviews } = useQuery({
-    queryKey: ["allReviews"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/reviews");
-      return res.data;
-    },
-  });
-
-  if (isPending) {
-    return <Loader></Loader>;
-  }
-  if (isError) {
-    return <p>{error.message}</p>;
-  }
-
+const Stats = ({ allApplications, allReviews, users, allScholarships }) => {
   const stats = [
     {
       title: "Total Scholarships",

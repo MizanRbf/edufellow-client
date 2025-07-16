@@ -24,7 +24,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="md:flex relative">
+      <div className="flex flex-col md:flex-row relative max-h-screen">
         {/* Left Side */}
         <div
           className={`absolute lg:static top-0 left-0 w-full md:w-0 md:min-w-[300px] transition-all duration-500 ease-out transform z-10 ${
@@ -37,7 +37,7 @@ const Dashboard = () => {
         </div>
 
         {/* Right Side */}
-        <div className="overflow-x-auto p-6">
+        <div className="overflow-x-auto p-6 w-full max-h-[100vh-60px]">
           {/* DashBar */}
           <DashBar handleClick={handleClick}></DashBar>
           <Outlet></Outlet>

@@ -16,6 +16,7 @@ const Modal = ({ application }) => {
     const formData = new FormData(form);
     const reviewData = Object.fromEntries(formData.entries());
     reviewData.rating = parseInt(reviewData.rating);
+    reviewData.scholarshipId = application.scholarship_id;
 
     // Review stored in DB
     try {
@@ -40,11 +41,13 @@ const Modal = ({ application }) => {
     <div>
       <button
         className="bg-secondary py-2 rounded-sm text-white btn border-0"
-        onClick={() => document.getElementById("review_modal").showModal()}
+        onClick={() =>
+          document.getElementById(`review_modal_${application._id}`).showModal()
+        }
       >
         Review
       </button>
-      <dialog id="review_modal" className="modal">
+      <dialog id={`review_modal_${application._id}`} className="modal">
         <div className="modal-box">
           <h2 className="mb-4 text-primary">Add Your Review</h2>
           <form onSubmit={handleSubmit}>
@@ -65,7 +68,7 @@ const Modal = ({ application }) => {
             <ReadonlyInfo application={application}></ReadonlyInfo>
 
             {/* Action button */}
-            <ActionButton></ActionButton>
+            <ActionButton application={application}></ActionButton>
           </form>
         </div>
       </dialog>

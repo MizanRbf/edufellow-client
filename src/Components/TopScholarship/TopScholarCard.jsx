@@ -1,7 +1,13 @@
 import React from "react";
 import Loader from "../../Shared/Loader";
 import { Link } from "react-router";
+import useScholarshipRating from "../../Hooks/useScholarshipRating";
+
 const TopScholarCard = ({ topScholarship }) => {
+  const { averageRating, isPending, isError } = useScholarshipRating(
+    topScholarship?._id
+  );
+
   if (!topScholarship) {
     return <Loader></Loader>;
   }
@@ -58,6 +64,15 @@ const TopScholarCard = ({ topScholarship }) => {
       </p>
       <p>
         <span className="font-semibold">Ratings: </span>
+        {isPending ? (
+          <Loader></Loader>
+        ) : isError ? (
+          "N/A"
+        ) : averageRating !== undefined ? (
+          averageRating.average
+        ) : (
+          "No ratings"
+        )}
       </p>
       <div className="flex justify-end">
         <Link to={`/scholarship/${_id}`}>

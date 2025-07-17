@@ -1,8 +1,13 @@
 import React from "react";
 import Loader from "../../Shared/Loader";
 import { Link } from "react-router";
+import useScholarshipRating from "../../Hooks/useScholarshipRating";
 
 const DetailsCard = ({ singleScholarship }) => {
+  const { averageRating, isPending, isError } = useScholarshipRating(
+    singleScholarship?._id
+  );
+
   if (!singleScholarship) {
     return <Loader></Loader>;
   }
@@ -79,6 +84,15 @@ const DetailsCard = ({ singleScholarship }) => {
           </p>
           <p>
             <span className="font-semibold">Ratings: </span>
+            {isPending ? (
+              <Loader></Loader>
+            ) : isError ? (
+              "N/A"
+            ) : averageRating !== undefined ? (
+              averageRating.average
+            ) : (
+              "No ratings"
+            )}
           </p>
           <p>
             <span className="font-semibold">Post Date: </span> {post_date}

@@ -1,30 +1,21 @@
 import React from "react";
 import Stats from "./Stats";
 import Chart2 from "./Chart2";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Loader from "../../../Shared/Loader";
 import Chart from "./Chart";
 import Map from "./map";
 import useApplications from "../../../Hooks/useApplications";
 import useReviews from "../../../Hooks/useReviews";
 import useScholarships from "../../../Hooks/useScholarships";
+import useUsers from "../../../Hooks/useUsers";
 
 const OverViewPage = () => {
-  const axiosSecure = useAxiosSecure();
-
   // allScholarship
   const { scholarships: allScholarships, isPending: scholarshipsPending } =
     useScholarships();
 
   // allUsers
-  const { data: users, isPending: usersPending } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/user");
-      return res.data;
-    },
-  });
+  const { users, isPending: usersPending } = useUsers();
 
   // allApplications
   const { applications: allApplications, isPending: applicationsPending } =

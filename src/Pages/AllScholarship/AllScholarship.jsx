@@ -19,7 +19,7 @@ const AllScholarship = () => {
     return <p>{error.message}</p>;
   }
   return (
-    <div className="pt-25">
+    <div className="pt-25 pb-20">
       <div className="max-w-[1500px] mx-auto px-4">
         <h1 className="mb-8">All Scholarship</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">

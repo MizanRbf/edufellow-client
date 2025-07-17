@@ -84,15 +84,13 @@ const DetailsCard = ({ singleScholarship }) => {
           </p>
           <p>
             <span className="font-semibold">Ratings: </span>
-            {isPending ? (
-              <Loader></Loader>
-            ) : isError ? (
-              "N/A"
-            ) : averageRating !== undefined ? (
-              averageRating.average
-            ) : (
-              "No ratings"
-            )}
+            {isPending
+              ? "Loading..."
+              : isError
+              ? "N/A"
+              : averageRating !== undefined
+              ? averageRating.average
+              : "No ratings"}
           </p>
           <p>
             <span className="font-semibold">Post Date: </span> {post_date}

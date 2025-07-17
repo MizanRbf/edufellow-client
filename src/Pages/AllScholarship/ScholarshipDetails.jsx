@@ -3,27 +3,48 @@ import axios from "axios";
 import { Link, useParams } from "react-router";
 import Loader from "../../Shared/Loader";
 import DetailsCard from "../../Components/ScholarDetails/DetailsCard";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import ReviewSlider from "../../Components/ScholarDetails/ReviewSlider";
 
 const ScholarshipDetails = () => {
   const { id } = useParams();
-  const { data: singleScholarship, isLoading } = useQuery({
+  const axiosSecure = useAxiosSecure();
+
+  // Review fetching
+  const { data: reviews, isLoading: reviewLoading } = useQuery({
+    queryKey: ["reviews", id],
+    queryFn: async () => {
+      const res = await axiosSecure(`/reviews/${id}`);
+      return res.data;
+    },
+  });
+
+  const { data: singleScholarship, isLoading: scholarshipLoading } = useQuery({
     queryKey: ["singleScholarship"],
     queryFn: async () => {
       const res = await axios.get(`http://localhost:3000/scholarship/${id}`);
       return res.data;
     },
   });
-  if (isLoading) {
+
+  const anyLoading = reviewLoading || scholarshipLoading;
+  if (anyLoading) {
     return <Loader></Loader>;
   }
-
+  console.log(reviews);
   return (
     <div className="pt-25">
       <div className="max-w-[1500px] mx-auto px-4">
+        {/* Details Card */}
         <h1>Scholarship Details</h1>
         <div>
           <DetailsCard singleScholarship={singleScholarship}></DetailsCard>
         </div>
+
+        {/* Reviews Slider */}
+        <ReviewSlider reviews={reviews}></ReviewSlider>
+
+        {/* Back Button */}
         <Link to={-1}>
           <button className="bg-primary px-4 py-1 rounded-sm text-white">
             Go Back

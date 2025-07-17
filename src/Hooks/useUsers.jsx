@@ -2,21 +2,21 @@ import React from "react";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
-const useScholarships = () => {
+const useUsers = () => {
   const axiosSecure = useAxiosSecure();
   const {
-    data: scholarships,
+    data: users,
     isPending,
     isError,
     error,
   } = useQuery({
-    queryKey: ["scholarships"],
+    queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/scholarships");
+      const res = await axiosSecure.get("/user");
       return res.data;
     },
   });
-  return { scholarships, isPending, isError, error };
+  return { users, isPending, isError, error };
 };
 
-export default useScholarships;
+export default useUsers;

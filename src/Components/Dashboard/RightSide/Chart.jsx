@@ -18,7 +18,7 @@ const Chart = ({ allApplications }) => {
 
   return (
     <div
-      className={`border border-slate-200 rounded-lg flex justify-center my-20 shadow-lg lg:mt-10 bg-white md:p-6 ${
+      className={`border border-slate-200 rounded-lg flex justify-center md:mt-10 shadow-lg bg-secondary md:p-6  ${
         allApplications?.length === 0 ? "hidden" : "block"
       }`}
     >

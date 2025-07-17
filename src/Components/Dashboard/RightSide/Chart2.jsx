@@ -25,7 +25,7 @@ const Chart2 = ({ allScholarships }) => {
   };
   return (
     <div
-      className={`border border-slate-200 rounded-lg flex justify-center my-20 shadow-lg lg:mt-10 bg-white p-6 ${
+      className={`border border-slate-200 rounded-lg flex justify-center mt-10 shadow-lg bg-secondary p-6 ${
         allScholarships?.length == "0" ? "hidden" : "block"
       }`}
     >

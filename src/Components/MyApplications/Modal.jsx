@@ -3,6 +3,7 @@ import ActionButton from "./ActionButton";
 import ReadonlyInfo from "./ReadonlyInfo";
 import StarRating from "./StarRating";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const Modal = ({ application }) => {
   const axiosSecure = useAxiosSecure();
@@ -20,10 +21,18 @@ const Modal = ({ application }) => {
     try {
       const res = await axiosSecure.post("/reviews", reviewData);
       if (res.data.insertedId) {
-        alert("successful");
+        Swal.fire({
+          title: "Review added successfully!",
+          icon: "success",
+          draggable: true,
+        });
       }
     } catch (error) {
-      alert(error.message);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.message,
+      });
     }
   };
 

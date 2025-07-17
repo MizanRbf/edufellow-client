@@ -6,23 +6,16 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Loader from "../../../Shared/Loader";
 import Chart from "./Chart";
 import Map from "./map";
+import useApplications from "../../../Hooks/useApplications";
+import useReviews from "../../../Hooks/useReviews";
+import useScholarships from "../../../Hooks/useScholarships";
 
 const OverViewPage = () => {
   const axiosSecure = useAxiosSecure();
 
   // allScholarship
-  const {
-    isPending: scholarshipsPending,
-    isError,
-    error,
-    data: allScholarships,
-  } = useQuery({
-    queryKey: ["allScholarships"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/scholarships");
-      return res.data;
-    },
-  });
+  const { scholarships: allScholarships, isPending: scholarshipsPending } =
+    useScholarships();
 
   // allUsers
   const { data: users, isPending: usersPending } = useQuery({
@@ -34,22 +27,11 @@ const OverViewPage = () => {
   });
 
   // allApplications
-  const { data: allApplications, isPending: applicationsPending } = useQuery({
-    queryKey: ["allApplications"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/applicants");
-      return res.data;
-    },
-  });
+  const { applications: allApplications, isPending: applicationsPending } =
+    useApplications();
 
   //  allReviews
-  const { data: allReviews, isPending: reviewsPending } = useQuery({
-    queryKey: ["allReviews"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/reviews");
-      return res.data;
-    },
-  });
+  const { allReviews, isPending: reviewsPending } = useReviews();
 
   const anyPending =
     scholarshipsPending ||

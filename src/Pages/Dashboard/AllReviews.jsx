@@ -1,24 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loader from "../../Shared/Loader";
 import ReviewCard from "../../Components/AllReviews/ReviewCard";
+import useReviews from "../../Hooks/useReviews";
 
 const AllReviews = () => {
-  const axiosSecure = useAxiosSecure();
+  const { allReviews, isPending, isError, error } = useReviews();
 
-  const {
-    data: allReviews,
-    isPending,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: ["allReviews"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/reviews");
-      return res.data;
-    },
-  });
   if (isPending) {
     return <Loader></Loader>;
   }

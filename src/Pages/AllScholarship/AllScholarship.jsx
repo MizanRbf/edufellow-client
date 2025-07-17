@@ -1,22 +1,16 @@
-import axios from "axios";
 import ScholarCard from "../../Components/AllScholarship/scholarCard";
-import { useQuery } from "@tanstack/react-query";
 import Loader from "../../Shared/Loader";
+
+import useScholarships from "../../Hooks/useScholarships";
 
 const AllScholarship = () => {
   // Get
   const {
+    scholarships: allScholarships,
     isPending,
     isError,
     error,
-    data: allScholarships,
-  } = useQuery({
-    queryKey: ["allScholarships"],
-    queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/scholarships");
-      return res.data;
-    },
-  });
+  } = useScholarships();
 
   if (isPending) {
     return <Loader></Loader>;

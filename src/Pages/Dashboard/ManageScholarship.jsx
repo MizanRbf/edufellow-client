@@ -1,24 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loader from "../../Shared/Loader";
 import ManageScholarTable from "../../Components/ManageScholarships/ManageScholarTable";
+import useScholarships from "../../Hooks/useScholarships";
 
 const ManageScholarship = () => {
-  const axiosSecure = useAxiosSecure();
   // Get
   const {
+    scholarships: allScholarships,
     isPending,
     isError,
     error,
-    data: allScholarships,
-  } = useQuery({
-    queryKey: ["allScholarships"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("scholarships");
-      return res.data;
-    },
-  });
+  } = useScholarships();
 
   if (isPending) {
     return <Loader></Loader>;

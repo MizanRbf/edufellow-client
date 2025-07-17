@@ -1,23 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import React from "react";
 import Loader from "../../Shared/Loader";
 import Applicant from "../../Components/AppliedScholarships/Applicant";
+import useApplications from "../../Hooks/useApplications";
 
 const AllAppliedScholarship = () => {
   // Get Applied Applicants
   const {
-    data: allAppliedScholarships,
+    applications: allAppliedScholarships,
     isPending,
     isError,
     error,
-  } = useQuery({
-    queryKey: ["allAppliedScholarships"],
-    queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/applicants");
-      return res.data;
-    },
-  });
+  } = useApplications();
 
   if (isPending) {
     return <Loader></Loader>;

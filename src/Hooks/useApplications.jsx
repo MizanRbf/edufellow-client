@@ -6,12 +6,12 @@ const useApplications = () => {
   const axiosSecure = useAxiosSecure();
 
   const {
-    data: applications,
+    data: applications = [],
     isPending,
     isError,
     error,
   } = useQuery({
-    queryKey: ["allAppliedScholarships"],
+    queryKey: ["applications"],
     queryFn: async () => {
       const res = await axiosSecure.get("/applicants");
       return res.data;

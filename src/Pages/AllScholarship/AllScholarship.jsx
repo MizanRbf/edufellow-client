@@ -4,6 +4,7 @@ import Loader from "../../Shared/Loader";
 import useScholarships from "../../Hooks/useScholarships";
 import SearchBar from "../../Pages/AllScholarship/SearchBar";
 import { useEffect, useState } from "react";
+import EmptyState from "../../Shared/EmptyState";
 
 const AllScholarship = () => {
   const [filteredScholarships, setFilteredScholarships] = useState([]);

@@ -18,7 +18,7 @@ const ApplicantsDetails = ({ applicant }) => {
     university_address,
     application_fees,
     service_charge,
-    date,
+    applied_date,
   } = applicant;
 
   return (
@@ -86,8 +86,8 @@ const ApplicantsDetails = ({ applicant }) => {
           {phone}
         </p>
         <p>
-          <span className="font-bold">Date: </span>
-          {date}
+          <span className="font-bold">Applied Date: </span>
+          {applied_date}
         </p>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import { MdCancel, MdEdit } from "react-icons/md";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FaInfoCircle } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -22,6 +22,7 @@ const MyApplicationTable = ({ application, index }) => {
   } = application;
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   // Handle Cancel
   const handleCancel = async (id) => {
@@ -96,18 +97,25 @@ const MyApplicationTable = ({ application, index }) => {
           <MyApplicationModal application={application}></MyApplicationModal>
 
           {/* Edit Button */}
-          <Link to={`/dashboard/updateMyApplication/${_id}`}>
-            <button
-              className="bg-blue-700 p-2 rounded-sm text-white btn border-0"
-              onClick={() =>
-                document
-                  .getElementById(`applicationModal-${application._id}`)
-                  .showModal()
+          <button
+            className={`p-2 rounded-sm text-white btn border-0 ${
+              status === "pending" ? "bg-blue-700" : "bg-gray-400"
+            }`}
+            onClick={() => {
+              if (status === "pending") {
+                navigate(`/dashboard/updateMyApplication/${_id}`);
+              } else {
+                Swal.fire({
+                  icon: "warning",
+                  title: "Cannot Edit",
+                  text: `This application is currently "${status}". Editing is only allowed while it's pending.`,
+                });
               }
-            >
-              <MdEdit size={20} />
-            </button>
-          </Link>
+            }}
+          >
+            <MdEdit size={20} />
+          </button>
+
           {/* Cancel Button */}
           <button
             onClick={() => handleCancel(application?._id)}

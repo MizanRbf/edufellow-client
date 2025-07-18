@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import React from "react";
 import Loader from "../../../Shared/Loader";
 import TopScholarCard from "../../../Components/TopScholarship/TopScholarCard";
 import { Link } from "react-router";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const TopScholarship = () => {
+  const axiosSecure = useAxiosSecure();
   const { data: topScholarships, isLoading } = useQuery({
     queryKey: ["topScholarships"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/topScholarships");
+      const res = await axiosSecure.get("/topScholarships");
       return res.data;
     },
   });

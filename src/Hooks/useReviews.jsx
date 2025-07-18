@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 const useReviews = () => {
   const axiosSecure = useAxiosSecure();
   const {
-    data: allReviews,
+    data: allReviews = [],
     isPending,
     isError,
     error,

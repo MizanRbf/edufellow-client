@@ -1,61 +1,69 @@
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import React, { useState } from "react";
+
 import Loader from "../../Shared/Loader";
 import UserCard from "../../Components/ManageUsers/UserCard";
+import EmptyState from "../../Shared/EmptyState";
+import useUsers from "../../Hooks/useUsers";
 
 const ManageUsers = () => {
-  const axiosSecure = useAxiosSecure();
+  const [selectedRole, setSelectedRole] = useState("all");
+  const { users = [], isLoading, isError, error } = useUsers();
 
-  const {
-    data: users,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/user");
-      return res.data;
-    },
-  });
-  if (isLoading) {
-    return <Loader></Loader>;
-  }
-  if (isError) {
-    alert(error.message);
-  }
+  if (isLoading) return <Loader />;
+  if (isError) return <p className="text-red-500">Error: {error.message}</p>;
+
+  // Filter users by role if selectedRole is not "all"
+  const filteredUsers =
+    selectedRole === "all"
+      ? users
+      : users.filter((user) => user.role === selectedRole);
+
   return (
     <div className="pr-4 overflow-x-auto">
-      <h1 className="mb-6">Manage Users</h1>
-      {/* Blank Page */}
-      {users.length === 0 && (
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-xl font-bold">Manage Users</h1>
+
+        {/* Filter Dropdown */}
+        <div>
+          <select
+            className="select select-bordered select-sm border-primary"
+            value={selectedRole}
+            onChange={(e) => setSelectedRole(e.target.value)}
+          >
+            <option value="all">All Roles</option>
+            <option value="admin">Admin</option>
+            <option value="moderator">Moderator</option>
+            <option value="user">User</option>
+          </select>
+        </div>
+      </div>
+
+      {/* No Users Found Message */}
+      {filteredUsers.length === 0 ? (
         <EmptyState
           message="No users found!"
           buttonText="Go Back"
           redirectPath={-1}
-        ></EmptyState>
+        />
+      ) : (
+        <table className="table">
+          <thead className="text-lg">
+            <tr className="text-primary">
+              <th>No.</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredUsers.map((user, index) => (
+              <UserCard key={user._id} user={user} index={index} />
+            ))}
+          </tbody>
+        </table>
       )}
-      <table className="table">
-        {/* head */}
-
-        <thead className={`text-lg ${users.length < 1 && "hidden"}`}>
-          <tr className="text-primary">
-            <th>No.</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role:</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {users?.map((user, index) => (
-            <UserCard key={user._id} user={user} index={index}></UserCard>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 };

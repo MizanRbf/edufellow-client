@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Link, useParams } from "react-router";
 import Loader from "../../Shared/Loader";
 import DetailsCard from "../../Components/ScholarDetails/DetailsCard";
@@ -22,7 +21,7 @@ const ScholarshipDetails = () => {
   const { data: singleScholarship, isLoading: scholarshipLoading } = useQuery({
     queryKey: ["singleScholarship"],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:3000/scholarship/${id}`);
+      const res = await axiosSecure.get(`/scholarship/${id}`);
       return res.data;
     },
   });

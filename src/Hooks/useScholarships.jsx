@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 const useScholarships = () => {
   const axiosSecure = useAxiosSecure();
   const {
-    data: scholarships,
+    data: scholarships = [],
     isPending,
     isError,
     error,

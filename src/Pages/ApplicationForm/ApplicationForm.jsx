@@ -33,10 +33,6 @@ const ApplicationForm = () => {
   const scholarshipName = scholarshipInfo?.scholarship_name;
   const scholarshipCategory = scholarshipInfo?.scholarship_category;
   const subjectCategory = scholarshipInfo?.subject_category;
-  // const universityCity = scholarshipInfo?.university_city;
-  // const universityCountry = scholarshipInfo?.university_country;
-  // const applicationFees = scholarshipInfo?.application_fees;
-  // const serviceCharge = scholarshipInfo?.service_charge;
 
   // HandleSubmitForm
   const handleSubmit = async (e) => {
@@ -82,7 +78,8 @@ const ApplicationForm = () => {
     applicantsInfo.feedback = "no feedback yet";
     applicantsInfo.service_charge = parseInt(scholarshipInfo?.service_charge);
     applicantsInfo.scholarship_id = scholarshipInfo?._id;
-    applicantsInfo.date = new Date();
+    applicantsInfo.applied_date = new Date();
+    applicantsInfo.scholarship_deadline = scholarshipInfo.application_deadline;
 
     // Save applicantsInfo in DB
     try {

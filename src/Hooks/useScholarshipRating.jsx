@@ -5,7 +5,7 @@ const useScholarshipRating = (scholarshipId) => {
   const axiosSecure = useAxiosSecure();
 
   const {
-    data: averageRating,
+    data: averageRating = [],
     isPending,
     isError,
   } = useQuery({

@@ -1,14 +1,46 @@
 import { useQueryClient } from "@tanstack/react-query";
-import React from "react";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import React, { useState } from "react";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const UserCard = ({ user, index }) => {
-  const { name, email, role, photo } = user;
+  const { name, email, role, photo, _id } = user;
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
+  const [selectedRole, setSelectedRole] = useState(role);
+
+  // Role change handler
+  const handleRoleChange = async (e) => {
+    const newRole = e.target.value;
+
+    if (newRole === role) return;
+
+    Swal.fire({
+      title: "Change Role?",
+      text: `Change role to ${newRole}?`,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, change it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const res = await axiosSecure.patch(`/user/role/${_id}`, {
+            role: newRole,
+          });
+          if (res.data.modifiedCount > 0) {
+            setSelectedRole(newRole);
+            Swal.fire("Success!", "Role updated successfully.", "success");
+            queryClient.invalidateQueries(["users"]);
+          } else {
+            Swal.fire("Info", "No change detected.", "info");
+          }
+        } catch (error) {
+          Swal.fire("Error", error.message, "error");
+        }
+      }
+    });
+  };
 
   // handleDelete
   const handleDelete = (id) => {
@@ -54,7 +86,17 @@ const UserCard = ({ user, index }) => {
       </td>
       <td>{name}</td>
       <td>{email}</td>
-      <td>{role}</td>
+      <td>
+        <select
+          value={selectedRole}
+          onChange={handleRoleChange}
+          className="select selected-bordered select-sm"
+        >
+          <option value="user">User</option>
+          <option value="moderator">Moderator</option>
+          <option value="admin">Admin</option>
+        </select>
+      </td>
       <td>
         <div className="flex items-center gap-3">
           {/* Delete Button */}

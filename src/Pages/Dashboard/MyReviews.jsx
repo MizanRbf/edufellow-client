@@ -4,6 +4,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import Loader from "../../Shared/Loader";
 import MyReviewCard from "../../Components/MyReviews/MyReviewCard";
+import EmptyState from "../../Shared/EmptyState";
 
 const MyReviews = () => {
   const { user } = useAuth();
@@ -32,6 +33,15 @@ const MyReviews = () => {
   return (
     <div className="overflow-x-auto pr-4">
       <h1>My Reviews</h1>
+
+      {/* Blank Page */}
+      {myReviews.length === 0 && (
+        <EmptyState
+          message="You have not review any scholarship yet!"
+          buttonText="Go to My Application"
+          redirectPath="/dashboard/myApplication"
+        ></EmptyState>
+      )}
       <table className="table">
         {/* head */}
 

@@ -26,6 +26,7 @@ import axios from "axios";
 import Loader from "../Shared/Loader";
 import UpdateMyApplication from "../Pages/Dashboard/Update/MyApplication/UpdateMyApplication";
 import ManageScholarshipDetails from "../Pages/Dashboard/ManageScholarshipDetails";
+import ErrorPage from "../Shared/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -148,5 +149,11 @@ export const router = createBrowserRouter([
         Component: Register,
       },
     ],
+  },
+
+  // Error Route
+  {
+    path: "/*",
+    Component: ErrorPage,
   },
 ]);

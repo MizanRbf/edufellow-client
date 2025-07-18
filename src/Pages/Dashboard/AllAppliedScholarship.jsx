@@ -2,6 +2,7 @@ import React from "react";
 import Loader from "../../Shared/Loader";
 import Applicant from "../../Components/AppliedScholarships/Applicant";
 import useApplications from "../../Hooks/useApplications";
+import EmptyState from "../../Shared/EmptyState";
 
 const AllAppliedScholarship = () => {
   // Get Applied Applicants
@@ -21,6 +22,14 @@ const AllAppliedScholarship = () => {
   return (
     <div>
       <h1>Manage Applications</h1>
+      {/* Blank Page */}
+      {allAppliedScholarships.length === 0 && (
+        <EmptyState
+          message="No Applied Scholarship found!"
+          buttonText="Go Back"
+          redirectPath={-1}
+        ></EmptyState>
+      )}
       <table className="table">
         {/* head */}
 

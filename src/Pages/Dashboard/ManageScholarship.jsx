@@ -21,6 +21,14 @@ const ManageScholarship = () => {
   return (
     <div>
       <h1>Manage Scholarship</h1>
+      {/* Blank Page */}
+      {allScholarships.length === 0 && (
+        <EmptyState
+          message="No Scholarship found!"
+          buttonText="Go Back"
+          redirectPath={-1}
+        ></EmptyState>
+      )}
       <table className="table">
         {/* head */}
 

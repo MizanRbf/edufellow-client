@@ -34,6 +34,14 @@ const MyApplication = () => {
   return (
     <div className="overflow-x-auto pr-4">
       <h1>My Applications</h1>
+      {/* Blank Page */}
+      {myApplications.length === 0 && (
+        <EmptyState
+          message="You have not applied any scholarship!"
+          buttonText="Go to Apply"
+          redirectPath="/"
+        ></EmptyState>
+      )}
       <table className="table">
         {/* head */}
 

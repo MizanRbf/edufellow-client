@@ -19,6 +19,7 @@
     "firebase": "^11.10.0",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
+    "lottie-react": "^2.4.1",
     "motion": "^12.23.0",
     "react": "^19.1.0",
     "react-circular-progressbar": "^2.2.0",

@@ -28,6 +28,22 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    // Password Validation
+    if (password.length < 6) {
+      return setErrorMessage("Password must be at least 6 characters long");
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      return setErrorMessage(
+        "Password must include at least one uppercase letter."
+      );
+    }
+    if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
+      return setErrorMessage(
+        "Password must include at least one special character"
+      );
+    }
+
     const profile = {
       displayName: name,
       photoURL: photo,
@@ -69,7 +85,7 @@ const Register = () => {
         transition={{ duration: 0.2, ease: "easeOut" }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl animate-slide-down text-black"
+        className="card bg-base-100 w-full max-w-xl mx-auto shrink-0 shadow-2xl animate-slide-down text-black"
       >
         <div className="card-body text-black">
           {/* go home */}
@@ -130,10 +146,10 @@ const Register = () => {
             />
 
             {/* Accept Terms And Conditions */}
-            <label className="label">
+            {/* <label className="label">
               <input type="checkbox" defaultChecked className="checkbox" />
               Accept terms & conditions
-            </label>
+            </label> */}
             {/* Error Message */}
             <p className="text-red-500">{errorMessage}</p>
 

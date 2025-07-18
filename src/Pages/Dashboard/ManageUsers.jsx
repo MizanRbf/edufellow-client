@@ -28,6 +28,14 @@ const ManageUsers = () => {
   return (
     <div className="pr-4 overflow-x-auto">
       <h1 className="mb-6">Manage Users</h1>
+      {/* Blank Page */}
+      {users.length === 0 && (
+        <EmptyState
+          message="No users found!"
+          buttonText="Go Back"
+          redirectPath={-1}
+        ></EmptyState>
+      )}
       <table className="table">
         {/* head */}
 

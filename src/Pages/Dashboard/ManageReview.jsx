@@ -15,6 +15,14 @@ const MangeReview = () => {
   return (
     <div>
       <h1 className="mb-6">Manage Review</h1>
+      {/* Blank Page */}
+      {manageReview.length === 0 && (
+        <EmptyState
+          message="No reviews found!"
+          buttonText="Go Back"
+          redirectPath={-1}
+        ></EmptyState>
+      )}
       <div className="grid grid-cols-3 gap-4">
         {manageReview.map((manageSingleReview) => (
           <ManageReviewTable

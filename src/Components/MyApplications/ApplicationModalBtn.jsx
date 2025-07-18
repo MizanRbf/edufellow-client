@@ -1,6 +1,6 @@
 import React from "react";
 
-const ApplicantModalBtn = ({ applicant }) => {
+const ApplicationModalBtn = ({ application }) => {
   return (
     <div className="flex justify-end modal-action">
       {/* Cancel Button */}
@@ -8,7 +8,7 @@ const ApplicantModalBtn = ({ applicant }) => {
         type="button"
         className="btn bg-red-200 text-red-500 font-bold"
         onClick={() =>
-          document.getElementById(`applicantModal-${applicant._id}`).close()
+          document.getElementById(`applicationModal-${application._id}`).close()
         }
       >
         Cancel
@@ -17,4 +17,4 @@ const ApplicantModalBtn = ({ applicant }) => {
   );
 };
 
-export default ApplicantModalBtn;
+export default ApplicationModalBtn;

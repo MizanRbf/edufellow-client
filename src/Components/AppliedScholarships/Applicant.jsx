@@ -1,11 +1,10 @@
 import React from "react";
 import { MdCancel, MdDelete } from "react-icons/md";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-
 import FeedbackModal from "./FeedbackModal";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQueryClient } from "@tanstack/react-query";
+import ApplicantsModal from "./ApplicantsModal";
 
 const Applicant = ({ applicant, index }) => {
   const {
@@ -87,12 +86,7 @@ const Applicant = ({ applicant, index }) => {
       <td>
         <div className="flex items-center gap-3">
           {/* Details Button */}
-          {/* <Link to={`/dashboard/scholarship2/${_id}`}> */}
-          <button className="btn btn-outline btn-info flex items-center gap-2 text-info hover:text-white">
-            <AiOutlineInfoCircle size={20} />
-            Details
-          </button>
-          {/* </Link> */}
+          <ApplicantsModal applicant={applicant}></ApplicantsModal>
 
           {/* Feedback Button */}
           <FeedbackModal applicant={applicant}></FeedbackModal>

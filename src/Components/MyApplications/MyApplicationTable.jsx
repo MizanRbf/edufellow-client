@@ -6,6 +6,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQueryClient } from "@tanstack/react-query";
+import MyApplicationModal from "./MyApplicationModal";
 const MyApplicationTable = ({ application, index }) => {
   const {
     _id,
@@ -92,11 +93,7 @@ const MyApplicationTable = ({ application, index }) => {
       <td>
         <div className="flex items-center gap-3">
           {/* Details Button */}
-          <Link to={`/dashboard/myApplication/${_id}`}>
-            <button className="bg-green-600 p-2 rounded-sm text-white btn border-0">
-              <FaInfoCircle className="text-xl" />
-            </button>
-          </Link>
+          <MyApplicationModal application={application}></MyApplicationModal>
 
           {/* Edit Button */}
           <Link to={`/dashboard/updateMyApplication/${_id}`}>

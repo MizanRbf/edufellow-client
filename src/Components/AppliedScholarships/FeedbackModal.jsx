@@ -1,8 +1,8 @@
 import { FaCommentDots } from "react-icons/fa";
-import ApplicantModalBtn from "./ApplicantModalBtn";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQueryClient } from "@tanstack/react-query";
+import FeedbackModalBtn from "./FeedbackModalBtn";
 
 const FeedbackModal = ({ applicant }) => {
   const axiosSecure = useAxiosSecure();
@@ -20,7 +20,7 @@ const FeedbackModal = ({ applicant }) => {
       });
 
       if (res.data.modifiedCount) {
-        document.getElementById(`applicantModal-${id}`).close();
+        document.getElementById(`ReviewModal-${id}`).close();
         Swal.fire("Success!", "Feedback submitted successfully.", "success");
 
         // Updated
@@ -28,7 +28,7 @@ const FeedbackModal = ({ applicant }) => {
       }
     } catch (err) {
       //Close modal after successful update
-      document.getElementById(`applicantModal-${id}`).close();
+      document.getElementById(`ReviewModal-${id}`).close();
       Swal.fire("Error!", err.message, "error");
     }
   };
@@ -38,7 +38,7 @@ const FeedbackModal = ({ applicant }) => {
       <button
         className="btn btn-outline flex items-center gap-2 text-primary"
         onClick={() =>
-          document.getElementById(`applicantModal-${applicant._id}`).showModal()
+          document.getElementById(`ReviewModal-${applicant._id}`).showModal()
         }
       >
         <FaCommentDots size={20} />
@@ -46,7 +46,7 @@ const FeedbackModal = ({ applicant }) => {
       </button>
 
       {/* Dialog */}
-      <dialog id={`applicantModal-${applicant._id}`} className="modal">
+      <dialog id={`ReviewModal-${applicant._id}`} className="modal">
         <div className="modal-box">
           <h2 className="mb-4 text-primary">Send Feedback</h2>
           <form onSubmit={(e) => handleFeedback(e, applicant?._id)}>
@@ -60,7 +60,7 @@ const FeedbackModal = ({ applicant }) => {
             ></textarea>
 
             {/* Action button */}
-            <ApplicantModalBtn applicant={applicant}></ApplicantModalBtn>
+            <FeedbackModalBtn applicant={applicant}></FeedbackModalBtn>
           </form>
         </div>
       </dialog>

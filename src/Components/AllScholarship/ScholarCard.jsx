@@ -60,15 +60,13 @@ const ScholarCard = ({ scholarship }) => {
       </p>
       <p>
         <span className="font-semibold">Ratings: </span>
-        {isPending ? (
-          <Loader></Loader>
-        ) : isError ? (
-          "N/A"
-        ) : averageRating !== undefined ? (
-          averageRating.average
-        ) : (
-          "No ratings"
-        )}
+        {isPending
+          ? "Loading..."
+          : isError
+          ? "N/A"
+          : averageRating !== undefined
+          ? averageRating.average
+          : "No ratings"}
       </p>
       <div className="flex justify-end">
         <Link to={`/scholarship/${_id}`}>

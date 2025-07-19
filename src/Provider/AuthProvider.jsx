@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { auth } from "../Firebase/Firebase.config";
 import { AuthContext } from "./AuthContext";
+import axios from "axios";
 
 const provider = new GoogleAuthProvider();
 
@@ -53,15 +54,16 @@ const AuthProvider = ({ children }) => {
 
       // Token Generate
 
-      // if (currentUser?.email) {
-      //   const userInfo = { email: currentUser.email };
-      //   axios
-      //     .post("https://langveta-server.vercel.app/jwt", userInfo, {
-      //       withCredentials: true,
-      //     })
-      //     .then()
-      //     .catch((error) => console.log(error));
-      // }
+      if (currentUser?.email) {
+        const userInfo = { email: currentUser.email };
+        axios
+          .post("http://localhost:3000/jwt", userInfo)
+          .then((res) => {
+            const token = res.data.token;
+            localStorage.setItem("token", token);
+          })
+          .catch((error) => console.log(error));
+      }
 
       // console.log("user in the auth state change", currentUser);
     });

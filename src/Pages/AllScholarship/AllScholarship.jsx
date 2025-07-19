@@ -5,10 +5,22 @@ import useScholarships from "../../Hooks/useScholarships";
 import SearchBar from "../../Pages/AllScholarship/SearchBar";
 import { useEffect, useState } from "react";
 import EmptyState from "../../Shared/EmptyState";
+import Pagination from "../../Components/AllScholarship/Pagination";
 
 const AllScholarship = () => {
   const [filteredScholarships, setFilteredScholarships] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(filteredScholarships.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentScholarships = filteredScholarships.slice(startIndex, endIndex);
+
+  // Scroll Behavior
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   // Get
   const {
@@ -65,7 +77,7 @@ const AllScholarship = () => {
         </div>
 
         {/* Blank Page */}
-        {filteredScholarships.length === 0 && (
+        {currentScholarships.length === 0 && (
           <EmptyState
             message="No scholarships found!"
             buttonText="Go Home"
@@ -74,13 +86,19 @@ const AllScholarship = () => {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filteredScholarships?.map((scholarship) => (
+          {currentScholarships?.map((scholarship) => (
             <ScholarCard
               key={scholarship._id}
               scholarship={scholarship}
             ></ScholarCard>
           ))}
         </div>
+        {/* Pagination Controls */}
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+        ></Pagination>
       </div>
     </div>
   );

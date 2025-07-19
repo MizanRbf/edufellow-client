@@ -3,6 +3,7 @@ import Loader from "../../Shared/Loader";
 import Applicant from "../../Components/AppliedScholarships/Applicant";
 import useApplications from "../../Hooks/useApplications";
 import EmptyState from "../../Shared/EmptyState";
+import DeleteRejectedButton from "../../Shared/DeleteRejectedButton";
 
 const AllAppliedScholarship = () => {
   // Get Applied Applicants
@@ -18,23 +19,23 @@ const AllAppliedScholarship = () => {
   // Sorted Applications
   const sortedApplications = [...allAppliedScholarships];
 
-  if (sortOption === "appliedDateLatest") {
+  if (sortOption === "applied_dateLatest") {
     sortedApplications.sort(
-      (a, b) => new Date(b.appliedDate) - new Date(a.appliedDate)
+      (a, b) => new Date(b.applied_date) - new Date(a.applied_date)
     );
-  } else if (sortOption === "appliedDateOldest") {
+  } else if (sortOption === "applied_dateOldest") {
     sortedApplications.sort(
-      (a, b) => new Date(a.appliedDate) - new Date(b.appliedDate)
+      (a, b) => new Date(a.applied_date) - new Date(b.applied_date)
     );
   } else if (sortOption === "deadlineSoonest") {
     sortedApplications.sort(
       (a, b) =>
-        new Date(a.scholarshipDeadline) - new Date(b.scholarshipDeadline)
+        new Date(a.scholarship_deadline) - new Date(b.scholarship_deadline)
     );
   } else if (sortOption === "deadlineLatest") {
     sortedApplications.sort(
       (a, b) =>
-        new Date(b.scholarshipDeadline) - new Date(a.scholarshipDeadline)
+        new Date(b.scholarship_deadline) - new Date(a.scholarship_deadline)
     );
   }
 
@@ -49,14 +50,15 @@ const AllAppliedScholarship = () => {
       <div className="flex justify-between items-center">
         <h1>Manage Applications</h1>
         <div className="flex justify-center mb-4">
+          <DeleteRejectedButton />
           <select
             onChange={(e) => setSortOption(e.target.value)}
             className="select select-bordered w-full max-w-xs"
             value={sortOption}
           >
             <option value="">Sort/Filter By</option>
-            <option value="appliedDateLatest">Applied Date (Latest)</option>
-            <option value="appliedDateOldest">Applied Date (Oldest)</option>
+            <option value="applied_dateLatest">Applied Date (Latest)</option>
+            <option value="applied_dateOldest">Applied Date (Oldest)</option>
             <option value="deadlineSoonest">
               Scholarship Deadline (Soonest)
             </option>

@@ -87,7 +87,11 @@ const ApplicantsDetails = ({ applicant }) => {
         </p>
         <p>
           <span className="font-bold">Applied Date: </span>
-          {applied_date}
+          {new Date(applied_date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
         </p>
       </div>
     </div>

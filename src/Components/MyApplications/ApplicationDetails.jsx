@@ -18,7 +18,7 @@ const ApplicationDetails = ({ application }) => {
     university_address,
     application_fees,
     service_charge,
-    date,
+    applied_date,
   } = application;
 
   return (
@@ -86,8 +86,12 @@ const ApplicationDetails = ({ application }) => {
           {phone}
         </p>
         <p>
-          <span className="font-bold">Date: </span>
-          {date}
+          <span className="font-bold">Applied Date: </span>
+          {new Date(applied_date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
         </p>
       </div>
     </div>

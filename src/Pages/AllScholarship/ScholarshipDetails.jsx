@@ -4,6 +4,7 @@ import Loader from "../../Shared/Loader";
 import DetailsCard from "../../Components/ScholarDetails/DetailsCard";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import ReviewSlider from "../../Components/ScholarDetails/ReviewSlider";
+import { Helmet } from "react-helmet-async";
 
 const ScholarshipDetails = () => {
   const { id } = useParams();
@@ -33,6 +34,9 @@ const ScholarshipDetails = () => {
   console.log(reviews);
   return (
     <div className="pt-25">
+      <Helmet>
+        <title>All Scholarship Details || Edufellow</title>
+      </Helmet>
       <div className="max-w-[1500px] mx-auto px-4">
         {/* Details Card */}
         <h1>Scholarship Details</h1>

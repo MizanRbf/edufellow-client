@@ -4,6 +4,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import Loader from "../../Shared/Loader";
 import MyApplicationTable from "../../Components/MyApplications/MyApplicationTable";
+import { Helmet } from "react-helmet-async";
 
 const MyApplication = () => {
   const { user } = useAuth();
@@ -33,6 +34,9 @@ const MyApplication = () => {
 
   return (
     <div className="overflow-x-auto pr-4">
+      <Helmet>
+        <title>My Application || Edufellow</title>
+      </Helmet>
       <h1>My Applications</h1>
       {/* Blank Page */}
       {myApplications.length === 0 && (

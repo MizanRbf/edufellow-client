@@ -2,6 +2,7 @@ import React from "react";
 import Loader from "../../Shared/Loader";
 import ReviewCard from "../../Components/AllReviews/ReviewCard";
 import useReviews from "../../Hooks/useReviews";
+import { Helmet } from "react-helmet-async";
 
 const AllReviews = () => {
   const { allReviews, isPending, isError, error } = useReviews();
@@ -14,6 +15,9 @@ const AllReviews = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>All Reviews || Edufellow</title>
+      </Helmet>
       <h1 className="mb-6">All Reviews</h1>
       {/* Blank Page */}
       {allReviews.length === 0 && (

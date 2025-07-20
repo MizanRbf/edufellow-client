@@ -4,6 +4,7 @@ import Applicant from "../../Components/AppliedScholarships/Applicant";
 import useApplications from "../../Hooks/useApplications";
 import EmptyState from "../../Shared/EmptyState";
 import DeleteRejectedButton from "../../Shared/DeleteRejectedButton";
+import { Helmet } from "react-helmet-async";
 
 const AllAppliedScholarship = () => {
   // Get Applied Applicants
@@ -47,6 +48,9 @@ const AllAppliedScholarship = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>All Applied Scholarship Scholarship || Edufellow</title>
+      </Helmet>
       <div className="flex justify-between items-center">
         <h1>Manage Applications</h1>
         <div className="flex justify-center mb-4">

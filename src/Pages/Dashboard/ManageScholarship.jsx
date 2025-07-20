@@ -2,6 +2,7 @@ import React from "react";
 import Loader from "../../Shared/Loader";
 import ManageScholarTable from "../../Components/ManageScholarships/ManageScholarTable";
 import useScholarships from "../../Hooks/useScholarships";
+import { Helmet } from "react-helmet-async";
 
 const ManageScholarship = () => {
   // Get
@@ -20,6 +21,9 @@ const ManageScholarship = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Manage Scholarship || Edufellow</title>
+      </Helmet>
       <h1>Manage Scholarship</h1>
       {/* Blank Page */}
       {allScholarships.length === 0 && (

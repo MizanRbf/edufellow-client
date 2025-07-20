@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 import AppFormPage from "../../Components/ApplicationForm/AppFromPage";
+import { warning } from "motion";
 
 const ApplicationForm = () => {
   const { scholarshipId } = useParams();
@@ -42,7 +43,12 @@ const ApplicationForm = () => {
     const imageFile = formData.get("photo");
 
     if (!imageFile || !imageFile.name) {
-      alert("Please Upload an Image");
+      Swal.fire({
+        icon: "warning",
+        title: "Missing Image",
+        text: "Please upload an image before submitting.",
+        confirmButtonText: "OK",
+      });
       return;
     }
 
@@ -84,24 +90,38 @@ const ApplicationForm = () => {
     // Save applicantsInfo in DB
     try {
       const res = await axiosSecure.post("/applicants", applicantsInfo);
-      if (res.data.insertedId) {
+      if (res.data?.success === false) {
         Swal.fire({
-          title: "Proceed to Payment!",
-          icon: "success",
-          draggable: true,
+          icon: "warning",
+          title: "Duplicate Application",
+          text: res.data.message || "You already applied for this scholarship.",
         });
+        return;
       }
-      form.reset();
-      navigate(`/payment/${scholarshipId}`);
+
+      if (res.data?.success && res.data?.data?.insertedId) {
+        Swal.fire({
+          title: res.data.message || "Proceed to Payment!",
+          icon: "success",
+          confirmButtonText: "Proceed to payment",
+        });
+
+        form.reset();
+        navigate(`/payment/${scholarshipId}`);
+      }
     } catch (err) {
-      setErrorMessage(err.message);
+      const serverMessage =
+        err.response?.data?.message ||
+        "Something went wrong. Please try again.";
 
       Swal.fire({
         icon: "error",
-        title: errorMessage,
-        text: "Something went wrong!",
+        title: "Application Failed",
+        text: serverMessage,
         footer: '<a href="#">Why do I have this issue?</a>',
       });
+
+      setErrorMessage(serverMessage); // Optional
     }
   };
 

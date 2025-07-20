@@ -2,6 +2,7 @@ import React from "react";
 import AddForm from "../../Components/Dashboard/RightSide/AddScholarship/AddForm";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddScholarship = () => {
   // handleSubmitScholarship
@@ -59,6 +60,9 @@ const AddScholarship = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Add Scholarship || Edufellow</title>
+      </Helmet>
       {/* Add Form */}
       <div className="m-6 p-4 shadow-lg">
         <h1>Fill the Form</h1>

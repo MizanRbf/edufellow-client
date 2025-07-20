@@ -2,6 +2,7 @@ import React from "react";
 import Loader from "../../Shared/Loader";
 import ManageReviewTable from "../../Components/ManageReview/ManageReviewTable";
 import useReviews from "../../Hooks/useReviews";
+import { Helmet } from "react-helmet-async";
 
 const MangeReview = () => {
   const { allReviews: manageReview, isPending, isError, error } = useReviews();
@@ -14,6 +15,9 @@ const MangeReview = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Manage Reviews || Edufellow</title>
+      </Helmet>
       <h1 className="mb-6">Manage Review</h1>
       {/* Blank Page */}
       {manageReview.length === 0 && (

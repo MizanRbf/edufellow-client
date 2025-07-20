@@ -6,6 +6,7 @@ import SearchBar from "../../Pages/AllScholarship/SearchBar";
 import { useEffect, useState } from "react";
 import EmptyState from "../../Shared/EmptyState";
 import Pagination from "../../Components/AllScholarship/Pagination";
+import { Helmet } from "react-helmet-async";
 
 const AllScholarship = () => {
   const [filteredScholarships, setFilteredScholarships] = useState([]);
@@ -60,6 +61,9 @@ const AllScholarship = () => {
 
   return (
     <div className="pt-25 pb-20">
+      <Helmet>
+        <title>All Scholarship || Edufellow</title>
+      </Helmet>
       <div className="max-w-[1500px] mx-auto px-4">
         <div className="my-10">
           <h1 className="mb-2">All Scholarship</h1>

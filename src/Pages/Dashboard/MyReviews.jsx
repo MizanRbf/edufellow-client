@@ -5,6 +5,7 @@ import useAuth from "../../Hooks/useAuth";
 import Loader from "../../Shared/Loader";
 import MyReviewCard from "../../Components/MyReviews/MyReviewCard";
 import EmptyState from "../../Shared/EmptyState";
+import { Helmet } from "react-helmet-async";
 
 const MyReviews = () => {
   const { user } = useAuth();
@@ -32,6 +33,9 @@ const MyReviews = () => {
   }
   return (
     <div className="overflow-x-auto pr-4">
+      <Helmet>
+        <title>My Reviews || Edufellow</title>
+      </Helmet>
       <h1>My Reviews</h1>
 
       {/* Blank Page */}

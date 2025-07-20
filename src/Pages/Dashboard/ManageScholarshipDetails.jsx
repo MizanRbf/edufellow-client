@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router";
 import Loader from "../../Shared/Loader";
 import ManageScholarDetailsCard from "../../Components/ManageScholarships/ManageScholarDetailsCard";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ManageScholarshipDetails = () => {
   const axiosSecure = useAxiosSecure();
@@ -20,6 +21,9 @@ const ManageScholarshipDetails = () => {
 
   return (
     <div className="pt-25">
+      <Helmet>
+        <title>Manage Scholarship Details || Edufellow</title>
+      </Helmet>
       <div className="max-w-[1500px] mx-auto px-4">
         <h1>Scholarship Details</h1>
         <div>

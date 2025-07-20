@@ -1,10 +1,14 @@
 import React from "react";
 import Slider from "./Slider";
 import TopScholarship from "./TopScholarship/TopScholarship";
+import { Helmet } from "react-helmet-async";
 
 const HomePage = () => {
   return (
     <div className="max-w-[1500px] mx-auto px-4">
+      <Helmet>
+        <title>Home || Edufellow</title>
+      </Helmet>
       {/* Slider */}
       <div className="mb-15">
         <Slider></Slider>

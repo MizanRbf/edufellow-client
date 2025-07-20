@@ -21,18 +21,38 @@ const Modal = ({ application }) => {
     // Review stored in DB
     try {
       const res = await axiosSecure.post("/reviews", reviewData);
-      if (res.data.insertedId) {
+
+      // Case 1: Duplicate review
+      if (res.data?.success === false) {
         Swal.fire({
-          title: "Review added successfully!",
+          icon: "warning",
+          title: "Duplicate Review",
+          text:
+            res.data.message ||
+            "You have already submitted a review for this scholarship.",
+        });
+        return;
+      }
+
+      // Case 2: Review successfully submitted
+      if (res.data?.success && res.data?.data?.insertedId) {
+        Swal.fire({
+          title: res.data.message || "Review submitted successfully!",
           icon: "success",
-          draggable: true,
+          confirmButtonText: "OK",
         });
       }
     } catch (error) {
+      // Case 3: Unexpected server/network error
+      const serverMessage =
+        error.response?.data?.message ||
+        "Something went wrong. Please try again.";
+
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: error.message,
+        title: "Review Submission Failed",
+        text: serverMessage,
+        footer: '<a href="#">Why do I have this issue?</a>',
       });
     }
   };

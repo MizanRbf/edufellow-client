@@ -4,6 +4,7 @@ import Loader from "../../Shared/Loader";
 import UserCard from "../../Components/ManageUsers/UserCard";
 import EmptyState from "../../Shared/EmptyState";
 import useUsers from "../../Hooks/useUsers";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
   const [selectedRole, setSelectedRole] = useState("all");
@@ -20,6 +21,9 @@ const ManageUsers = () => {
 
   return (
     <div className="pr-4 overflow-x-auto">
+      <Helmet>
+        <title>Manage Users || Edufellow</title>
+      </Helmet>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-xl font-bold">Manage Users</h1>
 

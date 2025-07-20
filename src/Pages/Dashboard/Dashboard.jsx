@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router";
 import LeftSide from "../../Components/Dashboard/LeftSide/LeftSide";
 import DashBar from "../../Components/Dashboard/RightSide/DashBar/DashBar";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
@@ -24,6 +25,9 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Dashboard || Edufellow</title>
+      </Helmet>
       <div className="flex flex-col md:flex-row relative max-h-screen">
         {/* Left Side */}
         <div

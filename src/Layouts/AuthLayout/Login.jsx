@@ -5,6 +5,7 @@ import SocialLogin from "./SocialLogin";
 import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../Hooks/useAuth";
+import { ClockLoader } from "react-spinners";
 
 const Section = ({ children }) => (
   <motion.div
@@ -21,6 +22,7 @@ const Login = () => {
   const location = useLocation();
   const { loginUser, setUser } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const from = location.state || "/";
 
@@ -38,7 +40,9 @@ const Login = () => {
         setUser(result.user);
         navigate(from);
       })
+
       .catch((error) => setErrorMessage(error.message));
+    setLoading(false);
   };
 
   return (
@@ -77,14 +81,18 @@ const Login = () => {
               name="password"
               placeholder="Password"
             />
-            <div>
+            {/* <div>
               <a className="link link-hover">Forgot password?</a>
-            </div>
+            </div> */}
 
             {/* Error Message */}
             <p className="text-red-500">{errorMessage}</p>
-            <button type="submit" className="btn  mt-4 button">
-              Login
+            <button
+              onClick={() => setLoading(true)}
+              type="submit"
+              className="btn  mt-4 button"
+            >
+              {loading ? <ClockLoader size={20} color="white" /> : "Login"}
             </button>
           </form>
 

@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const userInfo = { email: currentUser.email };
         axios
-          .post("http://localhost:3000/jwt", userInfo)
+          .post("https://edufellow-server.vercel.app/jwt", userInfo)
           .then((res) => {
             const token = res.data.token;
             localStorage.setItem("token", token);

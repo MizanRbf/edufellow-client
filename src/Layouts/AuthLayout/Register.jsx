@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { ClockLoader } from "react-spinners";
 const Section = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, y: 0 }}
@@ -18,6 +19,7 @@ const Register = () => {
   const { createUser, updateUser } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   // Handle Register
   const handleRegister = async (e) => {
@@ -49,7 +51,7 @@ const Register = () => {
       photoURL: photo,
     };
 
-    setErrorMessage("");
+    setLoading(false);
 
     try {
       // Step 1: Create User
@@ -153,8 +155,12 @@ const Register = () => {
             {/* Error Message */}
             <p className="text-red-500">{errorMessage}</p>
 
-            <button type="submit" className="btn  mt-4 button">
-              Register
+            <button
+              type="submit"
+              onClick={() => setLoading(true)}
+              className="btn  mt-4 button"
+            >
+              {loading ? <ClockLoader size={20} color="white" /> : "Register"}
             </button>
           </form>
           <p className="text-center">

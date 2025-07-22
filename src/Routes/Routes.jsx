@@ -5,7 +5,6 @@ import Register from "../Layouts/AuthLayout/Register";
 import HomePage from "../Pages/Home/HomePage";
 import RootLayout from "../Layouts/RootLayout/RootLayout";
 import AllScholarship from "../Pages/AllScholarship/AllScholarship";
-import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import AddScholarship from "../Pages/Dashboard/AddScholarship";
 import MyProfile from "../Pages/Dashboard/MyProfile";
@@ -25,7 +24,8 @@ import Loader from "../Shared/Loader";
 import UpdateMyApplication from "../Pages/Dashboard/Update/MyApplication/UpdateMyApplication";
 import ManageScholarshipDetails from "../Pages/Dashboard/ManageScholarshipDetails";
 import ErrorPage from "../Shared/ErrorPage";
-
+import PrivateRoute from "../Routes/PrivateRoute";
+import ScholarshipByCountry from "../Pages/ScholarshipByCountry/ScholarshipByCountry";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -37,7 +37,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/payment/:scholarshipId",
-        element: <Payment></Payment>,
+        element: (
+          <PrivateRoute>
+            <Payment></Payment>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allScholarship",
@@ -45,15 +49,26 @@ export const router = createBrowserRouter([
       },
       {
         path: "/scholarship/:id",
-        element: <ScholarshipDetails></ScholarshipDetails>,
+        element: (
+          <PrivateRoute>
+            <ScholarshipDetails></ScholarshipDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/applicationForm/:scholarshipId",
-        element: <ApplicationForm></ApplicationForm>,
+        element: (
+          <PrivateRoute>
+            <ApplicationForm></ApplicationForm>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/scholarshipByCountry/:country",
+        element: <ScholarshipByCountry></ScholarshipByCountry>,
       },
     ],
   },
-
   // Dashboard Routes
   {
     path: "/dashboard",
@@ -65,59 +80,107 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <OverViewPage></OverViewPage>,
+        element: (
+          <PrivateRoute>
+            <OverViewPage></OverViewPage>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myProfile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myApplication",
-        element: <MyApplication></MyApplication>,
+        element: (
+          <PrivateRoute>
+            <MyApplication></MyApplication>
+          </PrivateRoute>
+        ),
       },
       {
         path: "updateMyApplication/:id",
         loader: async ({ params }) => {
           const res = await axios.get(
-            `http://localhost:3000/myApplication/${params.id}`
+            `https://edufellow-server.vercel.app/myApplication/${params.id}`
           );
           return res.data;
         },
         errorElement: <Loader />,
-        element: <UpdateMyApplication />,
+        element: (
+          <PrivateRoute>
+            <UpdateMyApplication />
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "myReviews",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
       },
       {
         path: "addScholarship",
-        element: <AddScholarship></AddScholarship>,
+        element: (
+          <PrivateRoute>
+            <AddScholarship></AddScholarship>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manageScholarship",
-        element: <ManageScholarship></ManageScholarship>,
+        element: (
+          <PrivateRoute>
+            <ManageScholarship></ManageScholarship>
+          </PrivateRoute>
+        ),
       },
       {
         path: "allAppliedScholarship",
-        element: <AllAppliedScholarship></AllAppliedScholarship>,
+        element: (
+          <PrivateRoute>
+            <AllAppliedScholarship></AllAppliedScholarship>
+          </PrivateRoute>
+        ),
       },
       {
         path: "scholarship2/:id",
-        element: <ManageScholarshipDetails></ManageScholarshipDetails>,
+        element: (
+          <PrivateRoute>
+            <ManageScholarshipDetails></ManageScholarshipDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "allReviews",
-        element: <AllReviews></AllReviews>,
+        element: (
+          <PrivateRoute>
+            <AllReviews></AllReviews>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manageReview",
-        element: <ManageReview></ManageReview>,
+        element: (
+          <PrivateRoute>
+            <ManageReview></ManageReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manageUsers",
-        element: <ManageUsers></ManageUsers>,
+        element: (
+          <PrivateRoute>
+            <ManageUsers></ManageUsers>
+          </PrivateRoute>
+        ),
       },
     ],
   },

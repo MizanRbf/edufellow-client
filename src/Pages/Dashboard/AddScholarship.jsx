@@ -44,7 +44,7 @@ const AddScholarship = () => {
 
     // Add scholarship data to DB
     axios
-      .post("http://localhost:3000/scholarships", scholarshipData)
+      .post("https://edufellow-server.vercel.app/scholarships", scholarshipData)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

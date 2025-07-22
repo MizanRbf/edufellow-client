@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "./Slider";
 import TopScholarship from "./TopScholarship/TopScholarship";
 import { Helmet } from "react-helmet-async";
+import ExploreByCountry from "./ExploreByCountry/ExploreByCountry";
 
 const HomePage = () => {
   return (
@@ -14,20 +15,16 @@ const HomePage = () => {
         <Slider></Slider>
       </div>
 
+      {/* Scholarship Categories */}
+      <div className="mb-15">
+        <h1 className="mb-8">Explore by Country</h1>
+        <ExploreByCountry></ExploreByCountry>
+      </div>
+
       {/* Top Scholarships */}
       <div className="mb-15">
         <h1 className="mb-8">Top Scholarships</h1>
         <TopScholarship></TopScholarship>
-      </div>
-
-      {/* Popular Universities */}
-      <div className="mb-15">
-        <h1 className="mb-8">Popular Universities</h1>
-      </div>
-
-      {/* Scholarship Categories */}
-      <div className="mb-15">
-        <h1 className="mb-8">Scholarship Categories</h1>
       </div>
 
       {/* Why Choose Us */}
@@ -36,18 +33,10 @@ const HomePage = () => {
       </div>
 
       {/* Success Stories */}
-      <div className="mb-15">
-        <h1 className="mb-8">Success Stories</h1>
-      </div>
 
       {/* How It Works */}
       <div className="mb-15">
         <h1 className="mb-8">How It Works</h1>
-      </div>
-
-      {/* Newsletter */}
-      <div className="mb-15">
-        <h1 className="mb-8">Newsletter</h1>
       </div>
     </div>
   );

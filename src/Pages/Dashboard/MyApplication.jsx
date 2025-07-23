@@ -5,6 +5,7 @@ import useAuth from "../../Hooks/useAuth";
 import Loader from "../../Shared/Loader";
 import MyApplicationTable from "../../Components/MyApplications/MyApplicationTable";
 import { Helmet } from "react-helmet-async";
+import EmptyState from "../../Shared/EmptyState";
 
 const MyApplication = () => {
   const { user } = useAuth();

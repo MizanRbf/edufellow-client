@@ -51,7 +51,7 @@ const ManageScholarTable = ({ scholarship, index }) => {
                 icon: "success",
               });
               // Update cache
-              queryClient.setQueryData(["allScholarships"], (oldData) =>
+              queryClient.setQueryData(["scholarships"], (oldData) =>
                 oldData?.filter((scholarship) => scholarship._id !== id)
               );
             }

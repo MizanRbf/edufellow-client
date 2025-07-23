@@ -3,6 +3,7 @@ import Loader from "../../Shared/Loader";
 import ManageScholarTable from "../../Components/ManageScholarships/ManageScholarTable";
 import useScholarships from "../../Hooks/useScholarships";
 import { Helmet } from "react-helmet-async";
+import EmptyState from "../../Shared/EmptyState";
 
 const ManageScholarship = () => {
   // Get

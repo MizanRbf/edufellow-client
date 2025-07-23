@@ -3,6 +3,7 @@ import Loader from "../../Shared/Loader";
 import ReviewCard from "../../Components/AllReviews/ReviewCard";
 import useReviews from "../../Hooks/useReviews";
 import { Helmet } from "react-helmet-async";
+import EmptyState from "../../Shared/EmptyState";
 
 const AllReviews = () => {
   const { allReviews, isPending, isError, error } = useReviews();

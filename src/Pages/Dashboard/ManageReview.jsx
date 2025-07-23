@@ -3,6 +3,7 @@ import Loader from "../../Shared/Loader";
 import ManageReviewTable from "../../Components/ManageReview/ManageReviewTable";
 import useReviews from "../../Hooks/useReviews";
 import { Helmet } from "react-helmet-async";
+import EmptyState from "../../Shared/EmptyState";
 
 const MangeReview = () => {
   const { allReviews: manageReview, isPending, isError, error } = useReviews();

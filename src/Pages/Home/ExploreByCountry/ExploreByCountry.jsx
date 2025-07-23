@@ -1,7 +1,5 @@
 import React from "react";
 import CategoryCard from "../../../Components/ExploreByCountry/CategoryCard";
-import useScholarships from "../../../Hooks/useScholarships";
-import Loader from "../../../Shared/Loader";
 
 const Countries = [
   {
@@ -52,18 +50,10 @@ const Countries = [
 ];
 
 const ExploreByCountry = () => {
-  const { scholarships, isPending } = useScholarships();
-  if (isPending) {
-    return <Loader></Loader>;
-  }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {Countries.map((country) => (
-        <CategoryCard
-          key={country.id}
-          scholarships={scholarships}
-          country={country}
-        ></CategoryCard>
+        <CategoryCard key={country.id} country={country}></CategoryCard>
       ))}
     </div>
   );

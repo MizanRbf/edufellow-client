@@ -9,11 +9,7 @@ import { Helmet } from "react-helmet-async";
 const ScholarshipByCountry = () => {
   const axiosSecure = useAxiosSecure();
   const { country } = useParams();
-  const {
-    data: scholarships,
-    isPending,
-    isError,
-  } = useQuery({
+  const { data: scholarships, isPending } = useQuery({
     queryKey: ["scholarships", country],
     queryFn: async () => {
       const res = await axiosSecure(`/scholarshipByCountry/${country}`);

@@ -3,6 +3,7 @@ import Slider from "./Slider";
 import TopScholarship from "./TopScholarship/TopScholarship";
 import { Helmet } from "react-helmet-async";
 import ExploreByCountry from "./ExploreByCountry/ExploreByCountry";
+import WhyChooseUs from "./WhyChooseUs/WhyChooseUs";
 
 const HomePage = () => {
   return (
@@ -30,6 +31,7 @@ const HomePage = () => {
       {/* Why Choose Us */}
       <div className="mb-15">
         <h1 className="mb-8">Why Choose Us</h1>
+        <WhyChooseUs></WhyChooseUs>
       </div>
 
       {/* Success Stories */}

@@ -4,6 +4,7 @@ import TopScholarship from "./TopScholarship/TopScholarship";
 import { Helmet } from "react-helmet-async";
 import ExploreByCountry from "./ExploreByCountry/ExploreByCountry";
 import WhyChooseUs from "./WhyChooseUs/WhyChooseUs";
+import HowItWorks from "./HowItWorks/HowItWorks";
 
 const HomePage = () => {
   return (
@@ -12,33 +13,34 @@ const HomePage = () => {
         <title>Home || Edufellow</title>
       </Helmet>
       {/* Slider */}
-      <div className="mb-15">
+      <div className="mb-20">
         <Slider></Slider>
       </div>
 
       {/* Scholarship Categories */}
-      <div className="mb-15">
-        <h1 className="mb-8">Explore by Country</h1>
+      <div className="mb-20">
+        <h1 className="mb-8 text-center ">Explore by Country</h1>
         <ExploreByCountry></ExploreByCountry>
       </div>
 
       {/* Top Scholarships */}
-      <div className="mb-15">
-        <h1 className="mb-8">Top Scholarships</h1>
+      <div className="mb-20">
+        <h1 className="mb-8 text-center ">Top Scholarships</h1>
         <TopScholarship></TopScholarship>
       </div>
 
       {/* Why Choose Us */}
-      <div className="mb-15">
-        <h1 className="mb-8">Why Choose Us</h1>
+      <div className="mb-20">
+        <h1 className="mb-8 text-center ">Why Choose Us</h1>
         <WhyChooseUs></WhyChooseUs>
       </div>
 
       {/* Success Stories */}
 
       {/* How It Works */}
-      <div className="mb-15">
-        <h1 className="mb-8">How It Works</h1>
+      <div className="mb-20">
+        <h1 className="mb-8 text-center ">How It Works</h1>
+        <HowItWorks></HowItWorks>
       </div>
     </div>
   );

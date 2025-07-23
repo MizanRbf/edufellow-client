@@ -64,19 +64,21 @@ const AddScholarship = () => {
       <Helmet>
         <title>Add Scholarship || Edufellow</title>
       </Helmet>
-      <div className="m-6 md:m-10 p-6 md:p-10 bg-white rounded-lg shadow-2xl border border-gray-100 relative z-0">
-        {/* Title Section */}
-        <div className="flex justify-center mb-10">
-          <div className="relative inline-block">
-            <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 shadow-xl rounded-md"></div>
-            <h1 className="relative text-white text-3xl md:text-4xl font-bold tracking-wide uppercase px-8 py-4">
-              Fill the Form
-            </h1>
-          </div>
-        </div>
 
-        {/* Form Component */}
-        <AddForm handleSubmitScholarship={handleSubmitScholarship} />
+      {/* Title */}
+      <div className="flex justify-center mt-5 md:mt-5 mb-6">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+          <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+            Fill the form
+          </h1>
+        </div>
+      </div>
+
+      <div>
+        <div className="p-6 md:p-10 bg-white rounded-lg shadow-2xl border border-gray-100 relative z-0">
+          {/* Form Component */}
+          <AddForm handleSubmitScholarship={handleSubmitScholarship} />
+        </div>
       </div>
     </div>
   );

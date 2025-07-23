@@ -59,47 +59,57 @@ const MyApplicationTable = ({ application, index }) => {
   };
 
   return (
-    <tr className="border-2 border-slate-200">
-      <th>{index + 1}</th>
-      <td>
+    <tr className="border border-slate-300 hover:bg-gray-50 transition-colors duration-200">
+      <th className="py-3 px-4 text-center text-gray-700 font-medium">
+        {index + 1}
+      </th>
+
+      <td className="py-2 px-4">
         <img
-          className="rounded-xl md:max-w-20 md:h-20 min-w-30 h-30 border-2 p-1 border-primary"
+          className="rounded-xl max-w-[80px] h-[80px] object-cover border-2 border-primary p-1"
           src={photo}
-          alt=""
+          alt={`${university_name} logo`}
         />
       </td>
-      <td>{university_name}</td>
-      <td>{university_address}</td>
-      <td>{feedback}</td>
-      <td>{subject_category}</td>
-      <td>{applying_degree}</td>
-      <td>{application_fees}</td>
-      <td>{service_charge}</td>
-      <td>
+
+      <td className="py-3 px-4 text-gray-800 font-semibold">
+        {university_name}
+      </td>
+      <td className="py-3 px-4 text-gray-600">{university_address}</td>
+      <td className="py-3 px-4 text-gray-700">{feedback}</td>
+      <td className="py-3 px-4 text-gray-700">{subject_category}</td>
+      <td className="py-3 px-4 text-gray-700">{applying_degree}</td>
+      <td className="py-3 px-4 text-gray-700">{application_fees}</td>
+      <td className="py-3 px-4 text-gray-700">{service_charge}</td>
+
+      <td className="py-3 px-4 text-center">
         <span
-          className={`rounded-full font-semibold py-1  px-3 ${
-            application.status === "pending"
-              ? " bg-orange-100 text-orange-500"
-              : application.status === "processing"
-              ? "bg-violet-100 text-violet-500"
-              : application.status === "completed"
-              ? "bg-green-100 text-green-600"
-              : " text-red-500 bg-red-100"
-          }`}
+          className={`inline-block rounded-full font-semibold py-1 px-3 text-sm
+        ${
+          application.status === "pending"
+            ? "bg-orange-100 text-orange-600"
+            : application.status === "processing"
+            ? "bg-violet-100 text-violet-600"
+            : application.status === "completed"
+            ? "bg-green-100 text-green-600"
+            : "bg-red-100 text-red-600"
+        }`}
         >
           {status}
         </span>
       </td>
 
-      <td>
-        <div className="flex items-center gap-3">
+      <td className="py-3 px-4">
+        <div className="flex items-center gap-3 justify-center">
           {/* Details Button */}
-          <MyApplicationModal application={application}></MyApplicationModal>
+          <MyApplicationModal application={application} />
 
           {/* Edit Button */}
           <button
-            className={`p-2 rounded-sm text-white btn border-0 ${
-              status === "pending" ? "bg-blue-700" : "bg-gray-400"
+            className={`p-2 rounded-md text-white btn border-0 ${
+              status === "pending"
+                ? "bg-blue-700 hover:bg-blue-800"
+                : "bg-gray-400 cursor-not-allowed"
             }`}
             onClick={() => {
               if (status === "pending") {
@@ -112,6 +122,7 @@ const MyApplicationTable = ({ application, index }) => {
                 });
               }
             }}
+            disabled={status !== "pending"}
           >
             <MdEdit size={20} />
           </button>
@@ -119,13 +130,13 @@ const MyApplicationTable = ({ application, index }) => {
           {/* Cancel Button */}
           <button
             onClick={() => handleCancel(application?._id)}
-            className="bg-red-700 p-2 rounded-sm text-white btn border-0"
+            className="bg-red-700 p-2 rounded-md text-white btn border-0 hover:bg-red-800"
           >
             <MdCancel size={20} />
           </button>
 
           {/* Review Button */}
-          <Modal application={application}></Modal>
+          <Modal application={application} />
         </div>
       </td>
     </tr>

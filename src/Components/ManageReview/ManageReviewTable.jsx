@@ -11,31 +11,42 @@ const ManageReviewTable = ({ manageSingleReview }) => {
     commentReview,
   } = manageSingleReview;
   return (
-    <div className="border rounded-sm border-primary p-4 flex gap-4">
-      {/* image */}
-      <div className="">
-        <img className="w-full mb-3 rounded-sm" src={user_photo} alt="" />
+    <div className="border border-primary rounded-lg p-6 flex gap-6 bg-white shadow-md max-w-xl mx-auto">
+      {/* Image */}
+      <div className="flex-shrink-0 w-28 h-28">
+        <img
+          className="w-full h-full object-cover rounded-lg shadow-sm"
+          src={user_photo}
+          alt={`${user_name}'s photo`}
+        />
       </div>
 
       {/* Content */}
-      <div>
-        <h3>{user_name}</h3>
-        <p>
-          <span className="font-semibold">University: </span>
+      <div className="flex flex-col justify-between">
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+          {user_name}
+        </h3>
+
+        <p className="text-gray-700">
+          <span className="font-semibold text-primary">University: </span>
           {university_name}
         </p>
-        <p>
-          <span className="font-semibold">Subject: </span>
+
+        <p className="text-gray-700">
+          <span className="font-semibold text-primary">Subject: </span>
           {subject_category}
         </p>
-        <p>{review_date}</p>
-        <p>
-          <span className="font-semibold">Ratings: </span>
-          {rating}
+
+        <p className="text-gray-500 text-sm italic mb-3">{review_date}</p>
+
+        <p className="text-gray-700">
+          <span className="font-semibold text-primary">Ratings: </span>
+          <span className="text-yellow-500">{rating} ★</span>
         </p>
-        <p>
-          <span className="font-semibold">Comment: </span>
-          {commentReview}
+
+        <p className="text-gray-700 mt-3">
+          <span className="font-semibold text-primary">Comment: </span>
+          <span className="italic">"{commentReview}"</span>
         </p>
       </div>
     </div>

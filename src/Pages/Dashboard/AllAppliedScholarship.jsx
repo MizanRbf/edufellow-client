@@ -47,67 +47,95 @@ const AllAppliedScholarship = () => {
     console.log(error.message);
   }
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50 p-4 md:p-10">
       <Helmet>
-        <title>All Applied Scholarship Scholarship || Edufellow</title>
+        <title>All Applied Scholarship || Edufellow</title>
       </Helmet>
-      <div className="flex justify-between items-center">
-        <h1>Manage Applications</h1>
-        <div className="flex justify-center mb-4">
-          <DeleteRejectedButton />
-          <select
-            onChange={(e) => setSortOption(e.target.value)}
-            className="select select-bordered w-full max-w-xs"
-            value={sortOption}
-          >
-            <option value="">Sort/Filter By</option>
-            <option value="applied_dateLatest">Applied Date (Latest)</option>
-            <option value="applied_dateOldest">Applied Date (Oldest)</option>
-            <option value="deadlineSoonest">
-              Scholarship Deadline (Soonest)
-            </option>
-            <option value="deadlineLatest">
-              Scholarship Deadline (Latest)
-            </option>
-          </select>
+
+      {/* Title */}
+      <div className="flex justify-center mt-5 md:mt-10 mb-6">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-10 py-5 shadow-2xl rounded-lg">
+          <h1 className="transform skew-x-12 text-white text-3xl md:text-4xl font-extrabold uppercase tracking-widest select-none">
+            Manage Applications
+          </h1>
         </div>
       </div>
 
-      {/* Blank Page */}
+      {/* Controls */}
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 md:gap-0 max-w-5xl mx-auto">
+        <div className="flex justify-center">
+          <DeleteRejectedButton />
+        </div>
+
+        <select
+          onChange={(e) => setSortOption(e.target.value)}
+          className="select select-bordered w-full max-w-xs md:max-w-sm"
+          value={sortOption}
+          aria-label="Sort or filter applications"
+        >
+          <option value="">Sort/Filter By</option>
+          <option value="applied_dateLatest">Applied Date (Latest)</option>
+          <option value="applied_dateOldest">Applied Date (Oldest)</option>
+          <option value="deadlineSoonest">
+            Scholarship Deadline (Soonest)
+          </option>
+          <option value="deadlineLatest">Scholarship Deadline (Latest)</option>
+        </select>
+      </div>
+
+      {/* Blank State */}
       {sortedApplications.length === 0 && (
         <EmptyState
           message="No Applied Scholarship found!"
           buttonText="Go Back"
           redirectPath={-1}
-        ></EmptyState>
+        />
       )}
-      <table className="table">
-        {/* head */}
 
-        <thead
-          className={`text-lg ${sortedApplications.length < 1 && "hidden"}`}
-        >
-          <tr className="text-primary">
-            <th>No.</th>
-            <th>Image</th>
-            <th>University Name</th>
-            <th>Scholarship Category</th>
-            <th>Subject Category</th>
-            <th>Feedback</th>
-            <th>Application Status</th>
-          </tr>
-        </thead>
+      {/* Table Container */}
+      <div className="overflow-x-auto shadow-lg rounded-lg max-w-7xl mx-auto bg-white border border-gray-200">
+        <table className="min-w-full border-collapse rounded-lg">
+          {/* Head */}
+          <thead
+            className={`${
+              sortedApplications.length < 1 ? "hidden" : ""
+            } bg-primary sticky top-0 z-20 shadow-md`}
+          >
+            <tr>
+              {[
+                "No.",
+                "Image",
+                "University Name",
+                "Scholarship Category",
+                "Subject Category",
+                "Feedback",
+                "Application Status",
+              ].map((title, idx) => (
+                <th
+                  key={idx}
+                  className={`py-3 px-5 text-left text-sm font-semibold text-white uppercase tracking-wide ${
+                    idx < 6 ? "border-r" : ""
+                  }`}
+                >
+                  {title}
+                </th>
+              ))}
+            </tr>
+          </thead>
 
-        <tbody>
-          {sortedApplications.map((applicant, index) => (
-            <Applicant
-              key={applicant._id}
-              applicant={applicant}
-              index={index}
-            ></Applicant>
-          ))}
-        </tbody>
-      </table>
+          {/* Body */}
+          <tbody>
+            {sortedApplications.map((applicant, index) => (
+              <Applicant
+                key={applicant._id}
+                applicant={applicant}
+                index={index}
+                className="odd:bg-white even:bg-gray-50 hover:bg-indigo-100 transition-colors duration-200 cursor-pointer"
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

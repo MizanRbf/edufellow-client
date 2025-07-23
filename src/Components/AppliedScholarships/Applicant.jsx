@@ -55,47 +55,56 @@ const Applicant = ({ applicant, index }) => {
   };
 
   return (
-    <tr className="border-2 border-slate-200">
-      <th>{index + 1}</th>
-      <td>
+    <tr className="border border-slate-300 hover:bg-gray-50 transition-colors duration-200">
+      <th className="py-3 px-4 text-center text-gray-700 font-semibold">
+        {index + 1}
+      </th>
+
+      <td className="py-2 px-4">
         <img
-          className="rounded-xl md:max-w-20 md:h-20 min-w-30 h-30 border-2 p-1 border-primary"
+          className="rounded-xl max-w-[80px] h-[80px] object-cover border-2 p-1 border-primary"
           src={photo}
-          alt=""
+          alt={`${university_name} logo`}
         />
       </td>
-      <td>{university_name}</td>
-      <td>{scholarship_category}</td>
-      <td>{subject_category}</td>
-      <td>{feedback}</td>
-      <td>
+
+      <td className="py-3 px-4 text-gray-800 font-semibold">
+        {university_name}
+      </td>
+      <td className="py-3 px-4 text-gray-700">{scholarship_category}</td>
+      <td className="py-3 px-4 text-gray-700">{subject_category}</td>
+      <td className="py-3 px-4 text-gray-700">{feedback}</td>
+
+      <td className="py-3 px-4 text-center">
         <span
-          className={`rounded-full font-semibold py-1  px-3 ${
-            applicant.status === "pending"
-              ? " bg-orange-100 text-orange-500"
-              : applicant.status === "processing"
-              ? "bg-violet-100 text-violet-500"
-              : applicant.status === "completed"
-              ? "bg-green-100 text-green-600"
-              : " text-red-500 bg-red-100"
-          }`}
+          className={`inline-block rounded-full font-semibold py-1 px-3 text-sm
+        ${
+          applicant.status === "pending"
+            ? "bg-orange-100 text-orange-600"
+            : applicant.status === "processing"
+            ? "bg-violet-100 text-violet-600"
+            : applicant.status === "completed"
+            ? "bg-green-100 text-green-600"
+            : "bg-red-100 text-red-600"
+        }`}
         >
           {status}
         </span>
       </td>
-      <td>
-        <div className="flex items-center gap-3">
+
+      <td className="py-3 px-4">
+        <div className="flex flex-nowrap items-center gap-x-3 overflow-x-auto">
           {/* Details Button */}
-          <ApplicantsModal applicant={applicant}></ApplicantsModal>
+          <ApplicantsModal applicant={applicant} />
 
           {/* Feedback Button */}
-          <FeedbackModal applicant={applicant}></FeedbackModal>
+          <FeedbackModal applicant={applicant} />
 
           {/* Cancel Button */}
-
           <button
             onClick={() => handleStatusUpdate(applicant?._id, "rejected")}
-            className="btn btn-outline btn-error flex items-center gap-2 text-red-600 hover:bg-red-600 hover:text-white"
+            className="btn btn-outline btn-error flex items-center gap-2 text-red-600 hover:bg-red-600 hover:text-white transition whitespace-nowrap"
+            title="Cancel Application"
           >
             <MdCancel size={20} />
             Cancel
@@ -103,16 +112,18 @@ const Applicant = ({ applicant, index }) => {
 
           {/* Mark as Processing */}
           <button
-            className="btn btn-info"
+            className="btn btn-info transition hover:bg-blue-600 hover:text-white whitespace-nowrap"
             onClick={() => handleStatusUpdate(applicant._id, "processing")}
+            title="Mark as Processing"
           >
             Mark as Processing
           </button>
 
           {/* Mark as Completed */}
           <button
-            className="btn btn-success"
+            className="btn btn-success transition hover:bg-green-700 hover:text-white whitespace-nowrap"
             onClick={() => handleStatusUpdate(applicant._id, "completed")}
+            title="Mark as Completed"
           >
             Mark as Completed
           </button>

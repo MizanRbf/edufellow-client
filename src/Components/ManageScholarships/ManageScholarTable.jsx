@@ -61,41 +61,51 @@ const ManageScholarTable = ({ scholarship, index }) => {
     });
   };
   return (
-    <tr className="border-2 border-slate-200">
-      <th>{index + 1}</th>
-      <td>
+    <tr className="border-b border-gray-200 hover:bg-gray-50 transition duration-200">
+      {/* Serial Number */}
+      <th className="px-4 py-3 text-center text-gray-600">{index + 1}</th>
+
+      {/* University Image */}
+      <td className="px-4 py-3">
         <img
-          className="rounded-xl md:max-w-20 md:h-20 min-w-30 h-30 border-2 p-1 border-primary"
           src={university_image}
-          alt=""
+          alt="University"
+          className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-primary shadow-sm"
         />
       </td>
-      <td>{scholarship_name}</td>
-      <td>{university_name}</td>
-      <td>{subject_category}</td>
-      <td>{degree}</td>
-      <td>{application_fees}</td>
-      <td>
-        <div className="flex items-center gap-3">
+
+      {/* Scholarship Info */}
+      <td className="px-4 py-3 font-medium text-gray-800">
+        {scholarship_name}
+      </td>
+      <td className="px-4 py-3 text-gray-700">{university_name}</td>
+      <td className="px-4 py-3 text-gray-600">{subject_category}</td>
+      <td className="px-4 py-3">{degree}</td>
+      <td className="px-4 py-3 text-blue-600 font-semibold">
+        ${application_fees}
+      </td>
+
+      {/* Action Buttons */}
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2 whitespace-nowrap">
           {/* Details Button */}
           <Link to={`/dashboard/scholarship2/${_id}`}>
-            <button className="bg-green-600 p-2 rounded-sm text-white btn border-0">
-              <FaInfoCircle className="text-xl" />
+            <button className="flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md text-sm transition">
+              <FaInfoCircle className="text-base" />
+              Details
             </button>
           </Link>
 
           {/* Edit Button */}
+          <ManageScholarshipModal scholarship={scholarship} />
 
-          <ManageScholarshipModal
-            scholarship={scholarship}
-          ></ManageScholarshipModal>
-
-          {/* Cancel Button */}
+          {/* Delete Button */}
           <button
             onClick={() => handleDelete(_id)}
-            className="bg-red-500 p-2 rounded-sm text-white btn border-0"
+            className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm transition"
           >
-            <MdDelete className="text-xl" />
+            <MdDelete className="text-base" />
+            Delete
           </button>
         </div>
       </td>

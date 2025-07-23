@@ -45,21 +45,24 @@ const MyReviewCard = ({ myReview, index }) => {
   };
 
   return (
-    <tr className="border-2 border-slate-200">
-      <th>{index + 1}</th>
-      <td>{scholarship_name}</td>
-      <td>{university_name}</td>
-      <td>{commentReview}</td>
-      <td>{review_date}</td>
+    <tr className="border-b hover:bg-gray-50 transition duration-300">
+      <th className="px-4 py-3 text-center text-gray-600 font-medium">
+        {index + 1}
+      </th>
+      <td className="px-4 py-3 text-gray-700">{scholarship_name}</td>
+      <td className="px-4 py-3 text-gray-700">{university_name}</td>
+      <td className="px-4 py-3 text-gray-600">{commentReview}</td>
+      <td className="px-4 py-3 text-sm text-gray-500">{review_date}</td>
 
-      <td>
-        <div className="flex items-center gap-3">
+      <td className="px-4 py-3">
+        <div className="flex items-center justify-center gap-3">
           {/* Edit Button */}
-          <ReviewUpdateModal myReview={myReview}></ReviewUpdateModal>
+          <ReviewUpdateModal myReview={myReview} />
+
           {/* Delete Button */}
           <button
             onClick={() => handleDelete(_id)}
-            className="bg-red-500 p-2 rounded-sm text-white btn border-0"
+            className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-md shadow-md transition-all duration-200"
           >
             <MdDelete className="text-xl" />
           </button>

@@ -20,16 +20,27 @@ const ManageScholarshipDetails = () => {
   }
 
   return (
-    <div className="pt-25">
+    <div>
       <Helmet>
         <title>Manage Scholarship Details || Edufellow</title>
       </Helmet>
-      <div className="max-w-[1500px] mx-auto px-4">
-        <h1>Scholarship Details</h1>
-        <div>
-          <ManageScholarDetailsCard
-            singleScholarship={singleScholarship}
-          ></ManageScholarDetailsCard>
+
+      {/* Title */}
+      <div className="flex justify-center mt-5 mb-6">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+          <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+            Scholarship Details
+          </h1>
+        </div>
+      </div>
+
+      <div className="pt-25">
+        <div className="max-w-[1500px] mx-auto px-4">
+          <div>
+            <ManageScholarDetailsCard
+              singleScholarship={singleScholarship}
+            ></ManageScholarDetailsCard>
+          </div>
         </div>
       </div>
     </div>

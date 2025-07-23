@@ -32,45 +32,73 @@ const MyReviews = () => {
     alert(error.message);
   }
   return (
-    <div className="overflow-x-auto pr-4">
+    <div>
       <Helmet>
         <title>My Reviews || Edufellow</title>
       </Helmet>
-      <h1>My Reviews</h1>
 
-      {/* Blank Page */}
-      {myReviews.length === 0 && (
-        <EmptyState
-          message="You have not review any scholarship yet!"
-          buttonText="Go to My Application"
-          redirectPath="/dashboard/myApplication"
-        ></EmptyState>
-      )}
-      <table className="table">
-        {/* head */}
+      {/* Title */}
+      <div className="flex justify-center mt-5 md:mt-10 mb-6">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+          <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+            My Reviews
+          </h1>
+        </div>
+      </div>
 
-        <thead className={`text-lg ${myReviews.length < 1 && "hidden"}`}>
-          <tr className="text-primary">
-            <th>No.</th>
-            <th>Scholarship Name</th>
-            <th>University Name</th>
-            <th>Review Comments</th>
-            <th>Review Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+      <div className="overflow-x-auto pr-4">
+        {/* Blank Page */}
+        {myReviews.length === 0 && (
+          <EmptyState
+            message="You have not review any scholarship yet!"
+            buttonText="Go to My Application"
+            redirectPath="/dashboard/myApplication"
+          ></EmptyState>
+        )}
 
-        <tbody>
-          {myReviews.map((myReview, index) => (
-            <MyReviewCard
-              key={myReview._id}
-              myReviews={myReviews}
-              myReview={myReview}
-              index={index}
-            ></MyReviewCard>
-          ))}
-        </tbody>
-      </table>
+        <div className="overflow-x-auto bg-white shadow-xl rounded-xl">
+          <table className="table table-zebra w-full">
+            {/* Table Head */}
+            <thead
+              className={`text-base bg-primary text-white ${
+                myReviews.length < 1 ? "hidden" : ""
+              }`}
+            >
+              <tr>
+                <th className="py-4 px-2">No.</th>
+                <th className="py-4 px-2">Scholarship Name</th>
+                <th className="py-4 px-2">University Name</th>
+                <th className="py-4 px-2">Review Comments</th>
+                <th className="py-4 px-2">Review Date</th>
+                <th className="py-4 px-2">Actions</th>
+              </tr>
+            </thead>
+
+            {/* Table Body */}
+            <tbody>
+              {myReviews.length > 0 ? (
+                myReviews.map((myReview, index) => (
+                  <MyReviewCard
+                    key={myReview._id}
+                    myReviews={myReviews}
+                    myReview={myReview}
+                    index={index}
+                  />
+                ))
+              ) : (
+                <tr>
+                  <td
+                    colSpan="6"
+                    className="text-center py-10 text-gray-400 font-medium"
+                  >
+                    No reviews found.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

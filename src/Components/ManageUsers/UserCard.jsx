@@ -75,37 +75,47 @@ const UserCard = ({ user, index }) => {
   };
 
   return (
-    <tr className="border-2 border-slate-200">
-      <th>{index + 1}</th>
-      <td>
+    <tr className="border-b border-gray-200 hover:bg-gray-50 transition duration-200">
+      {/* Index Number */}
+      <th className="px-4 py-3 text-gray-600 text-center">{index + 1}</th>
+
+      {/* Profile Image */}
+      <td className="px-4 py-3">
         <img
-          className="rounded-xl md:max-w-20 md:h-20 min-w-30 h-30 border-2 p-1 border-primary"
+          className="rounded-xl w-16 h-16 object-cover border-2 p-1 border-primary shadow-sm"
           src={photo}
-          alt=""
+          alt="User"
         />
       </td>
-      <td>{name}</td>
-      <td>{email}</td>
-      <td>
+
+      {/* Name */}
+      <td className="px-4 py-3 text-gray-800 font-medium">{name}</td>
+
+      {/* Email */}
+      <td className="px-4 py-3 text-gray-600">{email}</td>
+
+      {/* Role Dropdown */}
+      <td className="px-4 py-3">
         <select
           value={selectedRole}
           onChange={handleRoleChange}
-          className="select selected-bordered select-sm"
+          className="select select-bordered select-sm w-full bg-white shadow-sm text-gray-700"
         >
           <option value="user">User</option>
           <option value="moderator">Moderator</option>
           <option value="admin">Admin</option>
         </select>
       </td>
-      <td>
-        <div className="flex items-center gap-3">
-          {/* Delete Button */}
+
+      {/* Delete Button */}
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2">
           <button
             onClick={() => handleDelete(user?._id)}
-            className="btn btn-outline btn-error flex items-center gap-2 hover:text-white hover:bg-red-500"
+            className="flex items-center gap-2 text-red-600 hover:text-white hover:bg-red-500 border border-red-500 px-3 py-1.5 rounded-md text-sm transition duration-200"
           >
-            <MdDelete size={20} />
-            Delete
+            <MdDelete size={18} />
+            <span>Delete</span>
           </button>
         </div>
       </td>

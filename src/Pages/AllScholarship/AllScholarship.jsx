@@ -68,7 +68,7 @@ const AllScholarship = () => {
         {/* Title */}
         <div className="my-10">
           <div className="flex justify-center">
-            <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+            <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
               <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
                 All Scholarships
               </h1>

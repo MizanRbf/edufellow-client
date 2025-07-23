@@ -49,39 +49,57 @@ const ReviewCard = ({ singleReview }) => {
     });
   };
   return (
-    <div className="border rounded-sm border-primary p-4 flex gap-4">
-      {/* image */}
-      <div className="">
-        <img className="w-full mb-3 rounded-sm" src={user_photo} alt="" />
+    <div className="border border-primary rounded-lg p-6 flex gap-6 bg-white shadow-md max-w-lg mx-auto">
+      {/* Image */}
+      <div className="flex-shrink-0 w-28 h-28">
+        <img
+          className="w-full h-full object-cover rounded-lg shadow-sm"
+          src={user_photo}
+          alt={`${user_name}'s photo`}
+        />
       </div>
 
       {/* Content */}
-      <div>
-        <h3>{user_name}</h3>
-        <p>
-          <span className="font-semibold">University: </span>
-          {university_name}
-        </p>
-        <p>
-          <span className="font-semibold">Subject: </span>
-          {subject_category}
-        </p>
-        <p>{review_date}</p>
-        <p>
-          <span className="font-semibold">Ratings: </span>
-          {rating}
-        </p>
-        <p>
-          <span className="font-semibold">Comment: </span>
-          {commentReview}
-        </p>
+      <div className="flex flex-col justify-between flex-grow">
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">
+            {user_name}
+          </h3>
+
+          <p className="text-gray-700 mb-1">
+            <span className="font-semibold text-primary">University: </span>
+            {university_name}
+          </p>
+
+          <p className="text-gray-700 mb-1">
+            <span className="font-semibold text-primary">Subject: </span>
+            {subject_category}
+          </p>
+
+          <p className="text-gray-500 text-sm italic mb-3">{review_date}</p>
+
+          <p className="text-gray-700 mb-2">
+            <span className="font-semibold text-primary">Ratings: </span>
+            <span className="text-yellow-500">{rating} ★</span>
+          </p>
+
+          <p className="text-gray-700 italic mb-4">
+            <span className="font-semibold text-primary">Comment: </span>"
+            {commentReview}"
+          </p>
+        </div>
+
         {/* Delete Button */}
-        <button
-          onClick={() => handleDelete(singleReview?._id)}
-          className="bg-red-500 p-2 rounded-sm text-white btn border-0"
-        >
-          <MdDelete className="text-xl" />
-        </button>
+        <div>
+          <button
+            onClick={() => handleDelete(singleReview?._id)}
+            className="bg-red-600 hover:bg-red-700 transition-colors duration-200 p-2 rounded-md text-white flex items-center gap-2"
+            title="Delete Review"
+          >
+            <MdDelete className="text-xl" />
+            <span>Delete</span>
+          </button>
+        </div>
       </div>
     </div>
   );

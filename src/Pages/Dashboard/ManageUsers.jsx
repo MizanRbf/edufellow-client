@@ -20,54 +20,67 @@ const ManageUsers = () => {
       : users.filter((user) => user.role === selectedRole);
 
   return (
-    <div className="pr-4 overflow-x-auto">
+    <div>
       <Helmet>
         <title>Manage Users || Edufellow</title>
       </Helmet>
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-xl font-bold">Manage Users</h1>
 
-        {/* Filter Dropdown */}
-        <div>
-          <select
-            className="select select-bordered select-sm border-primary"
-            value={selectedRole}
-            onChange={(e) => setSelectedRole(e.target.value)}
-          >
-            <option value="all">All Roles</option>
-            <option value="admin">Admin</option>
-            <option value="moderator">Moderator</option>
-            <option value="user">User</option>
-          </select>
+      {/* Title */}
+      <div className="flex justify-center mt-5 md:mt-10 mb-6">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+          <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+            My Manage Users
+          </h1>
         </div>
       </div>
 
-      {/* No Users Found Message */}
-      {filteredUsers.length === 0 ? (
-        <EmptyState
-          message="No users found!"
-          buttonText="Go Back"
-          redirectPath={-1}
-        />
-      ) : (
-        <table className="table">
-          <thead className="text-lg">
-            <tr className="text-primary">
-              <th>No.</th>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredUsers.map((user, index) => (
-              <UserCard key={user._id} user={user} index={index} />
-            ))}
-          </tbody>
-        </table>
-      )}
+      {/* Filter Dropdown */}
+      <div className="mb-8">
+        <select
+          className="select select-bordered select-sm border-primary"
+          value={selectedRole}
+          onChange={(e) => setSelectedRole(e.target.value)}
+        >
+          <option value="all">All Roles</option>
+          <option value="admin">Admin</option>
+          <option value="moderator">Moderator</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+
+      <div className="pr-4 overflow-x-auto">
+        {/* No Users Found Message */}
+        {filteredUsers.length === 0 ? (
+          <EmptyState
+            message="No users found!"
+            buttonText="Go Back"
+            redirectPath={-1}
+          />
+        ) : (
+          <div className="overflow-x-auto rounded-lg shadow-md border border-gray-200">
+            <table className="min-w-full table-auto bg-white">
+              {/* Table Head */}
+              <thead className="bg-primary/10 text-base text-primary uppercase tracking-wide">
+                <tr>
+                  <th className="px-4 py-3 text-left">No.</th>
+                  <th className="px-4 py-3 text-left">Image</th>
+                  <th className="px-4 py-3 text-left">Name</th>
+                  <th className="px-4 py-3 text-left">Email</th>
+                  <th className="px-4 py-3 text-left">Role</th>
+                  <th className="px-4 py-3 text-left">Delete</th>
+                </tr>
+              </thead>
+
+              {/* Table Body */}
+              <tbody className="divide-y divide-gray-100 text-sm text-gray-700">
+                {filteredUsers.map((user, index) => (
+                  <UserCard key={user._id} user={user} index={index} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

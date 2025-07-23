@@ -130,7 +130,7 @@ const ApplicationForm = () => {
       <div className="max-w-[1500px] mx-auto px-4">
         {/* Title */}
         <div className="flex justify-center mb-10 mt-5">
-          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
             <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
               Fill up the application form
             </h1>

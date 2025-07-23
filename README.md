@@ -6,35 +6,13 @@ Welcome to EDUFELLOW-CLIENT, the front-end application for the EDUFELLOW scholar
 
 ##🔑 Key Features
 
-- Authentication System
-User registration, login, and logout functionalities powered by Firebase Authentication.
-Supports third-party login via social accounts (e.g., Google).
-Global auth state handled through custom AuthContext and useAuth hook.
-- Protected & Private Routes
-Secure route protection using React Router v7.
-Routes only accessible to authenticated users.
-Unauthorized access is redirected to login.
-- Tutor Management System
-Add Tutorials: Users can post their own tutorials.
-My Tutorials: View and update your posted tutorials.
-Booked Tutors: Track your booked sessions.
-- Task & Tutor Browsing
-Browse tutorials added by others.
-View tutor profiles and details.
-Category-based filtering for easier discovery.
-- Testimonials & Reviews
-Testimonials displayed in a responsive slider.
-- Dark Mode Toggle
-Elegant dark/light theme toggle for better UX.
-- State & API Management
-Uses Context API for authentication and user state.
-Custom useAxiosSecure hook for secure API communication.
-- Responsive UI Design
-Fully mobile-friendly and responsive layout using Tailwind CSS and DaisyUI.
-Adaptive navigation (hamburger menu on mobile).
-- Performance & Build
-Fast development and optimized builds with Vite.
-Minimal bundle size for better load performance.
+- Comprehensive Scholarship Listings: Browse and discover a wide range of scholarships, filterable by country and other criteria.
+- Intuitive Application Process: A streamlined application form for users to apply for desired scholarships.
+- User Dashboards: Personalized dashboards for applicants to track their applications, and for administrators/moderators to manage scholarships, applications, reviews, and users.
+- Role-Based Access Control: Secure routes and functionalities tailored for different user roles (Admin, Moderator, Private/Applicant).
+- User Authentication & Authorization: Robust user login, registration, and social login capabilities, powered by Firebase.
+- Review and Rating System: Functionality for users to leave reviews and ratings for scholarships.
+- Responsive Design: Optimized for various devices using Tailwind CSS.
 
 ---
 

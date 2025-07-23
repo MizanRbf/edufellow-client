@@ -7,11 +7,11 @@ import {
   MdMarkunreadMailbox,
   MdOutlineAddTask,
 } from "react-icons/md";
-const AdminRoutes = () => {
+const AdminRoutes = ({ handleClick }) => {
   return (
     <div>
       <ul className="*:hover:bg-white *:hover:text-primary  space-y-4 *:px-2">
-        <li>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="myProfile"
             className={({ isActive }) =>
@@ -26,8 +26,8 @@ const AdminRoutes = () => {
             </div>
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="addScholarship"
             className={({ isActive }) =>
@@ -43,8 +43,8 @@ const AdminRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="manageScholarship"
             className={({ isActive }) =>
@@ -60,8 +60,8 @@ const AdminRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="allAppliedScholarship"
             className={({ isActive }) =>
@@ -77,8 +77,8 @@ const AdminRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="manageUsers"
             className={({ isActive }) =>
@@ -94,8 +94,8 @@ const AdminRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="manageReview"
             className={({ isActive }) =>
@@ -111,7 +111,7 @@ const AdminRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
+        </button>
       </ul>
     </div>
   );

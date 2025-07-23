@@ -25,7 +25,7 @@ const LeftSide = ({ handleClick }) => {
     logOutUser().then(navigate("/auth/login")).catch();
   };
   return (
-    <div className="p-4 w-full h-screen bg-secondary text-white flex flex-col justify-between">
+    <div className="p-4 w-full h-screen bg-secondary text-white flex flex-col justify-between z-10">
       {/* Top section: Logo + Links */}
       <div>
         {/* Logo */}
@@ -60,21 +60,21 @@ const LeftSide = ({ handleClick }) => {
           {/* User Routes */}
           {/* {role === "User" && ( */}
           <div className="mb-4">
-            <UserRoutes />
+            <UserRoutes handleClick={handleClick} />
           </div>
           {/* )} */}
 
           {/* Moderator Routes */}
           {/* {role === "Moderator" && ( */}
           <div className="mb-4">
-            <ModeratorRoutes />
+            <ModeratorRoutes handleClick={handleClick} />
           </div>
           {/* )} */}
 
           {/* Admin Routes */}
           {/* {role === "Admin" && ( */}
           <div className="mb-4">
-            <AdminRoutes />
+            <AdminRoutes handleClick={handleClick} />
           </div>
           {/* )} */}
         </div>

@@ -5,11 +5,11 @@ import { FaUser } from "react-icons/fa";
 import { FaFileAlt } from "react-icons/fa";
 import { FaPenNib } from "react-icons/fa";
 
-const UserRoutes = () => {
+const UserRoutes = ({ handleClick }) => {
   return (
     <div>
       <ul className="*:hover:bg-white *:hover:text-primary  space-y-4 *:px-2">
-        <li>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="myProfile"
             className={({ isActive }) =>
@@ -24,8 +24,8 @@ const UserRoutes = () => {
             </div>
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="myApplication"
             className={({ isActive }) =>
@@ -41,8 +41,8 @@ const UserRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="myReviews"
             className={({ isActive }) =>
@@ -58,7 +58,7 @@ const UserRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
+        </button>
       </ul>
     </div>
   );

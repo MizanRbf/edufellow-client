@@ -7,11 +7,11 @@ import {
   MdOutlineAddTask,
   MdRateReview,
 } from "react-icons/md";
-const ModeratorRoutes = () => {
+const ModeratorRoutes = ({ handleClick }) => {
   return (
     <div>
       <ul className="*:hover:bg-white *:hover:text-primary  space-y-4 *:px-2">
-        <li>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="myProfile"
             className={({ isActive }) =>
@@ -27,8 +27,8 @@ const ModeratorRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="addScholarship"
             className={({ isActive }) =>
@@ -44,8 +44,8 @@ const ModeratorRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="manageScholarship"
             className={({ isActive }) =>
@@ -61,8 +61,8 @@ const ModeratorRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="allAppliedScholarship"
             className={({ isActive }) =>
@@ -78,8 +78,8 @@ const ModeratorRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
-        <li>
+        </button>
+        <button className="w-full" onClick={handleClick}>
           <NavLink
             to="allReviews"
             className={({ isActive }) =>
@@ -95,7 +95,7 @@ const ModeratorRoutes = () => {
 
             <IoIosArrowForward />
           </NavLink>
-        </li>
+        </button>
       </ul>
     </div>
   );

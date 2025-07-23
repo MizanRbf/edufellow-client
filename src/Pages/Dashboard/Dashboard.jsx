@@ -7,7 +7,9 @@ import { Helmet } from "react-helmet-async";
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
   const handleClick = () => {
-    setOpen(!open);
+    if (window.innerWidth <= 1024) {
+      setOpen(!open);
+    }
   };
 
   useEffect(() => {

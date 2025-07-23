@@ -3,7 +3,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 
 const DashBar = ({ handleClick }) => {
   return (
-    <div className="flex justify-between px-4 py-3 shadow-lg md:hidden">
+    <div className="flex justify-between px-4 py-3 shadow-lg lg:hidden">
       <img className="w-12" src="/assets/logo.png" alt="logo" />
       <button onClick={handleClick}>
         <MdArrowForwardIos

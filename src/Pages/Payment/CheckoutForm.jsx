@@ -96,17 +96,47 @@ const CheckoutForm = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="p-6 rounded-xl shadow-md max-w-md mx-auto"
+        className="bg-white p-8 rounded-2xl shadow-xl max-w-md mx-auto space-y-6"
       >
-        <CardElement className="border rounded-sm p-2"></CardElement>
+        <h2 className="text-2xl font-bold text-center text-gray-800">
+          Payment
+        </h2>
+
+        <div className="space-y-4">
+          {/* Add new card section */}
+          <div>
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Cardholder Name
+            </label>
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full input input-bordered rounded-md"
+              required
+            />
+          </div>
+
+          <div className="p-3 border rounded-md shadow-sm bg-gray-50">
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Card Details
+            </label>
+            <CardElement className="p-2 bg-white rounded-md" />
+          </div>
+        </div>
+
+        {errorMessage && (
+          <p className="text-sm text-red-500 text-center">{errorMessage}</p>
+        )}
+
         <button
           type="submit"
-          disabled={!stripe}
-          className="btn btn-primary mt-2"
+          disabled={!stripe || processing}
+          className={`w-full rounded-md bg-green-500 hover:bg-green-600 text-white font-medium py-2 transition duration-300 ${
+            processing ? "opacity-70 cursor-not-allowed" : ""
+          }`}
         >
-          {processing ? "Processing..." : "Pay"}
+          {processing ? "Processing..." : "Add Card"}
         </button>
-        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       </form>
     </div>
   );

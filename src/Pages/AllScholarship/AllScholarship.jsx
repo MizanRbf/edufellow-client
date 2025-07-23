@@ -65,13 +65,20 @@ const AllScholarship = () => {
         <title>All Scholarship || Edufellow</title>
       </Helmet>
       <div className="max-w-[1500px] mx-auto px-4">
+        {/* Title */}
         <div className="my-10">
-          <h1 className="mb-2">All Scholarship</h1>
-          <p className="">
-            Search by Scholarship Name or University Name or Degree.
-          </p>
+          <div className="flex justify-center">
+            <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+              <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+                All Scholarships
+              </h1>
+            </div>
+          </div>
         </div>
 
+        <p className="text-center mb-2">
+          Search by Scholarship Name or University Name or Degree.
+        </p>
         {/* Search Button */}
         <div className="flex justify-center">
           <SearchBar

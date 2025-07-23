@@ -11,13 +11,14 @@ const Slider = () => {
     <div className="pt-24 md:pt-30">
       <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
         {/* Slider-1 */}
-        <div className="relative">
+        <div className="relative h-[229px] md:h-[450px] lg:h-[500px]">
           <img
-            className="h-[229px] md:h-[450px] lg:h-[500px] "
+            className="w-full h-full object-cover"
             src={bannerImg1}
+            alt="Banner-1"
           />
 
-          <div className="p-2 md:p-8 lg:p-10 absolute top-[70px] md:top-[130px] text-white text-left bg-[#020202b7]">
+          <div className="p-2 md:p-8 lg:p-10 absolute top-[30%] left-[%] md:top-[130px] text-white text-left bg-[#020202b7]">
             <p className="text-base md:text-4xl lg:text-6xl font-bold md:mb-4">
               🎓 100% Tuition-Free Scholarship!
             </p>
@@ -27,11 +28,8 @@ const Slider = () => {
           </div>
         </div>
         {/* Slider-2 */}
-        <div className="relative">
-          <img
-            className="h-[229px] md:h-[450px] lg:h-[500px]"
-            src={bannerImg2}
-          />
+        <div className="relative h-[229px] md:h-[450px] lg:h-[500px]">
+          <img className="w-full h-full object-cover" src={bannerImg2} />
 
           <div className="p-2 md:p-8 lg:p-10 absolute top-[70px] md:top-[130px] text-white text-left bg-[#020202b7]">
             <p className="text-base md:text-4xl lg:text-6xl font-bold md:mb-4">
@@ -43,7 +41,8 @@ const Slider = () => {
           </div>
         </div>
         {/* Slider-3 */}
-        <div className="relative">
+        <div className="relative h-[229px] md:h-[450px] lg:h-[500px]">
+          <img className="w-full h-full object-cover" src={bannerImg3} />
           <div className="p-2 md:p-8 lg:p-10 absolute top-[70px] md:top-[130px] text-white text-left bg-[#020202b7]">
             <p className="text-base md:text-4xl lg:text-6xl font-bold md:mb-4">
               💡 Financial Aid Scholarships Available
@@ -52,8 +51,6 @@ const Slider = () => {
               Empowering students from low-income families.
             </p>
           </div>
-
-          <img className="md:h-[450px] lg:h-[500px]" src={bannerImg3} />
         </div>
       </Carousel>
     </div>

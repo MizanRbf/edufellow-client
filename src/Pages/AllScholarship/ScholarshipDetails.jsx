@@ -39,7 +39,13 @@ const ScholarshipDetails = () => {
       </Helmet>
       <div className="max-w-[1500px] mx-auto px-4">
         {/* Details Card */}
-        <h1>Scholarship Details</h1>
+        <div className="flex justify-center mb-10 mt-5">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Scholarship Details
+            </h1>
+          </div>
+        </div>
         <div>
           <DetailsCard singleScholarship={singleScholarship}></DetailsCard>
         </div>
@@ -49,7 +55,7 @@ const ScholarshipDetails = () => {
 
         {/* Back Button */}
         <Link to={-1}>
-          <button className="bg-primary px-4 py-1 rounded-sm text-white">
+          <button className="bg-primary px-4 py-1 cursor-pointer rounded-sm text-white mb-10">
             Go Back
           </button>
         </Link>

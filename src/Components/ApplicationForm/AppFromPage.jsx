@@ -8,159 +8,184 @@ const AppFormPage = ({
   subjectCategory,
 }) => {
   return (
-    <div>
+    <div className="border rounded-md shadow-lg p-6 bg-white max-w-screen-xl mx-auto mb-10">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {/* Applicant's Phone Number */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Phone Number</label>
+        <h2 className="text-2xl font-bold text-primary mb-6">
+          Scholarship Application Form
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {/* Phone Number */}
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Phone Number
+            </label>
             <input
               type="tel"
               name="phone"
-              className="input"
+              className="input input-bordered w-full"
               placeholder="e.g., 01XXXXXXXXX"
             />
-          </fieldset>
+          </div>
 
           {/* Applicant Photo */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Photo</label>
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Photo
+            </label>
             <input
               type="file"
               name="photo"
-              className="file-input"
+              className="file-input file-input-bordered w-full"
               accept="image/*"
             />
-          </fieldset>
+          </div>
 
           {/* Address */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">
-              Address (Village, District, Country)
+          <div className="md:col-span-2 xl:col-span-3">
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Address
             </label>
             <textarea
               name="address"
-              className="textarea"
+              className="textarea textarea-bordered w-full"
               placeholder="Village, District, Country"
-            />
-          </fieldset>
+            ></textarea>
+          </div>
 
-          {/* Gender Dropdown */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Gender</label>
-            <select name="gender" className="select">
+          {/* Gender */}
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Gender
+            </label>
+            <select name="gender" className="select select-bordered w-full">
               <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="others">Others</option>
             </select>
-          </fieldset>
+          </div>
 
-          {/* Applying Degree Dropdown */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Applying Degree</label>
-            <select name="applying_degree" className="select">
+          {/* Applying Degree */}
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Applying Degree
+            </label>
+            <select
+              name="applying_degree"
+              className="select select-bordered w-full"
+            >
               <option value="">Select Degree</option>
               <option value="diploma">Diploma</option>
               <option value="bachelor">Bachelor</option>
               <option value="masters">Masters</option>
             </select>
-          </fieldset>
+          </div>
 
           {/* SSC Result */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">SSC Result (GPA)</label>
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              SSC Result (GPA)
+            </label>
             <input
               type="number"
               min="0"
               max="5"
               step="0.01"
               name="ssc_result"
-              className="input"
+              className="input input-bordered w-full"
               placeholder="e.g., 5.00"
             />
-          </fieldset>
+          </div>
 
           {/* HSC Result */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">HSC Result (GPA)</label>
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              HSC Result (GPA)
+            </label>
             <input
               type="number"
               min="0"
               max="5"
               step="0.01"
               name="hsc_result"
-              className="input"
+              className="input input-bordered w-full"
               placeholder="e.g., 4.80"
             />
-          </fieldset>
+          </div>
 
-          {/* Study Gap (optional) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Study Gap (if any)</label>
-            <select name="study_gap" className="select">
+          {/* Study Gap */}
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Study Gap (if any)
+            </label>
+            <select name="study_gap" className="select select-bordered w-full">
               <option value="">No Gap</option>
               <option value="1_year">1 Year</option>
               <option value="2_years">2 Years</option>
               <option value="3_or_more">3 or More Years</option>
             </select>
-          </fieldset>
+          </div>
 
-          {/* Read-Only Fields */}
-
-          {/* University Name (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Name</label>
+          {/* Read-only Fields */}
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              University Name
+            </label>
             <input
               type="text"
               name="university_name"
-              className="input"
               value={universityName || ""}
               readOnly
+              className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
             />
-          </fieldset>
+          </div>
 
-          {/* Scholarship Name (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Name</label>
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Scholarship Name
+            </label>
             <input
               type="text"
               name="scholarship_name"
-              className="input"
               value={scholarshipName || ""}
               readOnly
+              className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
             />
-          </fieldset>
+          </div>
 
-          {/* Scholarship Category (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Category</label>
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Scholarship Category
+            </label>
             <input
               type="text"
               name="scholarship_category"
-              className="input"
               value={scholarshipCategory || ""}
               readOnly
+              className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
             />
-          </fieldset>
+          </div>
 
-          {/* Subject Category (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Subject Category</label>
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Subject Category
+            </label>
             <input
               type="text"
               name="subject_category"
-              className="input"
               value={subjectCategory || ""}
               readOnly
+              className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
             />
-          </fieldset>
+          </div>
         </div>
 
-        <div className="mt-4">
+        {/* Submit Button */}
+        <div className="mt-8 text-right">
           <button
             type="submit"
-            className="py-3 px-6 text-lg font-semibold text-white bg-primary rounded-sm"
+            className="bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-sm text-lg transition duration-300"
           >
             Proceed to Payment
           </button>

@@ -4,44 +4,51 @@ const AddForm = ({ handleSubmitScholarship }) => {
   const today = new Date().toISOString().split("T")[0];
   return (
     <div>
-      <form onSubmit={handleSubmitScholarship} className="">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <form onSubmit={handleSubmitScholarship} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {/* Scholarship Name */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Name</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Scholarship Name
+            </label>
             <input
               type="text"
               name="scholarship_name"
-              className="input"
               placeholder="Scholarship Name"
+              className="input input-bordered w-full"
             />
           </fieldset>
 
           {/* University Name */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Name</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              University Name
+            </label>
             <input
               type="text"
               name="university_name"
-              className="input"
               placeholder="University Name"
+              className="input input-bordered w-full"
             />
           </fieldset>
 
           {/* University image */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Image</label>
-            <input type="file" name="university_image" className="input" />
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              University Image
+            </label>
+            <input
+              type="file"
+              name="university_image"
+              className="file-input w-full"
+            />
           </fieldset>
-          {/* University Logo */}
-          {/* <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Logo</label>
-            <input type="file" name="university_logo" className="input" />
-          </fieldset> */}
 
           {/* University Country */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Country</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              University Country
+            </label>
             <input
               type="text"
               name="university_country"
@@ -51,8 +58,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* University city */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University City</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              University City
+            </label>
             <input
               type="text"
               name="university_city"
@@ -62,8 +71,8 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* University World Rank */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
               University World Rank
             </label>
             <input
@@ -75,8 +84,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Subject Category */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Subject Category</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Subject Category
+            </label>
             <select
               type="text"
               name="subject_category"
@@ -91,8 +102,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Scholarship Category */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Category</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Scholarship Category
+            </label>
             <select
               type="text"
               name="scholarship_category"
@@ -107,8 +120,8 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Degree */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm ">Degree</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700 ">Degree</label>
             <select
               type="text"
               name="degree"
@@ -123,8 +136,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Tuition Fees */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Tuition fees</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Tuition fees
+            </label>
             <input
               type="number"
               name="tuition_fees"
@@ -134,8 +149,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Application Fees */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Application Fees</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Application Fees
+            </label>
             <input
               type="number"
               name="application_fees"
@@ -145,8 +162,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Service Charge */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Service Charge</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Service Charge
+            </label>
             <input
               type="number"
               name="service_charge"
@@ -156,8 +175,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Application Deadline */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Application Deadline</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Application Deadline
+            </label>
             <input
               type="date"
               name="application_deadline"
@@ -167,8 +188,8 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Scholarship Post Date */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
               Scholarship Post Date
             </label>
             <input
@@ -181,8 +202,10 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
 
           {/* Posted User Email */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Posted User Email</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">
+              Posted User Email
+            </label>
             <input
               type="text"
               name="posted_user_email"
@@ -191,8 +214,8 @@ const AddForm = ({ handleSubmitScholarship }) => {
             />
           </fieldset>
           {/* Stipend */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Stipend</label>
+          <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+            <label className="text-sm font-medium text-gray-700">Stipend</label>
             <input
               type="text"
               name="stipend"
@@ -202,8 +225,8 @@ const AddForm = ({ handleSubmitScholarship }) => {
           </fieldset>
         </div>
         {/*Scholarship Description */}
-        <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-          <label className="text-primary text-sm">
+        <fieldset className="flex flex-col gap-1 bg-white p-4 rounded-md shadow-sm border border-gray-200">
+          <label className="text-sm font-medium text-gray-700">
             Scholarship Description
           </label>
           <textarea

@@ -17,7 +17,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
           `px-3 transition-all duration-300 ${
             isHome
               ? isActive
-                ? "text-white bg-primary rounded-xs"
+                ? "text-white bg-primary rounded-full"
                 : isScrolled
                 ? "text-black"
                 : "text-white"
@@ -32,7 +32,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
         className={({ isActive }) =>
           `px-3 transition-all duration-300 ${
             isActive
-              ? "text-white bg-primary rounded-xs"
+              ? "text-white bg-primary rounded-full"
               : isHome
               ? isScrolled
                 ? "text-black"
@@ -51,7 +51,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
             className={({ isActive }) =>
               `px-3 transition-all duration-300 ${
                 isActive
-                  ? "text-white bg-primary rounded-xs"
+                  ? "text-white bg-primary rounded-full"
                   : isHome
                   ? isScrolled
                     ? "text-black"

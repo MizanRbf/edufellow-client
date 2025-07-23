@@ -54,7 +54,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {/* Company Logo */}
           <div className="flex items-center gap-1 text-primary">
-            <img className="w-14" src="/assets/logo.png" alt="" />
+            <img className="w-8 md:w-14" src="/assets/logo.png" alt="" />
             <h1
               className={`${
                 isHome

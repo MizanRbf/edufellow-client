@@ -19,28 +19,62 @@ const HomePage = () => {
 
       {/* Scholarship Categories */}
       <div className="mb-20">
-        <h1 className="mb-8 text-center ">Explore by Country</h1>
-        <ExploreByCountry></ExploreByCountry>
+        <div className="flex justify-center">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Explore by Country
+            </h1>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <ExploreByCountry />
+        </div>
       </div>
 
       {/* Top Scholarships */}
       <div className="mb-20">
-        <h1 className="mb-8 text-center ">Top Scholarships</h1>
-        <TopScholarship></TopScholarship>
+        <div className="flex justify-center">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Top Scholarships
+            </h1>
+          </div>
+        </div>
+        <div className="mt-8">
+          <TopScholarship />
+        </div>
       </div>
 
       {/* Why Choose Us */}
       <div className="mb-20">
-        <h1 className="mb-8 text-center ">Why Choose Us</h1>
-        <WhyChooseUs></WhyChooseUs>
+        <div className="flex justify-center">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Why Choose Us
+            </h1>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <WhyChooseUs />
+        </div>
       </div>
 
       {/* Success Stories */}
 
       {/* How It Works */}
       <div className="mb-20">
-        <h1 className="mb-8 text-center ">How It Works</h1>
-        <HowItWorks></HowItWorks>
+        <div className="flex justify-center">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              How It Works
+            </h1>
+          </div>
+        </div>
+        <div className="mt-8">
+          <HowItWorks />
+        </div>
       </div>
     </div>
   );

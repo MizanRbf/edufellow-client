@@ -128,14 +128,25 @@ const ApplicationForm = () => {
   return (
     <div className="pt-25">
       <div className="max-w-[1500px] mx-auto px-4">
-        <h1 className="mb-8">Fill Up the Application Form</h1>
-        <AppFormPage
-          handleSubmit={handleSubmit}
-          universityName={universityName}
-          scholarshipCategory={scholarshipCategory}
-          scholarshipName={scholarshipName}
-          subjectCategory={subjectCategory}
-        ></AppFormPage>
+        {/* Title */}
+        <div className="flex justify-center mb-10 mt-5">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Fill up the application form
+            </h1>
+          </div>
+        </div>
+
+        {/* Form */}
+        <div className="">
+          <AppFormPage
+            handleSubmit={handleSubmit}
+            universityName={universityName}
+            scholarshipCategory={scholarshipCategory}
+            scholarshipName={scholarshipName}
+            subjectCategory={subjectCategory}
+          ></AppFormPage>
+        </div>
       </div>
     </div>
   );

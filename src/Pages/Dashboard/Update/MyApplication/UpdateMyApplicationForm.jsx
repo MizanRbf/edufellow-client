@@ -1,6 +1,10 @@
 import React from "react";
 
-const UpdateMyApplicationForm = ({ handleUpdate, applicationInfo }) => {
+const UpdateMyApplicationForm = ({
+  handleUpdate,
+  applicationInfo,
+  isSubmitting,
+}) => {
   const {
     scholarship_category,
     scholarship_name,
@@ -22,49 +26,59 @@ const UpdateMyApplicationForm = ({ handleUpdate, applicationInfo }) => {
     date,
   } = applicationInfo;
   return (
-    <div>
+    <div className="bg-white shadow-xl rounded-xl p-6 md:p-10">
       <form onSubmit={handleUpdate}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {/* Applicant's Phone Number */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Phone Number</label>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {/* Example Input Field */}
+          <fieldset className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Phone Number
+            </label>
             <input
               type="tel"
-              defaultValue={phone}
               name="phone"
-              className="input"
-              placeholder="e.g., 01XXXXXXXXX"
+              defaultValue={phone}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+              placeholder="01XXXXXXXXX"
             />
           </fieldset>
 
           {/* Applicant Photo */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Photo</label>
+          <fieldset className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Photo
+            </label>
             <input
               type="file"
               name="photo"
-              className="file-input"
               accept="image/*"
+              className="file-input file-input-bordered w-full"
             />
           </fieldset>
 
           {/* Address */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">
+          <fieldset className="space-y-2 col-span-1 sm:col-span-2">
+            <label className="block text-sm font-medium text-gray-700">
               Address (Village, District, Country)
             </label>
             <textarea
               name="address"
               defaultValue={address}
-              className="textarea"
-              placeholder="Village, District, Country"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+              rows="2"
             />
           </fieldset>
 
-          {/* Gender Dropdown */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Gender</label>
-            <select name="gender" defaultValue={gender} className="select">
+          {/* Gender */}
+          <fieldset className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Gender
+            </label>
+            <select
+              name="gender"
+              defaultValue={gender}
+              className="select select-bordered w-full"
+            >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -72,13 +86,15 @@ const UpdateMyApplicationForm = ({ handleUpdate, applicationInfo }) => {
             </select>
           </fieldset>
 
-          {/* Applying Degree Dropdown */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Applying Degree</label>
+          {/* Applying Degree */}
+          <fieldset className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Applying Degree
+            </label>
             <select
               name="applying_degree"
               defaultValue={applying_degree}
-              className="select"
+              className="select select-bordered w-full"
             >
               <option value="">Select Degree</option>
               <option value="diploma">Diploma</option>
@@ -87,43 +103,44 @@ const UpdateMyApplicationForm = ({ handleUpdate, applicationInfo }) => {
             </select>
           </fieldset>
 
-          {/* SSC Result */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">SSC Result (GPA)</label>
+          {/* SSC & HSC */}
+          <fieldset className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              SSC Result (GPA)
+            </label>
             <input
               type="number"
-              min="0"
-              max="5"
-              step="0.01"
-              defaultValue={ssc_result}
               name="ssc_result"
-              className="input"
-              placeholder="e.g., 5.00"
+              defaultValue={ssc_result}
+              step="0.01"
+              max="5"
+              className="input input-bordered w-full"
             />
           </fieldset>
 
-          {/* HSC Result */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">HSC Result (GPA)</label>
+          <fieldset className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              HSC Result (GPA)
+            </label>
             <input
               type="number"
-              min="0"
-              max="5"
-              step="0.01"
-              defaultValue={hsc_result}
               name="hsc_result"
-              className="input"
-              placeholder="e.g., 4.80"
+              defaultValue={hsc_result}
+              step="0.01"
+              max="5"
+              className="input input-bordered w-full"
             />
           </fieldset>
 
-          {/* Study Gap (optional) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Study Gap (if any)</label>
+          {/* Study Gap */}
+          <fieldset className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Study Gap (if any)
+            </label>
             <select
               name="study_gap"
               defaultValue={study_gap}
-              className="select"
+              className="select select-bordered w-full"
             >
               <option value="">No Gap</option>
               <option value="1_year">1 Year</option>
@@ -132,122 +149,41 @@ const UpdateMyApplicationForm = ({ handleUpdate, applicationInfo }) => {
             </select>
           </fieldset>
 
-          {/* Read-Only Fields */}
-
-          {/* University Name (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Name</label>
-            <input
-              type="text"
-              name="university_name"
-              className="input"
-              value={university_name}
-              readOnly
-            />
-          </fieldset>
-
-          {/* University Address (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Address</label>
-            <input
-              type="text"
-              name="university_address"
-              className="input"
-              value={university_address}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Scholarship Name (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Name</label>
-            <input
-              type="text"
-              name="scholarship_name"
-              className="input"
-              value={scholarship_name}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Scholarship Category (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Category</label>
-            <input
-              type="text"
-              name="scholarship_category"
-              className="input"
-              value={scholarship_category}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Subject Category (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Subject Category</label>
-            <input
-              type="text"
-              name="subject_category"
-              className="input"
-              value={subject_category}
-              readOnly
-            />
-          </fieldset>
-
-          {/* User Name  (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">User Name</label>
-            <input
-              type="text"
-              name="user_name"
-              className="input"
-              value={user_name}
-              readOnly
-            />
-          </fieldset>
-
-          {/* User Email (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">User Email</label>
-            <input
-              type="email"
-              name="user_email"
-              className="input"
-              value={user_email}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Application Fee (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Application Fee</label>
-            <input
-              type="number"
-              name="application_fees"
-              className="input"
-              value={application_fees}
-              readOnly
-            />
-          </fieldset>
-
-          {/* Service Charge (Read-Only) */}
-          <fieldset className="fieldset border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Service Charge</label>
-            <input
-              type="text"
-              name="service_charge"
-              className="input"
-              value={service_charge}
-              readOnly
-            />
-          </fieldset>
+          {/* Readonly Fields */}
+          {[
+            ["University Name", university_name],
+            ["University Address", university_address],
+            ["Scholarship Name", scholarship_name],
+            ["Scholarship Category", scholarship_category],
+            ["Subject Category", subject_category],
+            ["User Name", user_name],
+            ["User Email", user_email],
+            ["Application Fee", application_fees],
+            ["Service Charge", service_charge],
+          ].map(([label, value], index) => (
+            <fieldset className="space-y-2" key={index}>
+              <label className="block text-sm font-medium text-gray-700">
+                {label}
+              </label>
+              <input
+                type="text"
+                className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
+                value={value}
+                readOnly
+              />
+            </fieldset>
+          ))}
         </div>
-        <button
-          type="submit"
-          className="bg-secondary  py-3 px-6 text-white cursor-pointer"
-        >
-          Save Changes
-        </button>
+
+        {/* Submit Button */}
+        <div className="mt-8 flex justify-end">
+          <button
+            type="submit"
+            className="bg-secondary hover:bg-secondary-dark transition px-6 py-3 text-white font-semibold rounded-md shadow cursor-pointer"
+          >
+            {isSubmitting ? "saving..." : "Save Changes"}
+          </button>
+        </div>
       </form>
     </div>
   );

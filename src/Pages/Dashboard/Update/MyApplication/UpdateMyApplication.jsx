@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import UpdateMyApplicationForm from "./UpdateMyApplicationForm";
 import axios from "axios";
@@ -11,6 +11,7 @@ const UpdateMyApplication = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // handle Update
   const handleUpdate = async (e) => {
@@ -20,10 +21,17 @@ const UpdateMyApplication = () => {
     const imageFile = formData.get("photo");
 
     if (!imageFile || !imageFile.name) {
-      alert("Please Upload an Image");
+      Swal.fire({
+        icon: "warning",
+        title: "Image Required",
+        text: "Please upload an image before submitting.",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK",
+      });
       return;
     }
 
+    setIsSubmitting(true);
     // Converted into FormData
     const imageFormData = new FormData();
     imageFormData.append("image", imageFile);
@@ -53,6 +61,7 @@ const UpdateMyApplication = () => {
       );
       if (res.data.modifiedCount) {
         Swal.fire("Success!", "Application updated successfully.", "success");
+        setIsSubmitting(false);
         navigate("/dashboard/myApplication");
       } else {
         Swal.fire("No Changes", "No update was made.", "info");
@@ -65,10 +74,18 @@ const UpdateMyApplication = () => {
 
   return (
     <div>
-      <h1>Update Your Application</h1>
+      {/* Title */}
+      <div className="flex justify-center mt-5 md:mt-10 mb-6">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+          <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+            Update your Application
+          </h1>
+        </div>
+      </div>
       <UpdateMyApplicationForm
         handleUpdate={handleUpdate}
         applicationInfo={applicationInfo}
+        isSubmitting={isSubmitting}
       ></UpdateMyApplicationForm>
     </div>
   );

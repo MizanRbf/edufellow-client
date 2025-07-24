@@ -3,7 +3,6 @@ import Stats from "./Stats";
 import Chart2 from "./Chart2";
 import Loader from "../../../Shared/Loader";
 import Chart from "./Chart";
-import Map from "./map";
 import useApplications from "../../../Hooks/useApplications";
 import useReviews from "../../../Hooks/useReviews";
 import useScholarships from "../../../Hooks/useScholarships";
@@ -36,7 +35,7 @@ const OverViewPage = () => {
 
   return (
     <div className="w-full">
-      <div className="mt-10 lg:mt-0">
+      <div className="mt-10 lg:mt-30">
         <Stats
           allApplications={allApplications}
           allReviews={allReviews}
@@ -54,11 +53,6 @@ const OverViewPage = () => {
         <div className="md:w-[40%] h-[340px] md:h-[400px]">
           <Chart allApplications={allApplications} />
         </div>
-      </div>
-
-      {/* Map */}
-      <div className="shadow-xl rounded-sm p-1 bg-secondary md:mt-4">
-        <Map></Map>
       </div>
     </div>
   );

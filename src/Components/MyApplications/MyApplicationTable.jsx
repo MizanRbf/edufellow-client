@@ -1,8 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import { MdCancel, MdEdit } from "react-icons/md";
-import { Link, useNavigate } from "react-router";
-import { FaInfoCircle } from "react-icons/fa";
+import { useNavigate } from "react-router";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQueryClient } from "@tanstack/react-query";
@@ -66,7 +65,7 @@ const MyApplicationTable = ({ application, index }) => {
 
       <td className="py-2 px-4">
         <img
-          className="rounded-xl max-w-[80px] h-[80px] object-cover border-2 border-primary p-1"
+          className="rounded-xl min-w-[80px] max-w-[80px] h-[80px] object-cover border-2 border-primary p-1"
           src={photo}
           alt={`${university_name} logo`}
         />
@@ -109,7 +108,7 @@ const MyApplicationTable = ({ application, index }) => {
             className={`p-2 rounded-md text-white btn border-0 ${
               status === "pending"
                 ? "bg-blue-700 hover:bg-blue-800"
-                : "bg-gray-400 cursor-not-allowed"
+                : "bg-gray-400"
             }`}
             onClick={() => {
               if (status === "pending") {
@@ -122,14 +121,23 @@ const MyApplicationTable = ({ application, index }) => {
                 });
               }
             }}
-            disabled={status !== "pending"}
           >
             <MdEdit size={20} />
           </button>
 
           {/* Cancel Button */}
           <button
-            onClick={() => handleCancel(application?._id)}
+            onClick={() => {
+              if (application?.status === "rejected") {
+                Swal.fire({
+                  icon: "warning",
+                  title: "Already Rejected",
+                  text: "This application has already been rejected.",
+                });
+              } else {
+                handleCancel(application?._id);
+              }
+            }}
             className="bg-red-700 p-2 rounded-md text-white btn border-0 hover:bg-red-800"
           >
             <MdCancel size={20} />

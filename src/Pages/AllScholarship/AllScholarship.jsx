@@ -77,7 +77,9 @@ const AllScholarship = () => {
         </div>
 
         <p className="text-center mb-2">
-          Search by Scholarship Name or University Name or Degree.
+          Search by <span className="font-bold">Scholarship Name</span> or{" "}
+          <span className="font-bold">University Name</span> or{" "}
+          <span className="font-bold">Degree</span>.
         </p>
         {/* Search Button */}
         <div className="flex justify-center">

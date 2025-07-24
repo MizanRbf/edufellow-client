@@ -22,7 +22,7 @@ const ApplicationDetails = ({ application }) => {
   } = application;
 
   return (
-    <div className="border p-4 flex flex-col md:flex-row gap-4">
+    <div className="border p-4 flex flex-col md:flex-row gap-4 rounded-sm">
       <img className="max-w-100" src={photo} alt="" />
       <div>
         <p className="font-bold text-xl">{user_name}</p>

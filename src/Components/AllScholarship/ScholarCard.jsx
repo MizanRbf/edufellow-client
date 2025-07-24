@@ -12,19 +12,14 @@ const ScholarCard = ({ scholarship }) => {
     scholarship_name,
     university_name,
     university_image,
-    university_logo,
     university_country,
     university_city,
-    university_world_rank,
     subject_category,
     scholarship_category,
-    degree,
     tuition_fees,
     application_fees,
     service_charge,
     application_deadline,
-    post_date,
-    posted_user_email,
   } = scholarship;
   return (
     <div className="group bg-white border border-gray-200 shadow-md hover:shadow-xl rounded-sm overflow-hidden transition-all duration-300 ease-in-out flex flex-col">
@@ -42,6 +37,10 @@ const ScholarCard = ({ scholarship }) => {
           <h4 className="text-lg font-semibold text-gray-800">
             {scholarship_name}
           </h4>
+          <p className="text-sm text-gray-600">
+            <span className="font-medium text-gray-700">University Name:</span>{" "}
+            {university_name}
+          </p>
           <p className="text-sm text-gray-600">
             <span className="font-medium text-gray-700">Category:</span>{" "}
             {scholarship_category}

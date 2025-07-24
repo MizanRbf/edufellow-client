@@ -88,7 +88,10 @@ const Modal = ({ application }) => {
             <ReadonlyInfo application={application}></ReadonlyInfo>
 
             {/* Action button */}
-            <ActionButton application={application}></ActionButton>
+            <ActionButton
+              application={application}
+              isDisabled={comment.trim() === ""}
+            ></ActionButton>
           </form>
         </div>
       </dialog>

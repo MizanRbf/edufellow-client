@@ -31,18 +31,19 @@ const TopScholarCard = ({ topScholarship }) => {
     posted_user_email,
   } = topScholarship;
   return (
-    <div className="group bg-white border border-gray-200 shadow-md hover:shadow-xl rounded-sm overflow-hidden transition-all duration-300 ease-in-out flex flex-col">
+    <div className="group bg-white border border-gray-200 shadow-md hover:shadow-xl rounded-sm overflow-hidden transition-all duration-300 ease-in-out flex flex-col h-[550px]">
       {/* Image */}
-      <img
-        className="h-[250px] w-full object-cover group-hover:scale-105 transition-transform duration-300"
-        src={university_image}
-        alt={scholarship_name}
-      />
+      <div className="h-[250px] w-full overflow-hidden">
+        <img
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          src={university_image}
+          alt={scholarship_name}
+        />
+      </div>
 
       {/* Content */}
       <div className="p-5 border border-t-0 border-primary rounded-b-sm flex flex-col flex-1">
-        {/* Top content that grows */}
-        <div className="flex-1 space-y-1">
+        <div className="flex-1 space-y-1 overflow-auto">
           <h4 className="text-lg font-semibold text-gray-800">
             {scholarship_name}
           </h4>
@@ -84,8 +85,8 @@ const TopScholarCard = ({ topScholarship }) => {
           </p>
         </div>
 
-        {/* Bottom button fixed */}
-        <div className="pt-3 text-right">
+        {/* Bottom Button */}
+        <div className="pt-3 mt-auto text-right">
           <Link to={`/scholarship/${_id}`}>
             <button className="bg-primary hover:bg-secondary text-white font-medium px-5 py-2 rounded-sm transition-colors duration-300">
               Show Details

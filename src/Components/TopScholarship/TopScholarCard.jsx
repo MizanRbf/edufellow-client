@@ -35,7 +35,7 @@ const TopScholarCard = ({ topScholarship }) => {
       {/* Image */}
       <div className="h-[250px] w-full overflow-hidden">
         <img
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="h-[250px] min-h-[250px] max-h-[250px] w-full object-cover group-hover:scale-105 transition-transform duration-300"
           src={university_image}
           alt={scholarship_name}
         />

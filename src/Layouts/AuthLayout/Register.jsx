@@ -81,100 +81,111 @@ const Register = () => {
   };
 
   return (
-    <Section>
-      <div
-        animate={{ y: [0, 150] }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        className="card bg-base-100 w-full max-w-xl mx-auto shrink-0 shadow-2xl animate-slide-down text-black"
-      >
-        <div className="card-body text-black">
-          {/* go home */}
+    <div className="min-h-screen flex items-center justify-center px-4 my-10 md:my-0">
+      <div className="card w-full max-w-xl  shadow-2xl bg-base-100">
+        <div className="card-body">
+          {/* Close Button */}
           <div className="flex justify-end">
             <Link to="/">
-              <button className="hover:bg-gray-100 px-5 py-2 rounded-sm cursor-pointer">
+              <button className="hover:bg-gray-100 p-2 rounded-sm">
                 <RxCross2 size={22} />
               </button>
             </Link>
           </div>
-          <div className="">
-            <img src="/assets/logo2.png" alt="" />
+
+          {/* Logo */}
+          <div className="flex justify-center">
+            <img src="/assets/logo.png" alt="Logo" className="w-32 h-auto" />
           </div>
-          <div className="bg-primary text-white py-4 rounded-sm">
-            <h2 className="text-center">Register Your Account</h2>
+
+          {/* Title */}
+          <div className="flex justify-center">
+            <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+              <h4 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+                Register Your Account
+              </h4>
+            </div>
           </div>
-          <hr className="my-4 text-[#e5e5e5]" />
+
+          <hr className="text-[#e5e5e5] my-4" />
+
           {/* Form */}
-          <form onSubmit={handleRegister} className="fieldset">
+          <form onSubmit={handleRegister} className="space-y-4">
             {/* Name */}
-            <label className="label">Name</label>
-            <input
-              type="text"
-              name="name"
-              className="input"
-              placeholder="Enter Your Name"
-              required
-            />
+            <div>
+              <label className="label">Name</label>
+              <input
+                type="text"
+                name="name"
+                className="input w-full"
+                placeholder="Enter Your Name"
+                required
+              />
+            </div>
 
             {/* Photo URL */}
-            <label className="label">Photo URL</label>
-            <input
-              type="file"
-              name="photo"
-              className="input"
-              placeholder="Enter Your Photo URL"
-              required
-            />
+            <div>
+              <label className="label">Photo</label>
+              <input
+                type="file"
+                name="photo"
+                className="file-input w-full"
+                required
+              />
+            </div>
 
             {/* Email */}
-            <label className="label">Email</label>
-            <input
-              type="email"
-              name="email"
-              className="input"
-              placeholder="Enter Your Email"
-              required
-            />
+            <div>
+              <label className="label">Email</label>
+              <input
+                type="email"
+                name="email"
+                className="input w-full"
+                placeholder="Enter Your Email"
+                required
+              />
+            </div>
 
             {/* Password */}
-            <label className="label">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="input"
-              placeholder="Enter Your Password"
-              required
-            />
+            <div>
+              <label className="label">Password</label>
+              <input
+                type="password"
+                name="password"
+                className="input w-full"
+                placeholder="Enter Your Password"
+                required
+              />
+            </div>
 
-            {/* Accept Terms And Conditions */}
-            {/* <label className="label">
-              <input type="checkbox" defaultChecked className="checkbox" />
-              Accept terms & conditions
-            </label> */}
-            {/* Error Message */}
-            <p className="text-red-500">{errorMessage}</p>
+            {/* Error */}
+            {errorMessage && (
+              <p className="text-red-500 text-sm">{errorMessage}</p>
+            )}
 
+            {/* Submit Button */}
             <button
               type="submit"
               onClick={() => setLoading(true)}
-              className="btn  mt-4 button"
+              className="btn w-full mt-2 bg-primary text-white"
             >
               {loading ? <ClockLoader size={20} color="white" /> : "Register"}
             </button>
           </form>
-          <p className="text-center">
-            Already have and account?{" "}
+
+          {/* Login Redirect */}
+          <p className="text-center mt-4 text-sm">
+            Already have an account?{" "}
             <Link
               to="/auth/login"
-              className="text-red-500 font-bold hover:underline"
+              className="text-red-500 font-semibold hover:underline"
             >
               Login
             </Link>
           </p>
         </div>
       </div>
-    </Section>
+    </div>
   );
 };
 

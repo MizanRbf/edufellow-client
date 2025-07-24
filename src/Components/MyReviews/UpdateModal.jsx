@@ -13,11 +13,13 @@ const ReviewUpdateModal = ({ myReview }) => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
 
+  // useEffect
   useEffect(() => {
     setComment(myReview?.commentReview || "");
     setRating(myReview?.rating || 0);
   }, [myReview]);
 
+  // Handle Update
   const handleUpdate = async (e, id) => {
     e.preventDefault();
 
@@ -28,6 +30,7 @@ const ReviewUpdateModal = ({ myReview }) => {
 
     try {
       const res = await axiosSecure.put(`/reviews/${id}`, updatedReview);
+      console.log(res.data);
       if (res.data.modifiedCount) {
         Swal.fire("Success!", "Review updated successfully.", "success");
       } else {
@@ -41,6 +44,7 @@ const ReviewUpdateModal = ({ myReview }) => {
 
   return (
     <div>
+      {/* Update Button */}
       <button
         className="bg-blue-700 p-2 rounded-sm text-white btn border-0"
         onClick={() =>
@@ -49,10 +53,13 @@ const ReviewUpdateModal = ({ myReview }) => {
       >
         <MdEdit className="text-xl" />
       </button>
+
+      {/* Dialog */}
       <dialog id={`reviewModal-${myReview._id}`} className="modal">
         <div className="modal-box">
           <h2 className="mb-4 text-primary">Update Your Review</h2>
 
+          {/* Form */}
           <form onSubmit={(e) => handleUpdate(e, myReview._id)}>
             {/* Ratings */}
             <StarRating rating={rating} setRating={setRating}></StarRating>

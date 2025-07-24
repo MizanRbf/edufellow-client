@@ -4,6 +4,17 @@ import Loader from "../../../Shared/Loader";
 import TopScholarCard from "../../../Components/TopScholarship/TopScholarCard";
 import { Link } from "react-router";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { motion } from "motion/react";
+const Section = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
 
 const TopScholarship = () => {
   const axiosSecure = useAxiosSecure();
@@ -21,7 +32,12 @@ const TopScholarship = () => {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {topScholarships?.map((topScholarship) => (
-          <TopScholarCard topScholarship={topScholarship}></TopScholarCard>
+          <Section>
+            <TopScholarCard
+              key={topScholarship._id}
+              topScholarship={topScholarship}
+            ></TopScholarCard>
+          </Section>
         ))}
       </div>
       <div className="flex justify-center">

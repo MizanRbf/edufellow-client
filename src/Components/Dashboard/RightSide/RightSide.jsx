@@ -1,12 +1,12 @@
-import React from "react";
-import { Outlet } from "react-router";
+// import React from "react";
+// import { Outlet } from "react-router";
 
-const RightSide = () => {
-  return (
-    <div className="p-4">
-      <Outlet></Outlet>
-    </div>
-  );
-};
+// const RightSide = () => {
+//   return (
+//     <div className="">
+//       <Outlet></Outlet>
+//     </div>
+//   );
+// };
 
-export default RightSide;
+// export default RightSide;

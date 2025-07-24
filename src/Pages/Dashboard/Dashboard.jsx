@@ -30,10 +30,10 @@ const Dashboard = () => {
       <Helmet>
         <title>Dashboard || Edufellow</title>
       </Helmet>
-      <div className="flex flex-col md:flex-row relative max-h-screen">
+      <div className="flex flex-col md:flex-row min-h-screen bg-gradient-to-br from-[#018ca5] to-[#000]">
         {/* Left Side */}
         <div
-          className={`absolute lg:static top-0 left-0 w-full md:w-0 md:min-w-[300px] transition-all duration-500 ease-out transform z-10 ${
+          className={`fixed top-0 left-0 w-full md:w-0 md:min-w-[300px] transition-all duration-500 ease-out transform z-10 ${
             open
               ? "opacity-0 -translate-x-full pointer-events-none"
               : "opacity-100 translate-x-0"
@@ -48,7 +48,7 @@ const Dashboard = () => {
           <div className="">
             <DashBar handleClick={handleClick} open={open}></DashBar>
           </div>
-          <div className="bg-gradient-to-br from-[#018ca5] to-[#000] p-6 h-full z-1 pt-15 min-h-screen">
+          <div className="z-1 p-4 pt-15 lg:pl-85">
             <Outlet></Outlet>
           </div>
         </div>

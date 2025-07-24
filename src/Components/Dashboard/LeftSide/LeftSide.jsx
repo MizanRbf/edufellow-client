@@ -25,7 +25,7 @@ const LeftSide = ({ handleClick }) => {
     logOutUser().then(navigate("/auth/login")).catch();
   };
   return (
-    <div className="p-4 w-full h-screen bg-secondary text-white flex flex-col justify-between z-10">
+    <div className="p-4 md:w-80 h-screen overflow-y-auto bg-secondary text-white flex flex-col justify-between z-10">
       {/* Top section: Logo + Links */}
       <div>
         {/* Logo */}

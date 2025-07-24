@@ -47,7 +47,7 @@ const AllAppliedScholarship = () => {
     console.log(error.message);
   }
   return (
-    <div className="min-h-screen p-4">
+    <div>
       <Helmet>
         <title>All Applied Scholarship || Edufellow</title>
       </Helmet>
@@ -62,7 +62,7 @@ const AllAppliedScholarship = () => {
       </div>
 
       {/* Controls */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 md:gap-0 max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 md:gap-0 ">
         <div className="flex justify-center">
           <DeleteRejectedButton />
         </div>
@@ -93,7 +93,7 @@ const AllAppliedScholarship = () => {
       )}
 
       {/* Table Container */}
-      <div className="overflow-x-auto shadow-lg rounded-lg max-w-7xl mx-auto bg-white border border-gray-200">
+      <div className="overflow-x-auto shadow-lg rounded-lg  bg-white border border-gray-200">
         <table className="min-w-full border-collapse rounded-lg">
           {/* Head */}
           <thead

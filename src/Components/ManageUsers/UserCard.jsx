@@ -99,7 +99,7 @@ const UserCard = ({ user, index }) => {
         <select
           value={selectedRole}
           onChange={handleRoleChange}
-          className="select select-bordered select-sm w-full bg-white shadow-sm text-gray-700 cursor-pointer"
+          className="select select-bordered select-sm bg-white min-w-[100px] max-w-[160px] shadow-sm text-gray-700 cursor-pointer"
         >
           <option value="user">User</option>
           <option value="moderator">Moderator</option>

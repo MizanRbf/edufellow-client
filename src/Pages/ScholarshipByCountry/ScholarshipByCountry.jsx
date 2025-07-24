@@ -24,14 +24,24 @@ const ScholarshipByCountry = () => {
       <Helmet>
         <title>Scholarship By Category || Edufellow</title>
       </Helmet>
-      <h1 className="mb-10 text-center">Scholarship By Country</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1500px] mx-auto px-4">
-        {scholarships?.map((scholarship) => (
-          <ScholarshipByCategoryCard
-            key={scholarship._id}
-            scholarship={scholarship}
-          ></ScholarshipByCategoryCard>
-        ))}
+      {/* Title */}
+      <div className="flex justify-center mt-5 md:mt-10 mb-6">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+          <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+            All Reviews
+          </h1>
+        </div>
+      </div>
+
+      <div className="">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1500px] mx-auto px-4 gap-4">
+          {scholarships?.map((scholarship) => (
+            <ScholarshipByCategoryCard
+              key={scholarship._id}
+              scholarship={scholarship}
+            ></ScholarshipByCategoryCard>
+          ))}
+        </div>
       </div>
     </div>
   );

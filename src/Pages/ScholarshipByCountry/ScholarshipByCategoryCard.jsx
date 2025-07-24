@@ -30,48 +30,56 @@ const ScholarshipByCategoryCard = ({ scholarship }) => {
   } = scholarship;
 
   return (
-    <div className="border border-primary shadow-lg rounded-sm p-4">
-      <img className="h-[200px] w-full" src={university_image} alt="" />
-      <h1>{scholarship_name}</h1>
-      <p>
-        <span className="font-semibold">Category: </span>
-        {scholarship_category}
-      </p>
-      <p>
-        <span className="font-semibold">Location: </span>
-        {university_city},{university_country}
-      </p>
-      <p>
-        <span className="font-semibold">Deadline: </span>
-        {application_deadline}
-      </p>
-      <p>
-        <span className="font-semibold">Subject: </span>
-        {subject_category}
-      </p>
-      <p>
-        <span className="font-semibold">Tuition Fees: </span>
-        {tuition_fees}
-      </p>
-      <p>
-        <span className="font-semibold">Application Fees: </span>
-        {application_fees}
-      </p>
-      <p>
-        <span className="font-semibold">Service Charge: </span>
-        {service_charge}
-      </p>
-      <p>
-        <span className="font-semibold">Ratings: </span>
-        {isPending
-          ? "Loading..."
-          : isError
-          ? "N/A"
-          : averageRating !== undefined
-          ? averageRating.average
-          : "No ratings"}
-      </p>
-      <div className="flex justify-end">
+    <div className="border border-primary shadow-lg rounded-sm p-4 flex flex-col justify-between h-full">
+      <div>
+        <img
+          className="h-[200px] w-full object-cover rounded-sm mb-2"
+          src={university_image}
+          alt=""
+        />
+        <h1>{scholarship_name}</h1>
+        <p>
+          <span className="font-semibold">Category: </span>
+          {scholarship_category}
+        </p>
+        <p>
+          <span className="font-semibold">Location: </span>
+          {university_city}, {university_country}
+        </p>
+        <p>
+          <span className="font-semibold">Deadline: </span>
+          {application_deadline}
+        </p>
+        <p>
+          <span className="font-semibold">Subject: </span>
+          {subject_category}
+        </p>
+        <p>
+          <span className="font-semibold">Tuition Fees: </span>
+          {tuition_fees}
+        </p>
+        <p>
+          <span className="font-semibold">Application Fees: </span>
+          {application_fees}
+        </p>
+        <p>
+          <span className="font-semibold">Service Charge: </span>
+          {service_charge}
+        </p>
+        <p>
+          <span className="font-semibold">Ratings: </span>
+          {isPending
+            ? "Loading..."
+            : isError
+            ? "N/A"
+            : averageRating !== undefined
+            ? averageRating.average
+            : "No ratings"}
+        </p>
+      </div>
+
+      {/* Button always at bottom */}
+      <div className="mt-4 flex justify-end">
         <Link to={`/scholarship/${_id}`}>
           <button className="bg-primary px-4 py-1 rounded-sm text-white">
             Show Details

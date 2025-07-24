@@ -1,9 +1,15 @@
 import React from "react";
-import useAuth from "../../Hooks/useAuth";
 import { NavLink } from "react-router";
+import useUserRole from "../../Hooks/useUserRole";
+import Loader from "../../Shared/Loader";
 
 const LargeDevice = ({ isHome, isScrolled }) => {
-  const { user } = useAuth();
+  const { role, isLoading } = useUserRole();
+
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
+
   return (
     <div
       className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold ${
@@ -44,26 +50,22 @@ const LargeDevice = ({ isHome, isScrolled }) => {
         All Scholarship
       </NavLink>
 
-      {user && (
-        <>
-          <NavLink
-            to={`/Dashboard`}
-            className={({ isActive }) =>
-              `px-3 transition-all duration-300 ${
-                isActive
-                  ? "text-white bg-primary rounded-full"
-                  : isHome
-                  ? isScrolled
-                    ? "text-black"
-                    : "text-white"
-                  : "text-black"
-              }`
-            }
-          >
-            Dashboard
-          </NavLink>
-        </>
-      )}
+      <NavLink
+        to={`/Dashboard`}
+        className={({ isActive }) =>
+          `px-3 transition-all duration-300 ${
+            isActive
+              ? "text-white bg-primary rounded-full"
+              : isHome
+              ? isScrolled
+                ? "text-black"
+                : "text-white"
+              : "text-black"
+          }`
+        }
+      >
+        {role === "admin" ? "Admin Dashboard" : "User Dashboard"}
+      </NavLink>
     </div>
   );
 };

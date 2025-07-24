@@ -1,9 +1,11 @@
 import React from "react";
 import useAuth from "../../Hooks/useAuth";
 import { Link } from "react-router";
+import useUserRole from "../../Hooks/useUserRole";
 
 const SmallDevice = ({ open, setOpen, handleSignOut }) => {
   const { user } = useAuth();
+  const { role } = useUserRole();
   return (
     <div>
       <nav
@@ -45,7 +47,7 @@ const SmallDevice = ({ open, setOpen, handleSignOut }) => {
                 className="w-full text-left cursor-pointer"
                 onClick={() => setOpen(false)}
               >
-                Dashboard
+                {role === "admin" ? "Admin Dashboard" : "User Dashboard"}
               </button>
             </Link>
           </li>

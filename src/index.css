@@ -33,6 +33,16 @@ html{
 .button{
   @apply bg-primary px-3 py-2 rounded-sm text-white font-bold cursor-pointer hover:bg-white hover:text-primary duration-500;
 }
+@keyframes spin-slow {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+  transform-style: preserve-3d;
+}
+
 
 h1{
   @apply  text-xl md:text-2xl lg:text-4xl font-bold;

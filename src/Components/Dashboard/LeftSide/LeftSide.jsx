@@ -58,25 +58,25 @@ const LeftSide = ({ handleClick }) => {
           </Link>
 
           {/* User Routes */}
-          {/* {role === "User" && ( */}
-          <div className="mb-4">
-            <UserRoutes handleClick={handleClick} />
-          </div>
-          {/* )} */}
+          {role === "User" && (
+            <div className="mb-4">
+              <UserRoutes handleClick={handleClick} />
+            </div>
+          )}
 
           {/* Moderator Routes */}
-          {/* {role === "Moderator" && ( */}
-          <div className="mb-4">
-            <ModeratorRoutes handleClick={handleClick} />
-          </div>
-          {/* )} */}
+          {role === "Moderator" && (
+            <div className="mb-4">
+              <ModeratorRoutes handleClick={handleClick} />
+            </div>
+          )}
 
           {/* Admin Routes */}
-          {/* {role === "Admin" && ( */}
-          <div className="mb-4">
-            <AdminRoutes handleClick={handleClick} />
-          </div>
-          {/* )} */}
+          {role === "Admin" && (
+            <div className="mb-4">
+              <AdminRoutes handleClick={handleClick} />
+            </div>
+          )}
         </div>
       </div>
 

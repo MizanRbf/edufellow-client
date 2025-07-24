@@ -12,7 +12,7 @@ const MyProfile = () => {
     return <Loader></Loader>;
   }
   return (
-    <div>
+    <div className="">
       <Helmet>
         <title>My Profile || Edufellow</title>
       </Helmet>
@@ -27,8 +27,8 @@ const MyProfile = () => {
       </div>
 
       {/* My Profile */}
-      <div className="flex items-center justify-center px-4">
-        <div className="bg-white rounded-2xl shadow-lg w-full max-w-5xl flex flex-col lg:flex-row overflow-hidden">
+      <div className="flex items-center justify-center px-4 ">
+        <div className="bg-white rounded-2xl shadow-lg w-full max-w-5xl flex flex-col md:flex-row overflow-hidden">
           {/* Left Side - Profile Info */}
           <div className="flex flex-col items-center justify-center bg-primary/10 p-8 lg:w-1/3 space-y-4">
             <img

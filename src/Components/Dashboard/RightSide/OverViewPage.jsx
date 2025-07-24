@@ -7,6 +7,7 @@ import useApplications from "../../../Hooks/useApplications";
 import useReviews from "../../../Hooks/useReviews";
 import useScholarships from "../../../Hooks/useScholarships";
 import useUsers from "../../../Hooks/useUsers";
+import useUserRole from "../../../Hooks/useUserRole";
 
 const OverViewPage = () => {
   // allScholarship
@@ -23,18 +24,31 @@ const OverViewPage = () => {
   //  allReviews
   const { allReviews, isPending: reviewsPending } = useReviews();
 
+  const { role, isPending: rolePending } = useUserRole();
+
   const anyPending =
     scholarshipsPending ||
     usersPending ||
     applicationsPending ||
-    reviewsPending;
+    reviewsPending ||
+    rolePending;
 
   if (anyPending) {
     return <Loader></Loader>;
   }
 
   return (
-    <div className="w-full mt-10 lg:mt-30">
+    <div className="w-full">
+      {/* Title */}
+      <div className="flex justify-center mt-10 mb-8">
+        <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+          <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+            {role} Dashboard
+          </h1>
+        </div>
+      </div>
+
+      {/* Stats */}
       <div className="">
         <Stats
           allApplications={allApplications}
@@ -44,7 +58,6 @@ const OverViewPage = () => {
         ></Stats>
       </div>
 
-      {/* Chart-1 */}
       <div className="md:flex gap-4">
         {/* Chart-2 */}
         <div className="md:w-[60%] h-[390px] md:h-[400px]">

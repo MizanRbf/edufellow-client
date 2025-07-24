@@ -1,236 +1,132 @@
 import React from "react";
 
-const UpdateForm = ({ scholarship }) => {
+const UpdateForm = ({ scholarship, isSaving }) => {
   return (
-    <div>
-      <div className="">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {/* Scholarship Name */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Name</label>
-            <input
-              type="text"
-              name="scholarship_name"
-              className="input"
-              defaultValue={scholarship?.scholarship_name}
-              placeholder="Scholarship Name"
-            />
-          </fieldset>
-
-          {/* University Name */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Name</label>
-            <input
-              type="text"
-              name="university_name"
-              className="input"
-              defaultValue={scholarship?.university_name}
-              placeholder="University Name"
-            />
-          </fieldset>
-
-          {/* University image */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Image</label>
-            <input type="file" name="university_image" className="input" />
-          </fieldset>
-          {/* University Logo */}
-          {/* <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Logo</label>
-            <input type="file" name="university_logo" className="input"
-            defaultValue="" />
-          </fieldset> */}
-
-          {/* University Country */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University Country</label>
-            <input
-              type="text"
-              name="university_country"
-              className="input"
-              defaultValue={scholarship?.university_country}
-              placeholder="University Country"
-            />
-          </fieldset>
-
-          {/* University city */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">University City</label>
-            <input
-              type="text"
-              name="university_city"
-              className="input"
-              defaultValue={scholarship?.university_city}
-              placeholder="University City"
-            />
-          </fieldset>
-
-          {/* University World Rank */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">
-              University World Rank
+    <div className="bg-white p-6 rounded-md shadow-md">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Input Field Generator */}
+        {[
+          { label: "Scholarship Name", name: "scholarship_name", type: "text" },
+          { label: "University Name", name: "university_name", type: "text" },
+          {
+            label: "University Country",
+            name: "university_country",
+            type: "text",
+          },
+          { label: "University City", name: "university_city", type: "text" },
+          {
+            label: "University World Rank",
+            name: "university_world_rank",
+            type: "number",
+          },
+          { label: "Tuition Fees", name: "tuition_fees", type: "number" },
+          {
+            label: "Application Fees",
+            name: "application_fees",
+            type: "number",
+          },
+          { label: "Service Charge", name: "service_charge", type: "number" },
+          {
+            label: "Application Deadline",
+            name: "application_deadline",
+            type: "date",
+          },
+          { label: "Scholarship Post Date", name: "post_date", type: "date" },
+          {
+            label: "Posted User Email",
+            name: "posted_user_email",
+            type: "text",
+          },
+          { label: "Stipend", name: "stipend", type: "text" },
+        ].map(({ label, name, type }) => (
+          <div key={name} className="flex flex-col">
+            <label className="text-sm font-medium text-gray-700 mb-1">
+              {label}
             </label>
             <input
-              type="number"
-              name="university_world_rank"
-              className="input"
-              defaultValue={scholarship?.university_world_rank}
-              placeholder="University World Rank"
+              type={type}
+              name={name}
+              defaultValue={scholarship?.[name]}
+              placeholder={label}
+              className="input input-bordered rounded-sm w-full"
             />
-          </fieldset>
+          </div>
+        ))}
 
-          {/* Subject Category */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Subject Category</label>
-            <select
-              type="text"
-              name="subject_category"
-              className="select"
-              defaultValue={scholarship?.subject_category}
-            >
-              <option disabled={true}>Choose a Subject Category</option>
-              <option value="Agriculture">Agriculture</option>
-              <option value="Engineering">Engineering</option>
-              <option value="Doctor">Doctor</option>
-            </select>
-          </fieldset>
-
-          {/* Scholarship Category */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Scholarship Category</label>
-            <select
-              type="text"
-              name="scholarship_category"
-              className="select"
-              defaultValue={scholarship?.scholarship_category}
-            >
-              <option disabled={true}>Choose a Scholarship Category</option>
-              <option value="Full fund">Full fund</option>
-              <option value="Partial">Partial</option>
-              <option value="Self-fund">Self-fund</option>
-            </select>
-          </fieldset>
-
-          {/* Degree */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm ">Degree</label>
-            <select
-              type="text"
-              name="degree"
-              defaultValue={scholarship?.degree}
-              className="select"
-            >
-              <option disabled={true}>Choose a Degree</option>
-              <option value="Diploma">Diploma</option>
-              <option value="Bachelor">Bachelor</option>
-              <option value="Masters">Masters</option>
-            </select>
-          </fieldset>
-
-          {/* Tuition Fees */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Tuition fees</label>
-            <input
-              type="number"
-              name="tuition_fees"
-              className="input"
-              defaultValue={scholarship?.tuition_fees}
-              placeholder="Tuition fees"
-            />
-          </fieldset>
-
-          {/* Application Fees */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Application Fees</label>
-            <input
-              type="number"
-              name="application_fees"
-              className="input"
-              defaultValue={scholarship?.application_fees}
-              placeholder="Application Fees"
-            />
-          </fieldset>
-
-          {/* Service Charge */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Service Charge</label>
-            <input
-              type="number"
-              name="service_charge"
-              className="input"
-              defaultValue={scholarship?.service_charge}
-              placeholder="Service Charge"
-            />
-          </fieldset>
-
-          {/* Application Deadline */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Application Deadline</label>
-            <input
-              type="date"
-              name="application_deadline"
-              className="input"
-              defaultValue={scholarship?.application_deadline}
-              placeholder="Application Deadline"
-            />
-          </fieldset>
-
-          {/* Scholarship Post Date */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">
-              Scholarship Post Date
-            </label>
-            <input
-              type="date"
-              name="post_date"
-              className="input"
-              defaultValue={scholarship?.post_date}
-              placeholder="Scholarship Post Date"
-            />
-          </fieldset>
-
-          {/* Posted User Email */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Posted User Email</label>
-            <input
-              type="text"
-              name="posted_user_email"
-              className="input"
-              defaultValue={scholarship?.posted_user_email}
-              placeholder="Posted User Email"
-            />
-          </fieldset>
-          {/* Stipend */}
-          <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-            <label className="text-primary text-sm">Stipend</label>
-            <input
-              type="text"
-              name="stipend"
-              className="input"
-              defaultValue={scholarship?.stipend}
-              placeholder="Stipend"
-            />
-          </fieldset>
-        </div>
-        {/*Scholarship Description */}
-        <fieldset className="fieldset  border-base-300 rounded-box w-full p-4">
-          <label className="text-primary text-sm">
-            Scholarship Description
+        {/* File Upload */}
+        <div className="flex flex-col">
+          <label className="text-sm font-medium text-gray-700 mb-1">
+            University Image
           </label>
-          <textarea
-            rows={4}
-            name="description"
-            defaultValue={scholarship?.description}
-            placeholder="Description"
-            className="border pl-2 rounded-sm"
+          <input
+            type="file"
+            name="university_image"
+            className="file-input w-full"
           />
-        </fieldset>
-        {/* <button
-          type="submit"
-          className="w-full bg-primary rounded-sm text-white py-2 cursor-pointer"
-        >
-          Update Scholarship
-        </button> */}
+        </div>
+
+        {/* Dropdowns */}
+        <div className="flex flex-col">
+          <label className="text-sm font-medium text-gray-700 mb-1">
+            Subject Category
+          </label>
+          <select
+            name="subject_category"
+            defaultValue={scholarship?.subject_category}
+            className="select select-bordered rounded-sm"
+          >
+            <option disabled>Choose a Subject Category</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Doctor">Doctor</option>
+          </select>
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-sm font-medium text-gray-700 mb-1">
+            Scholarship Category
+          </label>
+          <select
+            name="scholarship_category"
+            defaultValue={scholarship?.scholarship_category}
+            className="select select-bordered rounded-sm"
+          >
+            <option disabled>Choose a Scholarship Category</option>
+            <option value="Full fund">Full fund</option>
+            <option value="Partial">Partial</option>
+            <option value="Self-fund">Self-fund</option>
+          </select>
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-sm font-medium text-gray-700 mb-1">
+            Degree
+          </label>
+          <select
+            name="degree"
+            defaultValue={scholarship?.degree}
+            className="select select-bordered rounded-sm"
+          >
+            <option disabled>Choose a Degree</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Masters">Masters</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Description */}
+      <div className="mt-6">
+        <label className="text-sm font-medium text-gray-700 mb-1 block">
+          Scholarship Description
+        </label>
+        <textarea
+          rows={4}
+          name="description"
+          defaultValue={scholarship?.description}
+          placeholder="Enter scholarship description..."
+          className="textarea textarea-bordered w-full rounded-sm"
+        />
       </div>
     </div>
   );

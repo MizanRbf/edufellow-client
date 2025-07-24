@@ -70,7 +70,7 @@ const ManageScholarTable = ({ scholarship, index }) => {
         <img
           src={university_image}
           alt="University"
-          className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-primary shadow-sm"
+          className="min-w-[80px] max-w-[80px] h-16 rounded-lg object-cover border-2 p-1 border-primary shadow-sm"
         />
       </td>
 
@@ -81,7 +81,7 @@ const ManageScholarTable = ({ scholarship, index }) => {
       <td className="px-4 py-3 text-gray-700">{university_name}</td>
       <td className="px-4 py-3 text-gray-600">{subject_category}</td>
       <td className="px-4 py-3">{degree}</td>
-      <td className="px-4 py-3 text-blue-600 font-semibold">
+      <td className="px-4 py-3 text-gray-600 font-semibold">
         ${application_fees}
       </td>
 
@@ -90,7 +90,7 @@ const ManageScholarTable = ({ scholarship, index }) => {
         <div className="flex items-center gap-2 whitespace-nowrap">
           {/* Details Button */}
           <Link to={`/dashboard/scholarship2/${_id}`}>
-            <button className="flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md text-sm transition">
+            <button className="flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-sm text-sm transition cursor-pointer">
               <FaInfoCircle className="text-base" />
               Details
             </button>
@@ -102,7 +102,7 @@ const ManageScholarTable = ({ scholarship, index }) => {
           {/* Delete Button */}
           <button
             onClick={() => handleDelete(_id)}
-            className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm transition"
+            className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-sm text-sm transition cursor-pointer"
           >
             <MdDelete className="text-base" />
             Delete

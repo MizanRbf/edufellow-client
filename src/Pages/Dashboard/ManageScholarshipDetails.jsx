@@ -34,7 +34,7 @@ const ManageScholarshipDetails = () => {
         </div>
       </div>
 
-      <div className="pt-25">
+      <div className="pt-10">
         <div className="max-w-[1500px] mx-auto px-4">
           <div>
             <ManageScholarDetailsCard

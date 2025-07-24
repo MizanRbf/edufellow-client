@@ -5,10 +5,12 @@ import { useQueryClient } from "@tanstack/react-query";
 import ScholarModalBtn from "./ScholarModalBtn";
 import UpdateForm from "./UpdateForm";
 import axios from "axios";
+import { useState } from "react";
 
 const ManageScholarshipModal = ({ scholarship }) => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
+  const [isSaving, setIsSaving] = useState(false);
 
   // handle Update
   const handleUpdate = async (e, id) => {
@@ -17,8 +19,16 @@ const ManageScholarshipModal = ({ scholarship }) => {
     const formData = new FormData(form);
     const imageFile = formData.get("university_image");
 
+    setIsSaving(true);
+
     if (!imageFile || !imageFile.name) {
-      alert("Please upload an image");
+      document.getElementById(`scholarshipModal-${id}`).close(); // close modal first
+      Swal.fire({
+        icon: "warning",
+        title: "Image Required",
+        text: "Please upload an image before submitting.",
+        confirmButtonColor: "#3085d6",
+      });
       return;
     }
 
@@ -59,6 +69,7 @@ const ManageScholarshipModal = ({ scholarship }) => {
         //Close modal after successful update
         document.getElementById(`scholarshipModal-${id}`).close();
         Swal.fire("Success!", "Scholarship updated successfully.", "success");
+        setIsSaving(false);
       } else {
         //Close modal after successful update
         document.getElementById(`scholarshipModal-${id}`).close();
@@ -76,7 +87,7 @@ const ManageScholarshipModal = ({ scholarship }) => {
   return (
     <div>
       <button
-        className="bg-blue-700 p-2 rounded-sm text-white btn border-0"
+        className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-sm text-sm transition cursor-pointer"
         onClick={() =>
           document
             .getElementById(`scholarshipModal-${scholarship._id}`)
@@ -84,18 +95,24 @@ const ManageScholarshipModal = ({ scholarship }) => {
         }
       >
         <MdEdit className="text-xl" />
+        Edit
       </button>
 
       {/* Dialog */}
       <dialog id={`scholarshipModal-${scholarship._id}`} className="modal">
-        <div className="modal-box">
-          <h2 className="mb-4 text-primary">Update Your Scholarship</h2>
+        <div className="modal-box w-full lg:max-w-[1000px] md:max-w-[800px] max-w-[400px]">
+          <h2 className="mb-4 text-primary text-center">
+            Update Your Scholarship
+          </h2>
           <form onSubmit={(e) => handleUpdate(e, scholarship._id)}>
             {/* Update Form */}
             <UpdateForm scholarship={scholarship}></UpdateForm>
 
             {/* Action button */}
-            <ScholarModalBtn scholarship={scholarship}></ScholarModalBtn>
+            <ScholarModalBtn
+              scholarship={scholarship}
+              isSaving={isSaving}
+            ></ScholarModalBtn>
           </form>
         </div>
       </dialog>

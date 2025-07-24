@@ -1,11 +1,11 @@
 import React from "react";
 
-const ScholarModalBtn = ({ scholarship }) => {
+const ScholarModalBtn = ({ scholarship, isSaving }) => {
   return (
     <div className="flex justify-between modal-action">
       {/* Submit Button */}
       <button type="submit" className="btn btn-success">
-        Save changes
+        {isSaving ? "saving..." : "Save Changes"}
       </button>
 
       {/* Cancel Button */}

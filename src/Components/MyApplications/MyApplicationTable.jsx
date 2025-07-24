@@ -58,8 +58,8 @@ const MyApplicationTable = ({ application, index }) => {
   };
 
   return (
-    <tr className="border border-slate-300 hover:bg-gray-50 transition-colors duration-200">
-      <th className="py-3 px-4 text-center text-gray-700 font-medium">
+    <tr className="border border-slate-300  transition-colors duration-200">
+      <th className="py-3 px-4 text-center text-white font-medium">
         {index + 1}
       </th>
 
@@ -71,15 +71,13 @@ const MyApplicationTable = ({ application, index }) => {
         />
       </td>
 
-      <td className="py-3 px-4 text-gray-800 font-semibold">
-        {university_name}
-      </td>
-      <td className="py-3 px-4 text-gray-600">{university_address}</td>
-      <td className="py-3 px-4 text-gray-700">{feedback}</td>
-      <td className="py-3 px-4 text-gray-700">{subject_category}</td>
-      <td className="py-3 px-4 text-gray-700">{applying_degree}</td>
-      <td className="py-3 px-4 text-gray-700">{application_fees}</td>
-      <td className="py-3 px-4 text-gray-700">{service_charge}</td>
+      <td className="py-3 px-4 text-white font-semibold">{university_name}</td>
+      <td className="py-3 px-4 text-white">{university_address}</td>
+      <td className="py-3 px-4 text-white">{feedback}</td>
+      <td className="py-3 px-4 text-white">{subject_category}</td>
+      <td className="py-3 px-4 text-white">{applying_degree}</td>
+      <td className="py-3 px-4 text-white">$ {application_fees}</td>
+      <td className="py-3 px-4 text-white">$ {service_charge}</td>
 
       <td className="py-3 px-4 text-center">
         <span

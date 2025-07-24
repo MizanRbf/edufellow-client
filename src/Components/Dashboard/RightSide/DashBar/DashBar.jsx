@@ -1,15 +1,22 @@
 import React from "react";
-import { MdArrowForwardIos } from "react-icons/md";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
-const DashBar = ({ handleClick }) => {
+const DashBar = ({ handleClick, open }) => {
   return (
-    <div className="flex justify-between px-4 py-3 shadow-lg lg:hidden">
+    <div className="flex justify-between px-4 py-3 shadow-lg lg:hidden z-10">
       <img className="w-12" src="/assets/logo.png" alt="logo" />
       <button onClick={handleClick}>
-        <MdArrowForwardIos
-          size={30}
-          className="text-secondary ml-4 cursor-pointer"
-        />
+        {open ? (
+          <MdArrowForwardIos
+            size={30}
+            className="text-secondary ml-4 cursor-pointer"
+          />
+        ) : (
+          <MdArrowBackIos
+            size={30}
+            className="text-secondary ml-4 cursor-pointer"
+          />
+        )}
       </button>
     </div>
   );

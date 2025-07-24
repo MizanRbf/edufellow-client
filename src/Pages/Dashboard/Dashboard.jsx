@@ -43,9 +43,9 @@ const Dashboard = () => {
         </div>
 
         {/* Right Side */}
-        <div className="overflow-x-auto p-6 w-full max-h-[100vh-60px]">
+        <div className="overflow-x-auto p-6 w-full max-h-[100vh-60px] bg-gradient-to-br from-[#018ca5] to-[#000]">
           {/* DashBar */}
-          <DashBar handleClick={handleClick}></DashBar>
+          <DashBar handleClick={handleClick} open={open}></DashBar>
           <Outlet></Outlet>
         </div>
       </div>

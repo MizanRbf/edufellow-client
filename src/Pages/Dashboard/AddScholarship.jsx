@@ -75,7 +75,7 @@ const AddScholarship = () => {
       </div>
 
       <div>
-        <div className="p-6 md:p-10 bg-white rounded-lg shadow-2xl border border-gray-100 relative z-0">
+        <div className="p-6 bg-[#0000003a] rounded-lg shadow-2xl border border-primary relative z-0">
           {/* Form Component */}
           <AddForm handleSubmitScholarship={handleSubmitScholarship} />
         </div>

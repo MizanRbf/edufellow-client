@@ -34,8 +34,8 @@ const OverViewPage = () => {
   }
 
   return (
-    <div className="w-full">
-      <div className="mt-10 lg:mt-30">
+    <div className="w-full mt-10 lg:mt-30">
+      <div className="">
         <Stats
           allApplications={allApplications}
           allReviews={allReviews}

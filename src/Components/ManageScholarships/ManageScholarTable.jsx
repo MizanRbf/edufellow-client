@@ -61,9 +61,9 @@ const ManageScholarTable = ({ scholarship, index }) => {
     });
   };
   return (
-    <tr className="border-b border-gray-200 hover:bg-gray-50 transition duration-200">
+    <tr className="border-b border-white">
       {/* Serial Number */}
-      <th className="px-4 py-3 text-center text-gray-600">{index + 1}</th>
+      <th className="px-4 py-3 text-center text-white">{index + 1}</th>
 
       {/* University Image */}
       <td className="px-4 py-3">
@@ -75,13 +75,11 @@ const ManageScholarTable = ({ scholarship, index }) => {
       </td>
 
       {/* Scholarship Info */}
-      <td className="px-4 py-3 font-medium text-gray-800">
-        {scholarship_name}
-      </td>
-      <td className="px-4 py-3 text-gray-700">{university_name}</td>
-      <td className="px-4 py-3 text-gray-600">{subject_category}</td>
+      <td className="px-4 py-3 font-medium text-white">{scholarship_name}</td>
+      <td className="px-4 py-3 text-white">{university_name}</td>
+      <td className="px-4 py-3 text-white">{subject_category}</td>
       <td className="px-4 py-3">{degree}</td>
-      <td className="px-4 py-3 text-gray-600 font-semibold">
+      <td className="px-4 py-3 text-white font-semibold">
         ${application_fees}
       </td>
 

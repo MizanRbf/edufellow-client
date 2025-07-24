@@ -47,7 +47,7 @@ const AllAppliedScholarship = () => {
     console.log(error.message);
   }
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen p-4">
       <Helmet>
         <title>All Applied Scholarship || Edufellow</title>
       </Helmet>

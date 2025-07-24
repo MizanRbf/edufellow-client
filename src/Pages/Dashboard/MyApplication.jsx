@@ -57,61 +57,63 @@ const MyApplication = () => {
             redirectPath="/"
           ></EmptyState>
         )}
-        <table className="min-w-full border-collapse border border-gray-300 shadow-lg rounded-lg overflow-hidden">
-          {/* Head */}
-          <thead
-            className={`${
-              myApplications.length < 1 ? "hidden" : ""
-            } bg-primary text-white`}
-          >
-            <tr>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                No.
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                Image
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                University Name
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                University Address
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                Application Feedback
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                Subject Category
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                Applied Degree
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                Application Fees
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
-                Service Charge
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
-                Application Status
-              </th>
-              <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
-                Actions
-              </th>
-            </tr>
-          </thead>
 
-          <tbody>
-            {myApplications.map((application, index) => (
-              <MyApplicationTable
-                key={application._id}
-                application={application}
-                index={index}
-                className="odd:bg-white even:bg-gray-50 hover:bg-teal-100 transition-colors duration-200"
-              />
-            ))}
-          </tbody>
-        </table>
+        <div className="overflow-x-auto shadow-xl rounded-lg">
+          <table className="table border-3 rounded-lg border-primary w-full bg-[#00000059]">
+            {/* Head */}
+            <thead
+              className={`${
+                myApplications.length < 1 ? "hidden" : ""
+              } bg-primary text-white`}
+            >
+              <tr>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  No.
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  Image
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  University Name
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  University Address
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  Application Feedback
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  Subject Category
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  Applied Degree
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  Application Fees
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider border-r">
+                  Service Charge
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
+                  Application Status
+                </th>
+                <th className="py-3 px-4 text-left text-sm font-semibold uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {myApplications.map((application, index) => (
+                <MyApplicationTable
+                  key={application._id}
+                  application={application}
+                  index={index}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

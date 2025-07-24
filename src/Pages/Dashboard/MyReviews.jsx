@@ -56,8 +56,8 @@ const MyReviews = () => {
           ></EmptyState>
         )}
 
-        <div className="overflow-x-auto bg-white shadow-xl rounded-xl">
-          <table className="table table-zebra w-full">
+        <div className="overflow-x-auto shadow-xl rounded-lg">
+          <table className="table border-3 rounded-lg border-primary w-full bg-[#00000059]">
             {/* Table Head */}
             <thead
               className={`text-base bg-primary text-white ${

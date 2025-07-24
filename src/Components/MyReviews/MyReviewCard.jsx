@@ -45,14 +45,14 @@ const MyReviewCard = ({ myReview, index }) => {
   };
 
   return (
-    <tr className="border-b hover:bg-gray-50 transition duration-300">
-      <th className="px-4 py-3 text-center text-gray-600 font-medium">
+    <tr className="border-b">
+      <th className="px-4 py-3 text-center text-white font-medium">
         {index + 1}
       </th>
-      <td className="px-4 py-3 text-gray-700">{scholarship_name}</td>
-      <td className="px-4 py-3 text-gray-700">{university_name}</td>
-      <td className="px-4 py-3 text-gray-600">{commentReview}</td>
-      <td className="px-4 py-3 text-sm text-gray-500">{review_date}</td>
+      <td className="px-4 py-3 text-white">{scholarship_name}</td>
+      <td className="px-4 py-3 text-white">{university_name}</td>
+      <td className="px-4 py-3 text-white">{commentReview}</td>
+      <td className="px-4 py-3 text-sm text-white">{review_date}</td>
 
       <td className="px-4 py-3">
         <div className="flex items-center justify-center gap-3">

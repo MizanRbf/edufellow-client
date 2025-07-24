@@ -43,11 +43,11 @@ const ManageScholarship = () => {
             redirectPath={-1}
           ></EmptyState>
         )}
-        <div className="overflow-x-auto rounded-lg shadow-md border border-gray-200">
-          <table className="min-w-full table-auto bg-white">
+        <div className="overflow-x-auto rounded-lg shadow-md border-3 border-primary">
+          <table className="min-w-full table-auto bg-[#00000077]">
             {/* Table Head */}
             <thead
-              className={`bg-primary/10 text-primary text-base ${
+              className={`bg-primary text-white text-base ${
                 allScholarships.length < 1 && "hidden"
               }`}
             >
@@ -64,7 +64,7 @@ const ManageScholarship = () => {
             </thead>
 
             {/* Table Body */}
-            <tbody className="divide-y divide-gray-100 text-sm text-gray-700">
+            <tbody className=" text-sm text-white">
               {allScholarships.map((scholarship, index) => (
                 <ManageScholarTable
                   key={scholarship._id}

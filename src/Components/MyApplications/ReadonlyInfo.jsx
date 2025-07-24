@@ -22,6 +22,13 @@ const ReadonlyInfo = ({ application }) => {
         value={application.scholarship_name}
         readOnly
       />
+      <input
+        type="text"
+        name="subject_category"
+        className="input input-bordered"
+        value={application.subject_category}
+        readOnly
+      />
 
       <input
         type="text"

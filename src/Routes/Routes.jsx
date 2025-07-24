@@ -14,7 +14,6 @@ import ManageScholarship from "../Pages/Dashboard/ManageScholarship";
 import AllAppliedScholarship from "../Pages/Dashboard/AllAppliedScholarship";
 import AllReviews from "../Pages/Dashboard/AllReviews";
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
-import ManageReview from "../Pages/Dashboard/ManageReview";
 import ScholarshipDetails from "../Pages/AllScholarship/ScholarshipDetails";
 import Payment from "../Pages/Payment/Payment";
 import ApplicationForm from "../Pages/ApplicationForm/ApplicationForm";
@@ -163,14 +162,6 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AllReviews></AllReviews>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "manageReview",
-        element: (
-          <PrivateRoute>
-            <ManageReview></ManageReview>
           </PrivateRoute>
         ),
       },

@@ -49,7 +49,7 @@ const ReviewCard = ({ singleReview }) => {
     });
   };
   return (
-    <div className="border border-primary rounded-lg p-6 flex gap-6 bg-white shadow-md max-w-lg mx-auto">
+    <div className="border border-primary rounded-sm p-6 flex gap-6 bg-white shadow-md max-w-lg mx-auto">
       {/* Image */}
       <div className="flex-shrink-0 w-28 h-28">
         <img

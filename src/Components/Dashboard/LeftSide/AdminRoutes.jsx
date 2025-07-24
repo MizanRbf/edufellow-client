@@ -95,9 +95,10 @@ const AdminRoutes = ({ handleClick }) => {
             <IoIosArrowForward />
           </NavLink>
         </button>
+
         <button className="w-full" onClick={handleClick}>
           <NavLink
-            to="manageReview"
+            to="allReviews"
             className={({ isActive }) =>
               `flex justify-between items-center font-bold hover:text-secondary ${
                 isActive ? "text-secondary bg-white" : "text-white"
@@ -106,7 +107,7 @@ const AdminRoutes = ({ handleClick }) => {
           >
             <div className="flex items-center gap-2 ">
               <MdFactCheck />
-              <p> Manage Review</p>
+              <p>Manage Review</p>
             </div>
 
             <IoIosArrowForward />

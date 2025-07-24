@@ -82,7 +82,7 @@ const UserCard = ({ user, index }) => {
       {/* Profile Image */}
       <td className="px-4 py-3">
         <img
-          className="rounded-xl w-16 h-16 object-cover border-2 p-1 border-primary shadow-sm"
+          className="rounded-xl min-w-[80px] max-w-[80px] h-[80px] object-cover border-2 p-1 border-primary shadow-sm"
           src={photo}
           alt="User"
         />
@@ -99,7 +99,7 @@ const UserCard = ({ user, index }) => {
         <select
           value={selectedRole}
           onChange={handleRoleChange}
-          className="select select-bordered select-sm w-full bg-white shadow-sm text-gray-700"
+          className="select select-bordered select-sm w-full bg-white shadow-sm text-gray-700 cursor-pointer"
         >
           <option value="user">User</option>
           <option value="moderator">Moderator</option>
@@ -112,7 +112,7 @@ const UserCard = ({ user, index }) => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => handleDelete(user?._id)}
-            className="flex items-center gap-2 text-red-600 hover:text-white hover:bg-red-500 border border-red-500 px-3 py-1.5 rounded-md text-sm transition duration-200"
+            className="flex items-center gap-2 text-red-600 hover:text-white hover:bg-red-500 border border-red-500 px-3 py-1.5 rounded-md text-sm transition duration-200 cursor-pointer"
           >
             <MdDelete size={18} />
             <span>Delete</span>

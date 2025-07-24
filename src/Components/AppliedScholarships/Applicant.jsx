@@ -62,7 +62,7 @@ const Applicant = ({ applicant, index }) => {
 
       <td className="py-2 px-4">
         <img
-          className="rounded-xl max-w-[80px] h-[80px] object-cover border-2 p-1 border-primary"
+          className="rounded-xl min-w-[80px] max-w-[80px] h-[80px] object-cover border-2 p-1 border-primary"
           src={photo}
           alt={`${university_name} logo`}
         />

@@ -47,13 +47,13 @@ const AllAppliedScholarship = () => {
     console.log(error.message);
   }
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-10">
+    <div className="min-h-screen bg-gray-50 p-4">
       <Helmet>
         <title>All Applied Scholarship || Edufellow</title>
       </Helmet>
 
       {/* Title */}
-      <div className="flex justify-center mt-5 md:mt-10 mb-6">
+      <div className="flex justify-center mt-5 mb-6">
         <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-10 py-5 shadow-2xl rounded-lg">
           <h1 className="transform skew-x-12 text-white text-3xl md:text-4xl font-extrabold uppercase tracking-widest select-none">
             Manage Applications
@@ -62,7 +62,7 @@ const AllAppliedScholarship = () => {
       </div>
 
       {/* Controls */}
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 md:gap-0 max-w-5xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 md:gap-0 max-w-7xl mx-auto">
         <div className="flex justify-center">
           <DeleteRejectedButton />
         </div>
@@ -110,6 +110,7 @@ const AllAppliedScholarship = () => {
                 "Subject Category",
                 "Feedback",
                 "Application Status",
+                "Actions",
               ].map((title, idx) => (
                 <th
                   key={idx}

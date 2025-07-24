@@ -47,7 +47,7 @@ const DeleteRejectedButton = () => {
   return (
     <button
       onClick={handleDeleteRejected}
-      className="btn btn-outline btn-error mb-4 flex items-center gap-2"
+      className="btn btn-outline btn-error flex items-center gap-2"
     >
       <MdDelete size={20} />
       Delete All Rejected Applicants

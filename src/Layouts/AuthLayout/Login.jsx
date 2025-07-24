@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-
 import SocialLogin from "./SocialLogin";
-import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../Hooks/useAuth";
 import { ClockLoader } from "react-spinners";
+import { motion } from "motion/react";
 
 const Section = ({ children }) => (
   <motion.div

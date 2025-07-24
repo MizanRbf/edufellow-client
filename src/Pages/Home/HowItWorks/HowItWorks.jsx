@@ -6,6 +6,7 @@ import {
   Send,
   BellRing,
   Smile,
+  CheckCircle,
 } from "lucide-react";
 
 const steps = [
@@ -35,22 +36,30 @@ const steps = [
     desc: "Receive real-time updates on deadlines and application status.",
   },
   {
-    icon: <Smile className="w-8 h-8 text-emerald-600" />,
+    icon: <CheckCircle className="w-8 h-8 text-emerald-600" />,
     title: "6. Achieve Your Goal",
     desc: "Win the scholarship and move forward with your educational journey.",
   },
 ];
+import { motion } from "motion/react";
+const Section = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: false, amount: 0.3 }}
+  >
+    {children}
+  </motion.div>
+);
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className=" bg-white">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-50 rounded-sm p-6 shadow-lg hover:shadow-md transition duration-300 text-left"
-            >
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {steps.map((step, idx) => (
+        <Section key={idx}>
+          <div className="flex flex-col justify-between h-full bg-gray-50 rounded-sm p-6 shadow-lg hover:shadow-md transition duration-300 text-left">
+            <div>
               <div className="mb-4 flex items-center justify-center w-14 h-14 rounded-full bg-indigo-100 mx-auto">
                 {step.icon}
               </div>
@@ -59,10 +68,10 @@ const HowItWorks = () => {
               </h3>
               <p className="text-gray-600 text-sm text-center">{step.desc}</p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </div>
+        </Section>
+      ))}
+    </div>
   );
 };
 

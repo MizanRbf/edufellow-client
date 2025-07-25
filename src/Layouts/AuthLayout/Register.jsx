@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { FaEye } from "react-icons/fa";
+import { LuEyeClosed } from "react-icons/lu";
 import { ClockLoader } from "react-spinners";
 const Section = ({ children }) => (
   <motion.div
@@ -21,6 +23,12 @@ const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Handle ShowPassword
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
   // Handle Register
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -149,13 +157,25 @@ const Register = () => {
             {/* Password */}
             <div>
               <label className="label">Password</label>
-              <input
-                type="password"
-                name="password"
-                className="input w-full"
-                placeholder="Enter Your Password"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className="input w-full"
+                  placeholder="Enter Your Password"
+                  required
+                />
+                <div
+                  className="absolute top-3 right-5 cursor-pointer"
+                  onClick={handleShowPassword}
+                >
+                  {showPassword ? (
+                    <FaEye size={15} />
+                  ) : (
+                    <LuEyeClosed size={15} />
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Error */}

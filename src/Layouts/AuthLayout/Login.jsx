@@ -4,6 +4,8 @@ import SocialLogin from "./SocialLogin";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../Hooks/useAuth";
 import { ClockLoader } from "react-spinners";
+import { FaEye } from "react-icons/fa";
+import { LuEyeClosed } from "react-icons/lu";
 
 const Login = () => {
   const location = useLocation();
@@ -12,6 +14,12 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const from = location.state || "/";
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Handle ShowPassword
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   // Handle Login
   const handleLogin = (e) => {
@@ -74,12 +82,20 @@ const Login = () => {
 
             {/* Password */}
             <label className="label">Password</label>
-            <input
-              type="password"
-              className="input w-full"
-              name="password"
-              placeholder="Password"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="input w-full"
+                name="password"
+                placeholder="Password"
+              />
+              <div
+                className="absolute top-3 right-5 cursor-pointer"
+                onClick={handleShowPassword}
+              >
+                {showPassword ? <FaEye size={15} /> : <LuEyeClosed size={15} />}
+              </div>
+            </div>
 
             {/* Error */}
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}

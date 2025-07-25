@@ -24,44 +24,48 @@ const Chart2 = ({ allScholarships }) => {
             Z`;
   };
   return (
-    <div
-      className={`border border-slate-200 rounded-lg flex justify-center mt-10 shadow-lg bg-secondary p-6 ${
-        allScholarships?.length == "0" ? "hidden" : "block"
-      }`}
-    >
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart
-          width={1000}
-          height={300}
-          data={allScholarships}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3,3" />
-          <XAxis dataKey="university_name" />
-          <YAxis />
-          <Tooltip />
-          <Bar
-            dataKey="service_charge"
-            fill="#8884d8"
-            label={{ position: "top" }}
+    <div className="mt-10">
+      <h2 className="text-white mb-2 text-center">Cost Comparison</h2>
+
+      <div
+        className={`border border-slate-200 rounded-lg flex justify-center shadow-lg bg-secondary p-6 ${
+          allScholarships?.length == "0" ? "hidden" : "block"
+        }`}
+      >
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart
+            width={1000}
+            height={300}
+            data={allScholarships}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
           >
-            {allScholarships.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-            ))}
-          </Bar>
-          <Line
-            type="monotone"
-            dataKey="application_fees"
-            stroke="#82ca9d"
-            yAxisId="left"
-          />
-        </BarChart>
-      </ResponsiveContainer>
+            <CartesianGrid strokeDasharray="3,3" />
+            <XAxis dataKey="university_name" />
+            <YAxis />
+            <Tooltip />
+            <Bar
+              dataKey="service_charge"
+              fill="#8884d8"
+              label={{ position: "top" }}
+            >
+              {allScholarships.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+              ))}
+            </Bar>
+            <Line
+              type="monotone"
+              dataKey="application_fees"
+              stroke="#82ca9d"
+              yAxisId="left"
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

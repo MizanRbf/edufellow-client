@@ -17,56 +17,62 @@ const Chart = ({ allApplications }) => {
   }));
 
   return (
-    <div
-      className={`border border-slate-200 rounded-lg flex justify-center md:mt-10 shadow-lg bg-secondary md:p-6  ${
-        allApplications?.length === 0 ? "hidden" : "block"
-      }`}
-    >
-      <ResponsiveContainer width="100%" height={300}>
-        <PieChart>
-          <Tooltip />
-          <Legend />
+    <div className="md:mt-10">
+      <h2 className="text-white mb-2 mt-10 md:mt-0 text-center">
+        Find Talent Students
+      </h2>
 
-          {/* Pie for service_charge */}
-          <Pie
-            data={dataWithName}
-            dataKey="hsc_result"
-            nameKey="name"
-            cx="40%"
-            cy="50%"
-            outerRadius={100}
-            fill="#8884d8"
-            label
-          >
-            {dataWithName.map((_, index) => (
-              <Cell
-                key={`cell-s-${index}`}
-                fill={colors1[index % colors1.length]}
-              />
-            ))}
-          </Pie>
+      <div
+        className={`border border-slate-200 rounded-lg flex justify-center shadow-lg bg-secondary md:p-6  ${
+          allApplications?.length === 0 ? "hidden" : "block"
+        }`}
+      >
+        <ResponsiveContainer width="100%" height={300}>
+          <PieChart>
+            <Tooltip />
+            <Legend />
 
-          {/* Pie for application_fees */}
-          <Pie
-            data={dataWithName}
-            dataKey="ssc_result"
-            nameKey="name"
-            cx="70%"
-            cy="50%"
-            outerRadius={80}
-            innerRadius={50}
-            fill="#82ca9d"
-            label
-          >
-            {dataWithName.map((_, index) => (
-              <Cell
-                key={`cell-a-${index}`}
-                fill={colors2[index % colors2.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
+            {/* Pie for service_charge */}
+            <Pie
+              data={dataWithName}
+              dataKey="hsc_result"
+              nameKey="name"
+              cx="40%"
+              cy="50%"
+              outerRadius={100}
+              fill="#8884d8"
+              label
+            >
+              {dataWithName.map((_, index) => (
+                <Cell
+                  key={`cell-s-${index}`}
+                  fill={colors1[index % colors1.length]}
+                />
+              ))}
+            </Pie>
+
+            {/* Pie for application_fees */}
+            <Pie
+              data={dataWithName}
+              dataKey="ssc_result"
+              nameKey="name"
+              cx="70%"
+              cy="50%"
+              outerRadius={80}
+              innerRadius={50}
+              fill="#82ca9d"
+              label
+            >
+              {dataWithName.map((_, index) => (
+                <Cell
+                  key={`cell-a-${index}`}
+                  fill={colors2[index % colors2.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

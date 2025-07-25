@@ -1,76 +1,106 @@
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
-} from "recharts";
+import React, { PureComponent } from "react";
+import { Treemap, ResponsiveContainer, Tooltip } from "recharts";
+
+const COLORS = [
+  "#8889DD",
+  "#9597E4",
+  "#8DC77B",
+  "#A5D297",
+  "#E2CF45",
+  "#F8C12D",
+];
+
+class CustomizedContent extends PureComponent {
+  render() {
+    const { root, depth, x, y, width, height, index, colors, name } =
+      this.props;
+
+    return (
+      <g>
+        <rect
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          style={{
+            fill:
+              depth < 2
+                ? colors[Math.floor((index / root.children.length) * 6)]
+                : "#ffffff00",
+            stroke: "#fff",
+            strokeWidth: 2 / (depth + 1e-10),
+            strokeOpacity: 1 / (depth + 1e-10),
+          }}
+        />
+        {depth === 1 && (
+          <>
+            <text
+              x={x + width / 2}
+              y={y + height / 2 + 7}
+              textAnchor="middle"
+              fill="#fff"
+              fontSize={14}
+            >
+              {name}
+            </text>
+            <text
+              x={x + 4}
+              y={y + 18}
+              fill="#fff"
+              fontSize={16}
+              fillOpacity={0.9}
+            >
+              {index + 1}
+            </text>
+          </>
+        )}
+      </g>
+    );
+  }
+}
+
+// ✅ Custom Tooltip Component
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    const { user_name, hsc_result } = payload[0].payload;
+    return (
+      <div className="bg-white p-2 rounded shadow text-sm text-black">
+        <p>
+          <strong>Name:</strong> {user_name}
+        </p>
+        <p>
+          <strong>HSC Result:</strong> {hsc_result}
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
 
 const Chart = ({ allApplications }) => {
-  const colors1 = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-  const colors2 = ["#FF6666", "#AA66CC", "#33B5E5", "#99CC00"];
-
-  const dataWithName = allApplications.map((item) => ({
-    ...item,
-    name: item.university_name, // or item.scholarship_name
-  }));
-
   return (
-    <div className="md:mt-10">
-      <h2 className="text-white mb-2 mt-10 md:mt-0 text-center">
-        Find Talent Students
-      </h2>
+    <div className="mt-10">
+      <h2 className="text-white mb-2 text-center">Find Talent Student</h2>
 
       <div
-        className={`border border-slate-200 rounded-lg flex justify-center shadow-lg bg-secondary md:p-6  ${
-          allApplications?.length === 0 ? "hidden" : "block"
+        className={`border border-slate-200 rounded-lg flex justify-center shadow-lg bg-secondary p-6 ${
+          allApplications?.length == 0 ? "hidden" : "block"
         }`}
       >
         <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Tooltip />
-            <Legend />
-
-            {/* Pie for service_charge */}
-            <Pie
-              data={dataWithName}
-              dataKey="hsc_result"
-              nameKey="name"
-              cx="40%"
-              cy="50%"
-              outerRadius={100}
-              fill="#8884d8"
-              label
-            >
-              {dataWithName.map((_, index) => (
-                <Cell
-                  key={`cell-s-${index}`}
-                  fill={colors1[index % colors1.length]}
-                />
-              ))}
-            </Pie>
-
-            {/* Pie for application_fees */}
-            <Pie
-              data={dataWithName}
-              dataKey="ssc_result"
-              nameKey="name"
-              cx="70%"
-              cy="50%"
-              outerRadius={80}
-              innerRadius={50}
-              fill="#82ca9d"
-              label
-            >
-              {dataWithName.map((_, index) => (
-                <Cell
-                  key={`cell-a-${index}`}
-                  fill={colors2[index % colors2.length]}
-                />
-              ))}
-            </Pie>
-          </PieChart>
+          <Treemap
+            width={1000}
+            height={300}
+            data={allApplications}
+            dataKey="hsc_result"
+            stroke="#fff"
+            fill="#8884d8"
+            content={(props) => (
+              <CustomizedContent {...props} colors={COLORS} />
+            )}
+          >
+            <Tooltip content={<CustomTooltip />} />
+          </Treemap>
         </ResponsiveContainer>
       </div>
     </div>

@@ -60,10 +60,10 @@ const OverViewPage = () => {
 
       <div className="md:flex gap-4">
         {/* Chart-2 */}
-        <div className="md:w-[60%] h-[390px] md:h-[400px]">
+        <div className="md:w-[50%] h-[390px] md:h-[400px]">
           <Chart2 allScholarships={allScholarships} />
         </div>
-        <div className="md:w-[40%] h-[340px] md:h-[400px]">
+        <div className="md:w-[50%] h-[340px] md:h-[400px]">
           <Chart allApplications={allApplications} />
         </div>
       </div>

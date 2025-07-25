@@ -1,14 +1,7 @@
 import React, { PureComponent } from "react";
 import { Treemap, ResponsiveContainer, Tooltip } from "recharts";
 
-const COLORS = [
-  "#8889DD",
-  "#9597E4",
-  "#8DC77B",
-  "#A5D297",
-  "#E2CF45",
-  "#F8C12D",
-];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 
 class CustomizedContent extends PureComponent {
   render() {
@@ -59,7 +52,7 @@ class CustomizedContent extends PureComponent {
   }
 }
 
-// ✅ Custom Tooltip Component
+// Custom Tooltip Component
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const { user_name, hsc_result } = payload[0].payload;

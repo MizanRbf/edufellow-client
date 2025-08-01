@@ -1,6 +1,6 @@
 # 🌐 EDUFELLOW - Scholarship Management System
 
-Welcome to EDUFELLOW-CLIENT, the front-end application for the EDUFELLOW scholarship platform. This project is built with React and utilizes a component-based architecture to provide a seamless user experience for scholarship applicants, providers, and administrators.
+Developed and maintained the full-stack EDUFELLOW-CLIENT web application, an educational platform designed to streamline scholarship management, user applications, review processes, and manage various user roles (e.g., student, admin, moderator). On the front-end, utilized React.js to build dynamic and responsive user interfaces. For the back-end, implemented robust APIs using Node.js and Express.js, and managed data persistence with MongoDB. Key responsibilities included developing features such as user dashboards, scholarship listings, application forms, profile management, and integrating payment functionalities for transactions, ensuring a seamless and intuitive user experience for all users.
 
 ---
 

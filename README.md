@@ -4,7 +4,7 @@ Developed and maintained the full-stack EDUFELLOW-CLIENT web application, an edu
 
 ---
 
-##🔑 Key Features
+## 🔑 Key Features
 
 - Comprehensive Scholarship Listings: Browse and discover a wide range of scholarships, filterable by country and other criteria.
 - Intuitive Application Process: A streamlined application form for users to apply for desired scholarships.

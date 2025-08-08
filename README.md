@@ -65,9 +65,14 @@ Developed and maintained the full-stack EDUFELLOW-CLIENT web application, an edu
 
 ---
 
-## ✨ Live URL
+## 🔗 Live Link
+[👉 Visit Live Site](https://edufellow-client.web.app/)
 
-- https://edufellow-client.web.app
+---
+
+## 🚀 How to Run Locally
+https://github.com/MizanRbf/Phero_Tube.git
+
 ---
 
 Copyright © 2025 - All rights reserved by Edufellow.

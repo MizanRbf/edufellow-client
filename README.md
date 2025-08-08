@@ -74,7 +74,7 @@ Developed and maintained the full-stack EDUFELLOW-CLIENT web application, an edu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MizanRbf/DevBoard.git
+   https://github.com/MizanRbf/edufellow-client.git
 
 2. Open the Project in Browser
 

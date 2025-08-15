@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router";
 import useUserRole from "../../Hooks/useUserRole";
 import Loader from "../../Shared/Loader";
+import { Underline } from "lucide-react";
 
 const LargeDevice = ({ isHome, isScrolled }) => {
   const { role, isLoading } = useUserRole();
@@ -12,22 +13,14 @@ const LargeDevice = ({ isHome, isScrolled }) => {
 
   return (
     <div
-      className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold ${
-        isScrolled ? "text-black" : "text-white"
-      }`}
+      className={`space-x-4  hidden lg:block *:px-3 transition-all duration-500 ease-in-out font-bold text-white`}
     >
       <NavLink
         onClick={() => window.scrollTo(0, 0)}
         to="/"
         className={({ isActive }) =>
           `px-3 transition-all duration-300 ${
-            isHome
-              ? isActive
-                ? "text-white bg-primary rounded-full"
-                : isScrolled
-                ? "text-black"
-                : "text-white"
-              : "text-black"
+            isActive && "border-3 border-b-primary border-x-0 border-t-0"
           }`
         }
       >
@@ -37,13 +30,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
         to="/allScholarship"
         className={({ isActive }) =>
           `px-3 transition-all duration-300 ${
-            isActive
-              ? "text-white bg-primary rounded-full"
-              : isHome
-              ? isScrolled
-                ? "text-black"
-                : "text-white"
-              : "text-black"
+            isActive && "border-3 border-b-primary border-x-0 border-t-0"
           }`
         }
       >
@@ -54,13 +41,7 @@ const LargeDevice = ({ isHome, isScrolled }) => {
         to={`/Dashboard`}
         className={({ isActive }) =>
           `px-3 transition-all duration-300 ${
-            isActive
-              ? "text-white bg-primary rounded-full"
-              : isHome
-              ? isScrolled
-                ? "text-black"
-                : "text-white"
-              : "text-black"
+            isActive && "border-3 border-b-primary border-x-0 border-t-0"
           }`
         }
       >

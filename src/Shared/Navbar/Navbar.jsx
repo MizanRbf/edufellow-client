@@ -41,12 +41,12 @@ const Navbar = () => {
 
   return (
     <div
-      className={` text-black fixed right-0 top-0 left-0 z-999 transform transition-all duration-300 ease-in-out ${
+      className={` text-white fixed right-0 top-0 left-0 z-999 transform transition-all duration-300 ease-in-out bg-secondary ${
         isHome
           ? isScrolled
-            ? "bg-white py-2 shadow-xl"
+            ? "py-2 shadow-xl"
             : "bg-secondary shadow-4xl py-4"
-          : "bg-white shadow-xl py-4"
+          : "py-4"
       }`}
     >
       <div className="flex justify-between items-center max-w-[1800px] mx-auto px-4">

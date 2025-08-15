@@ -6,6 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import { ClockLoader } from "react-spinners";
 import { FaEye } from "react-icons/fa";
 import { LuEyeClosed } from "react-icons/lu";
+import RoleWiseLogin from "./RoleWiseLogin";
 
 const Login = () => {
   const location = useLocation();
@@ -15,6 +16,8 @@ const Login = () => {
   const navigate = useNavigate();
   const from = location.state || "/";
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // Handle ShowPassword
   const handleShowPassword = () => {
@@ -43,7 +46,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 my-10 md:my-0">
       <div className="card w-full max-w-xl shadow-2xl bg-base-100">
-        <div className="card-body">
+        <div className="card-body relative">
           {/* Go Home */}
           <div className="flex justify-end">
             <Link to="/">
@@ -76,6 +79,8 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="input w-full"
               placeholder="Email"
             />
@@ -87,6 +92,7 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 className="input w-full"
                 name="password"
+                value={password}
                 placeholder="Password"
               />
               <div
@@ -130,6 +136,14 @@ const Login = () => {
               Register
             </Link>
           </p>
+
+          {/* Role Wise Login */}
+          <div className="absolute md:top-0  md:-right-43 -top-20 right-0">
+            <RoleWiseLogin
+              setEmail={setEmail}
+              setPassword={setPassword}
+            ></RoleWiseLogin>
+          </div>
         </div>
       </div>
     </div>

@@ -22,16 +22,18 @@ const ScholarCard = ({ scholarship }) => {
     application_deadline,
   } = scholarship;
   return (
-    <div className="group bg-white border border-gray-200 shadow-md hover:shadow-xl rounded-sm overflow-hidden transition-all duration-300 ease-in-out flex flex-col">
+    <div className="group bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden transition-all duration-300 ease-in-out flex flex-col h-[550px] p-3 border border-gray-200">
       {/* Image */}
-      <img
-        className="h-[250px] w-full object-cover group-hover:scale-105 transition-transform duration-300"
-        src={university_image}
-        alt={scholarship_name}
-      />
+      <div className="h-[250px] w-full overflow-hidden rounded-sm">
+        <img
+          className="h-[250px] min-h-[250px] max-h-[250px] w-full object-cover group-hover:scale-105 transition-transform duration-300"
+          src={university_image}
+          alt={scholarship_name}
+        />
+      </div>
 
       {/* Content */}
-      <div className="p-5 border border-t-0 border-primary rounded-b-sm flex flex-col flex-1">
+      <div className="mt-4 flex flex-col flex-1">
         {/* Top content that grows */}
         <div className="flex-1 space-y-1">
           <h4 className="text-lg font-semibold text-gray-800">
@@ -82,7 +84,7 @@ const ScholarCard = ({ scholarship }) => {
         {/* Bottom button fixed */}
         <div className="pt-3 text-right">
           <Link to={`/scholarship/${_id}`}>
-            <button className="bg-primary hover:bg-secondary text-white font-medium px-5 py-2 rounded-sm transition-colors duration-300">
+            <button className="bg-primary hover:bg-secondary text-white font-medium px-5 py-2 rounded-sm transition-colors duration-300 cursor-pointer">
               Show Details
             </button>
           </Link>

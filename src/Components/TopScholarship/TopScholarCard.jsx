@@ -14,26 +14,20 @@ const TopScholarCard = ({ topScholarship }) => {
   const {
     _id,
     scholarship_name,
-    university_name,
     university_image,
-    university_logo,
     university_country,
     university_city,
-    university_world_rank,
     subject_category,
     scholarship_category,
-    degree,
     tuition_fees,
     application_fees,
     service_charge,
     application_deadline,
-    post_date,
-    posted_user_email,
   } = topScholarship;
   return (
-    <div className="group bg-white border border-gray-200 shadow-md hover:shadow-xl rounded-sm overflow-hidden transition-all duration-300 ease-in-out flex flex-col h-[550px]">
+    <div className="group bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden transition-all duration-300 ease-in-out flex flex-col h-[550px] p-3 border border-gray-200">
       {/* Image */}
-      <div className="h-[250px] w-full overflow-hidden">
+      <div className="h-[250px] w-full overflow-hidden rounded-sm">
         <img
           className="h-[250px] min-h-[250px] max-h-[250px] w-full object-cover group-hover:scale-105 transition-transform duration-300"
           src={university_image}
@@ -42,7 +36,7 @@ const TopScholarCard = ({ topScholarship }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5 border border-t-0 border-primary rounded-b-sm flex flex-col flex-1">
+      <div className="mt-4  flex flex-col flex-1">
         <div className="flex-1 space-y-1 overflow-auto">
           <h4 className="text-lg font-semibold text-gray-800">
             {scholarship_name}

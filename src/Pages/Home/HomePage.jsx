@@ -46,6 +46,18 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Success Stories */}
+      <div className="mb-20">
+        <div className="flex justify-center">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Student Success Stories
+            </h1>
+          </div>
+        </div>
+        <div className="mt-8"></div>
+      </div>
+
       {/* Why Choose Us */}
       <div className="mb-20">
         <div className="flex justify-center">
@@ -60,8 +72,6 @@ const HomePage = () => {
           <WhyChooseUs />
         </div>
       </div>
-
-      {/* Success Stories */}
 
       {/* How It Works */}
       <div className="mb-20">

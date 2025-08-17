@@ -42,11 +42,7 @@ const Navbar = () => {
   return (
     <div
       className={` text-white fixed right-0 top-0 left-0 z-999 transform transition-all duration-300 ease-in-out bg-secondary ${
-        isHome
-          ? isScrolled
-            ? "py-2 shadow-xl"
-            : "bg-secondary shadow-4xl py-4"
-          : "py-4"
+        isScrolled ? "py-3 shadow-xl" : "bg-secondary shadow-4xl py-4"
       }`}
     >
       <div className="flex justify-between items-center max-w-[1800px] mx-auto px-4">
@@ -55,17 +51,7 @@ const Navbar = () => {
           {/* Company Logo */}
           <div className="flex items-center gap-1 text-primary">
             <img className="w-8 md:w-14" src="/assets/logo.png" alt="" />
-            <h1
-              className={`${
-                isHome
-                  ? isScrolled
-                    ? "text-primary"
-                    : "text-white"
-                  : "text-primary"
-              }`}
-            >
-              Edufellow
-            </h1>
+            <h1 className="text-white">Edufellow</h1>
           </div>
         </div>
         {/* Menubar for Large Device */}

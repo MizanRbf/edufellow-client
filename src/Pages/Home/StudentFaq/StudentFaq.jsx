@@ -2,7 +2,7 @@ import React from "react";
 
 const StudentFaq = () => {
   return (
-    <div>
+    <div className="bg-[#224f6d25] p-8 rounded-sm space-y-3">
       <div className="collapse collapse-arrow bg-base-100 border border-base-300">
         <input type="radio" name="my-accordion-2" defaultChecked />
         <div className="collapse-title font-semibold">

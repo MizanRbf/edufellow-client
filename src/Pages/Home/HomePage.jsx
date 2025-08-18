@@ -8,10 +8,15 @@ import HowItWorks from "./HowItWorks/HowItWorks";
 import ClosingSoon from "./ClosingSoon/ClosingSoon";
 import StudentSuccessStories from "./StudentSuccessStories/StudentSuccessStories";
 import StudentFaq from "./StudentFaq/StudentFaq";
+import EventAndWorkshops from "./EventsAndWorkshops/EventAndWorkshops";
 
 const HomePage = () => {
   return (
     <div className="max-w-[1500px] mx-auto px-4">
+      {/* Go to Top */}
+      {/* <div className="sticky bottom-[400px] right-[20px] bg-black">
+        topkjdshlfkjasdhkj
+      </div> */}
       <Helmet>
         <title>Home || Edufellow</title>
       </Helmet>
@@ -62,42 +67,17 @@ const HomePage = () => {
           <ClosingSoon></ClosingSoon>
         </div>
       </div>
-      {/* Best Match With You */}
+      {/* Events & Workshops */}
       <div className="mb-20">
         <div className="flex justify-center">
           <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
             <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
-              Best Match With You
-            </h1>
-          </div>
-        </div>
-        <div className="mt-8"></div>
-      </div>
-      {/* Student FAQ */}
-      <div className="mb-20">
-        <div className="flex justify-center">
-          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
-            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
-              Student FAQ
+              Events & Workshops
             </h1>
           </div>
         </div>
         <div className="mt-8">
-          <StudentFaq></StudentFaq>
-        </div>
-      </div>
-
-      {/* Success Stories */}
-      <div className="mb-20">
-        <div className="flex justify-center">
-          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
-            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
-              Student Success Stories
-            </h1>
-          </div>
-        </div>
-        <div className="mt-8">
-          <StudentSuccessStories></StudentSuccessStories>
+          <EventAndWorkshops></EventAndWorkshops>
         </div>
       </div>
 
@@ -116,6 +96,20 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Success Stories */}
+      <div className="mb-20">
+        <div className="flex justify-center">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Student Success Stories
+            </h1>
+          </div>
+        </div>
+        <div className="mt-8">
+          <StudentSuccessStories></StudentSuccessStories>
+        </div>
+      </div>
+
       {/* How It Works */}
       <div className="mb-20">
         <div className="flex justify-center">
@@ -127,6 +121,20 @@ const HomePage = () => {
         </div>
         <div className="mt-8">
           <HowItWorks />
+        </div>
+      </div>
+
+      {/* Student FAQ */}
+      <div className="mb-20">
+        <div className="flex justify-center">
+          <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
+            <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
+              Student FAQ
+            </h1>
+          </div>
+        </div>
+        <div className="mt-8">
+          <StudentFaq></StudentFaq>
         </div>
       </div>
     </div>

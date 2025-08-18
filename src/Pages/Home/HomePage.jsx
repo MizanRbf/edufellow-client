@@ -7,6 +7,7 @@ import WhyChooseUs from "./WhyChooseUs/WhyChooseUs";
 import HowItWorks from "./HowItWorks/HowItWorks";
 import ClosingSoon from "./ClosingSoon/ClosingSoon";
 import StudentSuccessStories from "./StudentSuccessStories/StudentSuccessStories";
+import StudentFaq from "./StudentFaq/StudentFaq";
 
 const HomePage = () => {
   return (
@@ -72,16 +73,18 @@ const HomePage = () => {
         </div>
         <div className="mt-8"></div>
       </div>
-      {/* Student FAQs */}
+      {/* Student FAQ */}
       <div className="mb-20">
         <div className="flex justify-center">
           <div className="inline-block transform -skew-x-12 bg-gradient-to-r from-cyan-800 to-cyan-950 px-8 py-4 shadow-lg rounded-md">
             <h1 className="transform skew-x-12 text-white text-3xl font-bold uppercase tracking-wide">
-              Student FAQs
+              Student FAQ
             </h1>
           </div>
         </div>
-        <div className="mt-8"></div>
+        <div className="mt-8">
+          <StudentFaq></StudentFaq>
+        </div>
       </div>
 
       {/* Success Stories */}

@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import ExploreByCountry from "./ExploreByCountry/ExploreByCountry";
 import WhyChooseUs from "./WhyChooseUs/WhyChooseUs";
 import HowItWorks from "./HowItWorks/HowItWorks";
+import ClosingSoon from "./ClosingSoon/ClosingSoon";
 
 const HomePage = () => {
   return (
@@ -55,7 +56,9 @@ const HomePage = () => {
             </h1>
           </div>
         </div>
-        <div className="mt-8"></div>
+        <div className="mt-8">
+          <ClosingSoon></ClosingSoon>
+        </div>
       </div>
       {/* Best Match With You */}
       <div className="mb-20">

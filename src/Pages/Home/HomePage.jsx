@@ -6,6 +6,7 @@ import ExploreByCountry from "./ExploreByCountry/ExploreByCountry";
 import WhyChooseUs from "./WhyChooseUs/WhyChooseUs";
 import HowItWorks from "./HowItWorks/HowItWorks";
 import ClosingSoon from "./ClosingSoon/ClosingSoon";
+import StudentSuccessStories from "./StudentSuccessStories/StudentSuccessStories";
 
 const HomePage = () => {
   return (
@@ -92,7 +93,9 @@ const HomePage = () => {
             </h1>
           </div>
         </div>
-        <div className="mt-8"></div>
+        <div className="mt-8">
+          <StudentSuccessStories></StudentSuccessStories>
+        </div>
       </div>
 
       {/* Why Choose Us */}
